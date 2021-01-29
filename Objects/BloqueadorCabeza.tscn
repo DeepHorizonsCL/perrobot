@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/Bloqueador.gd" type="Script" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 31.967, 17.4934 )
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 30.6092
+
+[node name="bloqueador" type="StaticBody2D"]
+rotation = -1.5704
+scale = Vector2( 4.43, 0.75 )
+collision_layer = 3
+collision_mask = 3
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Color" type="ColorRect" parent="."]
+margin_left = -32.0
+margin_top = -32.0
+margin_right = 32.0
+margin_bottom = 32.0
+color = Color( 0.0156863, 0.223529, 0.298039, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0.0597883, -15.7462 )
+shape = SubResource( 1 )
+one_way_collision = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2( 1.08279, 6.09568 )
+shape = SubResource( 2 )

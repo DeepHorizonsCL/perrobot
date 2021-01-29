@@ -19,13 +19,20 @@ position = Vector2( 229.443, 132.109 )
 position = Vector2( 686.388, 443.739 )
 
 [node name="Platform3" parent="." instance=ExtResource( 1 )]
-position = Vector2( 463.193, 217.72 )
+position = Vector2( 454.708, 213.477 )
 rotation = 0.69578
 
 [node name="Platform4" parent="." instance=ExtResource( 1 )]
 position = Vector2( 954.627, 401.505 )
 rotation = -0.322836
 
+[node name="Platform5" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1447.33, 284.465 )
+rotation = -0.751508
+
+[node name="Platform6" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1216.84, 360.678 )
+
 [node name="Floor" parent="." instance=ExtResource( 2 )]
-position = Vector2( 509.535, 589.882 )
+position = Vector2( 509.535, 587.637 )
 scale = Vector2( 17.7562, 0.984075 )

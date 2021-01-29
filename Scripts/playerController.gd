@@ -24,18 +24,31 @@ var correr = 1
 var dificultadsalto = 1
 const corrida = 2.25
 var empuje = 0
+var pres = 0.0
+
+#estado actual del robot
+var estado = "cabeza"
 
 func _physics_process(delta):
 	
-	move_x = ( int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left")) ) * 125 * correr * dificultadsalto * move + empuje
+	move_x = ( pres ) * 125 * correr * dificultadsalto * move + empuje
 
+	if abs(pres) > 0:
+		pres = pres / 1.32
+		if abs(pres)<0.01:
+			pres = 0.0
+
+	print(pres)
 
 	if Input.is_action_pressed("ui_right"):
+		print("hoola")
 		dir = 1
+		pres += 1.0
 
 		
 	if Input.is_action_pressed("ui_left"):
 		dir = -1
+		pres -= 1.0
 		
 	if not saltando:
 		subida = lerp(subida,0,0.1)
@@ -43,7 +56,7 @@ func _physics_process(delta):
 
 	var colliders = move_and_slide(Vector2(move_x,gravity-subida), Vector2(0,-1))
 	
-	print ("move " + str(move_x) + " _colliders " + str(colliders[0]) + " _gravity "+ str(gravity)  )
+	#print ("move " + str(move_x) + " _colliders " + str(colliders[0]) + " _gravity "+ str(gravity)  )
 	
 	if colliders[0] > 0:
 		$robotHead.rotation_degrees += 12
