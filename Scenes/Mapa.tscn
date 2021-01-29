@@ -1,3 +1,31 @@
-[gd_scene format=2]
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Objects/Platform.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Objects/Floor.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Objects/Player/roboto.tscn" type="PackedScene" id=3]
 
 [node name="Node2D" type="Node2D"]
+
+[node name="roboto" parent="." instance=ExtResource( 3 )]
+position = Vector2( 245.601, 57.1622 )
+
+[node name="Camera2D" type="Camera2D" parent="roboto"]
+current = true
+
+[node name="Platform" parent="." instance=ExtResource( 1 )]
+position = Vector2( 229.443, 132.109 )
+
+[node name="Platform2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 686.388, 443.739 )
+
+[node name="Platform3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 463.193, 217.72 )
+rotation = 0.69578
+
+[node name="Platform4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 954.627, 401.505 )
+rotation = -0.322836
+
+[node name="Floor" parent="." instance=ExtResource( 2 )]
+position = Vector2( 509.535, 589.882 )
+scale = Vector2( 17.7562, 0.984075 )
