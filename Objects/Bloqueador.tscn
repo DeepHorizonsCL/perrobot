@@ -19,13 +19,17 @@ __meta__ = {
 }
 
 [node name="Color" type="ColorRect" parent="."]
+visible = false
 margin_left = -32.0
 margin_top = -32.0
 margin_right = 32.0
 margin_bottom = 32.0
 color = Color( 0.0156863, 0.223529, 0.298039, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2( 0.0597883, -15.7462 )
 shape = SubResource( 1 )
 one_way_collision = true
@@ -35,3 +39,5 @@ one_way_collision = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 scale = Vector2( 1.08279, 6.09568 )
 shape = SubResource( 2 )
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]

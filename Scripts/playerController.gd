@@ -27,7 +27,7 @@ var empuje = 0
 var pres = 0.0
 
 #estado actual del robot
-var estado = "cabeza"
+var estado_robot = "cabeza"
 
 func _physics_process(delta):
 	
@@ -38,10 +38,9 @@ func _physics_process(delta):
 		if abs(pres)<0.01:
 			pres = 0.0
 
-	print(pres)
+	#print(pres)
 
 	if Input.is_action_pressed("ui_right"):
-		print("hoola")
 		dir = 1
 		pres += 1.0
 
@@ -49,6 +48,7 @@ func _physics_process(delta):
 	if Input.is_action_pressed("ui_left"):
 		dir = -1
 		pres -= 1.0
+		estado_robot = "cabezal"
 		
 	if not saltando:
 		subida = lerp(subida,0,0.1)
