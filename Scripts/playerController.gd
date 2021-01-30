@@ -14,17 +14,18 @@ var dir = 1
 #movimiento en los ejes
 var move_x = 0
 var move_y = 0
-var gravity_val = 24000
+var gravity_val = 1000
 var gravity = 0
 
 
-export var tope = 700
-export var coldownDamage = 0.45
-export var coldownGrab = 0.12
+var tope = 700
+var topeIni = 500
+var topeMax = 700
 var subida = 0
 
 #Variables que afectan al movimiento
 var speed = 125
+var prejump = false
 var jump = false
 var saltando = false
 var postsalto = false
@@ -100,6 +101,9 @@ func update_piezas():
 	if cantidad_brazos == 2 and cantidad_piernas == 2 and cantidad_torso == 1:
 		updateRoboto("cuerpo-entero")
 
+func animation_finished():
+	print ("Hola")
+	
 
 func updateRoboto(tranformacion):
 	
@@ -108,8 +112,8 @@ func updateRoboto(tranformacion):
 	match tranformacion:
 		"cabeza":
 			speed = 125
-			gravity_val = 24000
-			tope = 512
+			topeIni = 1242
+			topeMax = 1242
 			correr_value = 1
 			
 			dificultadsalto_value = 0
@@ -134,8 +138,9 @@ func updateRoboto(tranformacion):
 			
 		"cabeza-brazo":
 			speed = 625
-			gravity_val = 24000
-			tope = 1200
+			topeIni = 2500
+			topeMax = 5200
+			
 			correr_value = 1
 			
 			dificultadsalto_value = 0.45
@@ -157,8 +162,8 @@ func updateRoboto(tranformacion):
 			
 		"cabeza-2brazos":
 			speed = 645
-			gravity_val = 24000
-			tope = 1300
+			topeIni = 2500
+			topeMax = 5400
 			correr_value = 1
 			
 			dificultadsalto_value = 0.45
@@ -180,8 +185,8 @@ func updateRoboto(tranformacion):
 			
 		"cabeza-pierna":
 			speed = 725
-			gravity_val = 24000
-			tope = 1412
+			topeIni = 2500
+			topeMax = 6000
 			correr_value = 1.12
 			
 			dificultadsalto_value = 0.65
@@ -203,8 +208,8 @@ func updateRoboto(tranformacion):
 			
 		"cabeza-2piernas":
 			speed = 725
-			gravity_val = 24000
-			tope = 1512
+			topeIni = 2500
+			topeMax = 6200
 			correr_value = 1.12
 			
 			dificultadsalto_value = 0.65
@@ -227,8 +232,8 @@ func updateRoboto(tranformacion):
 			
 		"cabeza-brazos_piernas":
 			speed = 725
-			gravity_val = 24000
-			tope = 1412
+			topeIni = 2500
+			topeMax = 6400
 			correr_value = 1.12
 			
 			dificultadsalto_value = 0.85
@@ -251,8 +256,8 @@ func updateRoboto(tranformacion):
 			
 		"cabeza-torso":
 			speed = 812
-			gravity_val = 24000
-			tope = 1120
+			topeIni = 2500
+			topeMax = 5000
 			correr_value = 2.24
 			
 			dificultadsalto_value = 1
@@ -274,8 +279,8 @@ func updateRoboto(tranformacion):
 			
 		"cabeza-torso-brazos":
 			speed = 812
-			gravity_val = 24000
-			tope = 1412
+			topeIni = 2500
+			topeMax = 5300
 			correr_value = 2.24
 			
 			dificultadsalto_value = 1
@@ -297,8 +302,8 @@ func updateRoboto(tranformacion):
 			
 		"cabeza-torso-piernas":
 			speed = 812
-			gravity_val = 24000
-			tope = 1512
+			topeIni = 2500
+			topeMax = 6500
 			correr_value = 2.24
 			
 			dificultadsalto_value = 1
@@ -320,8 +325,8 @@ func updateRoboto(tranformacion):
 			
 		"cuerpo-entero":
 			speed = 812
-			gravity_val = 24000
-			tope = 1600
+			topeIni = 2500
+			topeMax = 6800
 			correr_value = 2.24
 			
 			dificultadsalto_value = 1
@@ -349,7 +354,7 @@ func _physics_process(delta):
 	
 	if estado_robot == "cabeza":
 		move_x = ( pres ) * speed * correr * dificultadsalto * move + empuje
-	elif estado_robot == "cabeza-pierna" or estado_robot == "cabeza-torso" :
+	elif estado_robot == "cabeza-torso" :
 		if not is_on_floor():
 			move_x = ( int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left")) ) * speed * correr * dificultadsalto * devolverseEnSalto * move + empuje
 		else:
@@ -379,17 +384,17 @@ func _physics_process(delta):
 		dificultadsalto = 1
 		dirSalto = dir
 		jump = true
-		if move_x == 0:
-			actual_ani.animation = "Idle"
-		else:
-			if saltando == false:
-				actual_ani.animation = "walk"
+		#if move_x == 0 and prejump == false:
+		#	actual_ani.animation = "Idle"
+		#else:
+		#	if saltando == false:
+		#		actual_ani.animation = "walk"
 	else:
 		if dir == dirSalto:
 			devolverseEnSalto = 1
 		else:
 			devolverseEnSalto = devolverEnSalto_value
-		print ("dirSalto " + str(dirSalto == dir) + " " + str(dirSalto) + " VS "+ str(dir))
+		#print ("dirSalto " + str(dirSalto == dir) + " " + str(dirSalto) + " VS "+ str(dir))
 #Correr
 	if Input.is_action_pressed("ui_run"):
 		#print("running")
@@ -403,35 +408,44 @@ func _physics_process(delta):
 
 #Saltos
 	
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor() and jump == true:
+	if Input.is_action_just_pressed("ui_accept") and is_on_floor() and jump == true and prejump == false:
 		#print("salto")
-		saltando = true
 		dirSalto = dir
-		print ("dir " + str(dir) + " dirSalto " + str(dirSalto))
+		tope = topeIni
+		#print ("dir " + str(dir) + " dirSalto " + str(dirSalto))
 		actual_ani.animation = "pre_jump"
 	
-	if Input.is_action_pressed("ui_accept") and move != 0:
+	if Input.is_action_pressed("ui_accept") and is_on_floor():
+		move = 0
 		jump = false
+		prejump = true
+		if tope < topeMax:
+			tope += 12
+			print ("tope: " +  str(tope))
+		
 		empuje = 0
 		
-		if saltando:
-			dificultadsalto = dificultadsalto_value
-			if subida < tope*0.95:
-				actual_ani.animation = "jump"
-				if estado_robot == "cabeza" :
-					subida = lerp(subida,tope, 0.1)
-				else:
-					subida = lerp(subida,tope, 0.1)
-			else:
-				saltando = false
-
 		
-	elif Input.is_action_just_released("ui_accept") and saltando:
-		saltando = false
+		
+	elif Input.is_action_just_released("ui_accept") and prejump:
+		move = 1
+		print("comence el salto")
+		prejump = false
+		saltando = true
+
 	
-	if not saltando:
-		subida = 0
-		gravity = gravity_val * delta
+	if saltando:
+		move = 1
+		prejump = false
+		if subida < tope:
+			subida += 120
+		else:
+			saltando = false
+			tope = 0
+			subida = 0
+		print (" subida: " +  str(subida) + " VS tope: " + str(tope)  )
+	else :
+		gravity = gravity_val
 		if not is_on_floor():
 			actual_ani.animation = "post_jump"
 		#print (gravity)
@@ -500,4 +514,13 @@ func expulsarParte(nombre,distancia):
 	get_parent().add_child(nuevaparte)
 	nuevaparte.position +=  Vector2(position.x+distancia, position.y)
 	
-	
+
+
+
+func _on_ani_cabeza_brazos_piernas_animation_finished():
+	if $ani_cabeza_brazos_piernas.animation == "pre_jump" and prejump == true:
+		print("comence el salto")
+		prejump = false
+		saltando = true
+		move = 1
+		
