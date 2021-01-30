@@ -25,6 +25,7 @@ var move = 1
 var damage = false
 var correr = 1
 var dificultadsalto = 1
+var dificultadsalto_value = 1
 const corrida = 2.25
 var empuje = 0
 var pres = 0.0
@@ -46,8 +47,11 @@ func updateRoboto(tranformacion):
 			gravity_val = 24000
 			tope = 700
 			
+			dificultadsalto_value = 0
+			
 			$cabeza.visible = true
 			$cabeza_mano.visible = false
+			$cabeza_pierna.visible = false
 			
 			$colision_inf.disabled = false
 			$colision_sup.disabled = true
@@ -57,17 +61,39 @@ func updateRoboto(tranformacion):
 			gravity_val = 24000
 			tope = 1200
 			
+			dificultadsalto_value = 0.45
+			
 			$cabeza.visible = false
 			$cabeza_mano.visible = true
+			$cabeza_pierna.visible = false
+			
+			
+			$colision_inf.disabled = false
+			$colision_sup.disabled = false
+			
+		"cabeza-pierna":
+			speed = 725
+			gravity_val = 24000
+			tope = 1412
+			
+			dificultadsalto_value = 0.65
+			
+			$cabeza.visible = false
+			$cabeza_mano.visible = false
+			$cabeza_pierna.visible = true
 			
 			$colision_inf.disabled = false
 			$colision_sup.disabled = false
 
-
 func _physics_process(delta):
 	
-	if(estado_robot == "cabeza"):
+	if estado_robot == "cabeza":
 		move_x = ( pres ) * speed * correr * dificultadsalto * move + empuje	
+	elif estado_robot == "cabeza-pierna" :
+		if saltando:
+			move_x = ( int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left")) ) * speed * correr * dificultadsalto * move + empuje	
+		else:
+			move_x = 0
 	else:
 		move_x = ( int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left")) ) * speed * correr * dificultadsalto * move + empuje	
 
@@ -86,6 +112,7 @@ func _physics_process(delta):
 		pres -= 1.0
 
 	if is_on_floor():
+		dificultadsalto = 1
 		jump = true
 #Saltos
 	
@@ -98,6 +125,7 @@ func _physics_process(delta):
 		empuje = 0
 		
 		if saltando:
+			dificultadsalto = dificultadsalto_value
 			if subida < tope*0.95:
 				if estado_robot == "cabeza" :
 					subida = lerp(subida,tope, 0.1)

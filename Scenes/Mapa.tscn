@@ -46,3 +46,8 @@ scale = Vector2( 17.7562, 0.984075 )
 
 [node name="parteRobot" parent="." instance=ExtResource( 5 )]
 position = Vector2( 4.00452, 511.244 )
+piezanombre = "cabeza-brazo"
+
+[node name="parteRobot2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 995.274, 527.373 )
+piezanombre = "cabeza-pierna"
