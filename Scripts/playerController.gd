@@ -90,6 +90,22 @@ func updateRoboto(tranformacion):
 			$colision_inf.disabled = false
 			$colision_sup.disabled = false
 			
+		"cabeza-2pierna":
+			speed = 725
+			gravity_val = 24000
+			tope = 1412
+			correr_value = 1.12
+			
+			dificultadsalto_value = 0.65
+			
+			$cabeza.visible = false
+			$cabeza_mano.visible = false
+			$cabeza_pierna.visible = true
+			$cuerpoentero.visible = false
+			
+			$colision_inf.disabled = false
+			$colision_sup.disabled = false
+			
 		"cuerpo-entero":
 			speed = 812
 			gravity_val = 24000
