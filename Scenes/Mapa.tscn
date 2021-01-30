@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Objects/Platform.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Floor.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Objects/Player/roboto.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Objects/Bloqueador.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Objects/Player/parterobot.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Objects/puas.tscn" type="PackedScene" id=6]
 
 [node name="Node2D" type="Node2D"]
 
@@ -87,6 +88,21 @@ rotation = -0.751508
 [node name="Platform6" parent="Platforms" instance=ExtResource( 1 )]
 position = Vector2( 1216.84, 360.678 )
 
+[node name="Platform25" parent="Platforms" instance=ExtResource( 1 )]
+position = Vector2( 2385.7, 3090.39 )
+
+[node name="Platform26" parent="Platforms" instance=ExtResource( 1 )]
+position = Vector2( 2642.28, 3090.39 )
+
+[node name="Platform27" parent="Platforms" instance=ExtResource( 1 )]
+position = Vector2( 3015.89, 2994.14 )
+
+[node name="Platform28" parent="Platforms" instance=ExtResource( 1 )]
+position = Vector2( 3440.37, 2916.72 )
+
+[node name="Platform29" parent="Platforms" instance=ExtResource( 1 )]
+position = Vector2( 3864.85, 2911.38 )
+
 [node name="bloqueador" parent="Platforms" instance=ExtResource( 4 )]
 position = Vector2( 1425, 187 )
 
@@ -104,6 +120,10 @@ scale = Vector2( 32.3403, -1.53418 )
 
 [node name="Floor10" parent="Platforms" instance=ExtResource( 2 )]
 position = Vector2( 1071.76, 3266.44 )
+scale = Vector2( 32.3403, -1.53418 )
+
+[node name="Floor12" parent="Platforms" instance=ExtResource( 2 )]
+position = Vector2( 5314.85, 3019.08 )
 scale = Vector2( 32.3403, -1.53418 )
 
 [node name="Platform7" parent="Platforms" instance=ExtResource( 1 )]
@@ -133,8 +153,13 @@ position = Vector2( -1401.87, 594.761 )
 rotation = 1.5708
 scale = Vector2( 37.15, 6.03 )
 
+[node name="Floor11" parent="Platforms" instance=ExtResource( 2 )]
+position = Vector2( -1774.81, 2146.98 )
+rotation = 1.5708
+scale = Vector2( 37.15, 6.03 )
+
 [node name="Floor6" parent="Platforms" instance=ExtResource( 2 )]
-position = Vector2( 192.47, 2512 )
+position = Vector2( 181.791, 1999.42 )
 rotation = 1.5708
 scale = Vector2( 30.7933, 2.1401 )
 
@@ -172,3 +197,6 @@ cantidad = 2
 position = Vector2( 388.927, 2623.66 )
 piezanombre = "brazo"
 cantidad = 2
+
+[node name="espinas" parent="." instance=ExtResource( 6 )]
+position = Vector2( 172.004, 3213.64 )

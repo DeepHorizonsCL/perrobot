@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/torsopiernas.png-5c80e6b714f927268bc458448341bdec.stex"
+path="res://.import/mano.png-ab5d064968c778a40796940e1ede4067.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/torsopiernas.png"
-dest_files=[ "res://.import/torsopiernas.png-5c80e6b714f927268bc458448341bdec.stex" ]
+source_file="res://Sprites/roboto/mano.png"
+dest_files=[ "res://.import/mano.png-ab5d064968c778a40796940e1ede4067.stex" ]
 
 [params]
 

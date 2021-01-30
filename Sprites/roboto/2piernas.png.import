@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pierna.png-12e3d462387622d7f3d89c5930152b71.stex"
+path="res://.import/2piernas.png-cfd421a5723383a5bc21068d7b6e2438.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/pierna.png"
-dest_files=[ "res://.import/pierna.png-12e3d462387622d7f3d89c5930152b71.stex" ]
+source_file="res://Sprites/roboto/2piernas.png"
+dest_files=[ "res://.import/2piernas.png-cfd421a5723383a5bc21068d7b6e2438.stex" ]
 
 [params]
 

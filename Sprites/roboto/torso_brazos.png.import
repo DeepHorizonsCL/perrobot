@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/cabeza_brazos_piernas.png-a7d542f0b04d5fee860fb02f86a432c8.stex"
+path="res://.import/torso_brazos.png-7c0372dce79192b8055c67242ffd17c4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/cabeza_brazos_piernas.png"
-dest_files=[ "res://.import/cabeza_brazos_piernas.png-a7d542f0b04d5fee860fb02f86a432c8.stex" ]
+source_file="res://Sprites/roboto/torso_brazos.png"
+dest_files=[ "res://.import/torso_brazos.png-7c0372dce79192b8055c67242ffd17c4.stex" ]
 
 [params]
 

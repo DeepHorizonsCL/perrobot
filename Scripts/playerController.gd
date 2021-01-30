@@ -5,6 +5,7 @@ extends KinematicBody2D
 var cantidad_brazos = 0
 var cantidad_piernas = 0
 var cantidad_torso = 0
+var parte = preload("res://Objects/Player/parterobot.tscn")
 
 #dirección
 var dir = 1
@@ -35,6 +36,9 @@ var dificultadsalto_value = 1
 var correr_value = 1
 var empuje = 0
 var pres = 0.0
+
+#
+var inmunidadTemporal = false
 
 #estado actual del robot
 var estado_robot = "cabeza"
@@ -409,5 +413,58 @@ func _physics_process(delta):
 		$cabeza.rotation_degrees += 12
 	elif colliders[0] < 0:
 		$cabeza.rotation_degrees -= 12
+		
+
+		
+
+func dano():
+	if inmunidadTemporal == false:
+		inmunidadTemporal = true
+		modulate.a = 0.45
+		print("ouch")
+
+		
+		if cantidad_brazos > 1:
+			expulsarParte("brazo",-400)
+			
+		if cantidad_piernas > 1:
+			expulsarParte("pierna",+600)
+			
+		if cantidad_torso > 0:
+			expulsarParte("torso",-100)
+			
+		if cantidad_brazos + cantidad_piernas + cantidad_torso == 0:
+			get_tree().reload_current_scene()
+			
+		cantidad_brazos = 0
+		cantidad_piernas = 0
+		cantidad_torso = 0
+		
+		
+		update_piezas()
+		
+		$TimerInmune.start()
 
 
+func _on_TimerInmune_timeout():
+	print ("termino de inmunidad")
+	if inmunidadTemporal == true:
+		inmunidadTemporal = false
+		modulate.a = 1
+		
+func expulsarParte(nombre,distancia):
+	var nuevaparte = parte.instance()
+	nuevaparte.piezanombre = nombre
+	
+	match nombre:
+		"brazo":
+			nuevaparte.cantidad =2 
+		"pierna":
+			nuevaparte.cantidad =2
+		"torso":
+			nuevaparte.cantidad =1
+			
+	get_parent().add_child(nuevaparte)
+	nuevaparte.position +=  Vector2(position.x+distancia, position.y)
+	
+	

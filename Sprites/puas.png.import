@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/mano.png-aa581fd1d8fd00192f455753d6f198c6.stex"
+path="res://.import/puas.png-76a706c93395a154bfe18ff4e3e9a34a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/mano.png"
-dest_files=[ "res://.import/mano.png-aa581fd1d8fd00192f455753d6f198c6.stex" ]
+source_file="res://Sprites/puas.png"
+dest_files=[ "res://.import/puas.png-76a706c93395a154bfe18ff4e3e9a34a.stex" ]
 
 [params]
 
