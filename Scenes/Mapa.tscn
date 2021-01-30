@@ -95,7 +95,15 @@ position = Vector2( 232.847, 611.182 )
 scale = Vector2( 32.3403, -1.53418 )
 
 [node name="Floor8" parent="Platforms" instance=ExtResource( 2 )]
-position = Vector2( 99.2992, 2720.71 )
+position = Vector2( 99.2992, 2728.71 )
+scale = Vector2( 32.3403, -1.53418 )
+
+[node name="Floor9" parent="Platforms" instance=ExtResource( 2 )]
+position = Vector2( -966.272, 3269.38 )
+scale = Vector2( 32.3403, -1.53418 )
+
+[node name="Floor10" parent="Platforms" instance=ExtResource( 2 )]
+position = Vector2( 1071.76, 3266.44 )
 scale = Vector2( 32.3403, -1.53418 )
 
 [node name="Platform7" parent="Platforms" instance=ExtResource( 1 )]
@@ -126,26 +134,40 @@ rotation = 1.5708
 scale = Vector2( 37.15, 6.03 )
 
 [node name="Floor6" parent="Platforms" instance=ExtResource( 2 )]
-position = Vector2( 192.47, 2256.37 )
+position = Vector2( 192.47, 2512 )
 rotation = 1.5708
-scale = Vector2( 22.3223, 2.67321 )
+scale = Vector2( 30.7933, 2.1401 )
 
 [node name="brazo1" parent="." instance=ExtResource( 5 )]
 position = Vector2( -534.169, 537.459 )
-piezanombre = "cabeza-brazo"
+piezanombre = "brazo"
 
 [node name="brazo2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 14.2865, 2644.99 )
-piezanombre = "cabeza-brazo"
+position = Vector2( -916.651, 944.751 )
+piezanombre = "brazo"
 
-[node name="parteRobot2" parent="." instance=ExtResource( 5 )]
+[node name="torso1" parent="." instance=ExtResource( 5 )]
+position = Vector2( -123.661, 1380.7 )
+piezanombre = "torso"
+
+[node name="torso2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 381.646, 2626.97 )
+piezanombre = "torso"
+
+[node name="pierna1" parent="." instance=ExtResource( 5 )]
 position = Vector2( 995.274, 528.783 )
-piezanombre = "cabeza-pierna"
+piezanombre = "pierna"
 
-[node name="parteRobot4" parent="." instance=ExtResource( 5 )]
+[node name="pierna2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 440.9, 1859.28 )
-piezanombre = "cabeza-pierna"
+piezanombre = "pierna"
 
-[node name="parteRobot3" parent="." instance=ExtResource( 5 )]
-position = Vector2( 2032.44, 160.535 )
-piezanombre = "cuerpo-entero"
+[node name="pierna3" parent="." instance=ExtResource( 5 )]
+position = Vector2( -18.1407, 2643.01 )
+scale = Vector2( 0.998682, 1 )
+piezanombre = "pierna"
+cantidad = 2
+
+[node name="brazo3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1863.82, 3165.9 )
+piezanombre = "brazo"
