@@ -77,6 +77,9 @@ func update_piezas():
 	if cantidad_brazos == 0 and cantidad_piernas == 2 and cantidad_torso == 0:
 		updateRoboto("cabeza-2piernas")
 		
+	if cantidad_brazos == 2 and cantidad_piernas == 2 and cantidad_torso == 0:
+		updateRoboto("cabeza-brazos_piernas")
+		
 	if cantidad_brazos == 0 and cantidad_piernas == 0 and cantidad_torso == 1:
 		updateRoboto("cabeza-torso")
 		
@@ -108,6 +111,7 @@ func updateRoboto(tranformacion):
 			$cabeza_2manos.visible = false
 			$cabeza_pierna.visible = false
 			$cabeza_2piernas.visible = false
+			$cabeza_brazos_piernas.visible = false
 			$cabeza_torso.visible = false
 			$cabeza_torso_brazos.visible = false
 			$cabeza_torso_piernas.visible = false
@@ -130,6 +134,7 @@ func updateRoboto(tranformacion):
 			$cabeza_2manos.visible = false
 			$cabeza_pierna.visible = false
 			$cabeza_2piernas.visible = false
+			$cabeza_brazos_piernas.visible = false
 			$cabeza_torso.visible = false
 			$cabeza_torso_brazos.visible = false
 			$cabeza_torso_piernas.visible = false
@@ -151,6 +156,7 @@ func updateRoboto(tranformacion):
 			$cabeza_2manos.visible = true
 			$cabeza_pierna.visible = false
 			$cabeza_2piernas.visible = false
+			$cabeza_brazos_piernas.visible = false
 			$cabeza_torso.visible = false
 			$cabeza_torso_brazos.visible = false
 			$cabeza_torso_piernas.visible = false
@@ -172,6 +178,7 @@ func updateRoboto(tranformacion):
 			$cabeza_2manos.visible = false
 			$cabeza_pierna.visible = true
 			$cabeza_2piernas.visible = false
+			$cabeza_brazos_piernas.visible = false
 			$cabeza_torso.visible = false
 			$cabeza_torso_brazos.visible = false
 			$cabeza_torso_piernas.visible = false
@@ -193,6 +200,7 @@ func updateRoboto(tranformacion):
 			$cabeza_2manos.visible = false
 			$cabeza_pierna.visible = false
 			$cabeza_2piernas.visible = true
+			$cabeza_brazos_piernas.visible = false
 			$cabeza_torso.visible = false
 			$cabeza_torso_brazos.visible = false
 			$cabeza_torso_piernas.visible = false
@@ -200,6 +208,30 @@ func updateRoboto(tranformacion):
 			
 			$colision_inf.disabled = false
 			$colision_sup.disabled = false
+			
+			
+		"cabeza-brazos_piernas":
+			speed = 725
+			gravity_val = 24000
+			tope = 1412
+			correr_value = 1.12
+			
+			dificultadsalto_value = 0.85
+			
+			$cabeza.visible = false
+			$cabeza_mano.visible = false
+			$cabeza_2manos.visible = false
+			$cabeza_pierna.visible = false
+			$cabeza_2piernas.visible = true
+			$cabeza_brazos_piernas.visible = true
+			$cabeza_torso.visible = false
+			$cabeza_torso_brazos.visible = false
+			$cabeza_torso_piernas.visible = false
+			$cuerpoentero.visible = false
+			
+			$colision_inf.disabled = false
+			$colision_sup.disabled = false
+			
 			
 		"cabeza-torso":
 			speed = 812
@@ -214,6 +246,7 @@ func updateRoboto(tranformacion):
 			$cabeza_2manos.visible = false
 			$cabeza_pierna.visible = false
 			$cabeza_2piernas.visible = false
+			$cabeza_brazos_piernas.visible = false
 			$cabeza_torso.visible = true
 			$cabeza_torso_brazos.visible = false
 			$cabeza_torso_piernas.visible = false
@@ -235,6 +268,7 @@ func updateRoboto(tranformacion):
 			$cabeza_2manos.visible = false
 			$cabeza_pierna.visible = false
 			$cabeza_2piernas.visible = false
+			$cabeza_brazos_piernas.visible = false
 			$cabeza_torso.visible = false
 			$cabeza_torso_brazos.visible = true
 			$cabeza_torso_piernas.visible = false
@@ -256,6 +290,7 @@ func updateRoboto(tranformacion):
 			$cabeza_2manos.visible = false
 			$cabeza_pierna.visible = false
 			$cabeza_2piernas.visible = false
+			$cabeza_brazos_piernas.visible = false
 			$cabeza_torso.visible = false
 			$cabeza_torso_brazos.visible = false
 			$cabeza_torso_piernas.visible = true
@@ -277,6 +312,7 @@ func updateRoboto(tranformacion):
 			$cabeza_2manos.visible = false
 			$cabeza_pierna.visible = false
 			$cabeza_2piernas.visible = false
+			$cabeza_brazos_piernas.visible = false
 			$cabeza_torso.visible = false
 			$cabeza_torso_brazos.visible = false
 			$cabeza_torso_piernas.visible = false
