@@ -6,6 +6,7 @@ var cantidad_brazos = 0
 var cantidad_piernas = 0
 var cantidad_torso = 0
 var parte = preload("res://Objects/Player/parterobot.tscn")
+var actual_ani 
 
 #dirección
 var dir = 1
@@ -26,7 +27,10 @@ var subida = 0
 var speed = 125
 var jump = false
 var saltando = false
+var postsalto = false
 var controlEnSalto = 1
+var devolverseEnSalto = 1
+var devolverEnSalto_value = 1
 var dirSalto = 1
 var move = 1
 var damage = false
@@ -109,6 +113,9 @@ func updateRoboto(tranformacion):
 			correr_value = 1
 			
 			dificultadsalto_value = 0
+			devolverEnSalto_value = 0.45
+			
+			actual_ani = $ani_cabeza_brazos_piernas
 			
 			$cabeza.visible = true
 			$cabeza_mano.visible = false
@@ -132,6 +139,7 @@ func updateRoboto(tranformacion):
 			correr_value = 1
 			
 			dificultadsalto_value = 0.45
+			devolverEnSalto_value = 0.45
 			
 			$cabeza.visible = false
 			$cabeza_mano.visible = true
@@ -154,6 +162,7 @@ func updateRoboto(tranformacion):
 			correr_value = 1
 			
 			dificultadsalto_value = 0.45
+			devolverEnSalto_value = 0.45
 			
 			$cabeza.visible = false
 			$cabeza_mano.visible = false
@@ -176,6 +185,7 @@ func updateRoboto(tranformacion):
 			correr_value = 1.12
 			
 			dificultadsalto_value = 0.65
+			devolverEnSalto_value = 0.45
 			
 			$cabeza.visible = false
 			$cabeza_mano.visible = false
@@ -198,6 +208,7 @@ func updateRoboto(tranformacion):
 			correr_value = 1.12
 			
 			dificultadsalto_value = 0.65
+			devolverEnSalto_value = 0.45
 			
 			$cabeza.visible = false
 			$cabeza_mano.visible = false
@@ -221,6 +232,7 @@ func updateRoboto(tranformacion):
 			correr_value = 1.12
 			
 			dificultadsalto_value = 0.85
+			devolverEnSalto_value = 0.45
 			
 			$cabeza.visible = false
 			$cabeza_mano.visible = false
@@ -244,6 +256,7 @@ func updateRoboto(tranformacion):
 			correr_value = 2.24
 			
 			dificultadsalto_value = 1
+			devolverEnSalto_value = 0.45
 			
 			$cabeza.visible = false
 			$cabeza_mano.visible = false
@@ -266,6 +279,7 @@ func updateRoboto(tranformacion):
 			correr_value = 2.24
 			
 			dificultadsalto_value = 1
+			devolverEnSalto_value = 0.45
 			
 			$cabeza.visible = false
 			$cabeza_mano.visible = false
@@ -288,6 +302,7 @@ func updateRoboto(tranformacion):
 			correr_value = 2.24
 			
 			dificultadsalto_value = 1
+			devolverEnSalto_value = 0.45
 			
 			$cabeza.visible = false
 			$cabeza_mano.visible = false
@@ -310,6 +325,7 @@ func updateRoboto(tranformacion):
 			correr_value = 2.24
 			
 			dificultadsalto_value = 1
+			devolverEnSalto_value = 0.65
 			
 			$cabeza.visible = false
 			$cabeza_mano.visible = false
@@ -335,11 +351,11 @@ func _physics_process(delta):
 		move_x = ( pres ) * speed * correr * dificultadsalto * move + empuje
 	elif estado_robot == "cabeza-pierna" or estado_robot == "cabeza-torso" :
 		if not is_on_floor():
-			move_x = ( int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left")) ) * speed * correr * dificultadsalto * move + empuje
+			move_x = ( int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left")) ) * speed * correr * dificultadsalto * devolverseEnSalto * move + empuje
 		else:
 			move_x = 0
 	else:
-		move_x = ( int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left")) ) * speed * correr * dificultadsalto * move + empuje
+		move_x = ( int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left")) ) * speed * correr * dificultadsalto * devolverseEnSalto * move + empuje
 
 	if abs(pres) > 0:
 		pres = pres / 1.32
@@ -349,19 +365,32 @@ func _physics_process(delta):
 	if Input.is_action_pressed("ui_right"):
 		dir = 1
 		pres += 1.0
+		if is_on_floor(): 
+			actual_ani.flip_h = true
 
 		
 	if Input.is_action_pressed("ui_left"):
 		dir = -1
 		pres -= 1.0
+		if is_on_floor(): 
+			actual_ani.flip_h = false
 
 	if is_on_floor():
 		dificultadsalto = 1
+		dirSalto = dir
 		jump = true
-		
+		if move_x == 0:
+			actual_ani.animation = "Idle"
+		else:
+			if saltando == false:
+				actual_ani.animation = "walk"
+	else:
+		if dir == dirSalto:
+			devolverseEnSalto = 1
+		else:
+			devolverseEnSalto = devolverEnSalto_value
+		print ("dirSalto " + str(dirSalto == dir) + " " + str(dirSalto) + " VS "+ str(dir))
 #Correr
-
-
 	if Input.is_action_pressed("ui_run"):
 		#print("running")
 		correr = correr_value
@@ -375,8 +404,11 @@ func _physics_process(delta):
 #Saltos
 	
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor() and jump == true:
-		print("salto")
+		#print("salto")
 		saltando = true
+		dirSalto = dir
+		print ("dir " + str(dir) + " dirSalto " + str(dirSalto))
+		actual_ani.animation = "pre_jump"
 	
 	if Input.is_action_pressed("ui_accept") and move != 0:
 		jump = false
@@ -385,22 +417,23 @@ func _physics_process(delta):
 		if saltando:
 			dificultadsalto = dificultadsalto_value
 			if subida < tope*0.95:
+				actual_ani.animation = "jump"
 				if estado_robot == "cabeza" :
 					subida = lerp(subida,tope, 0.1)
 				else:
 					subida = lerp(subida,tope, 0.1)
 			else:
 				saltando = false
-				dirSalto = dir
 
 		
 	elif Input.is_action_just_released("ui_accept") and saltando:
 		saltando = false
-		dirSalto = dir
 	
 	if not saltando:
 		subida = 0
 		gravity = gravity_val * delta
+		if not is_on_floor():
+			actual_ani.animation = "post_jump"
 		#print (gravity)
 
 	var colliders = move_and_slide(Vector2(move_x,gravity-subida), Vector2(0,-1))
