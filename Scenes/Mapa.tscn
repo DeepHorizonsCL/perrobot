@@ -35,7 +35,16 @@ position = Vector2( 245.601, 57.1622 )
 [node name="Camera2D" type="Camera2D" parent="roboto"]
 current = true
 
+[node name="Particles2D" type="Particles2D" parent="roboto"]
+position = Vector2( -16.5738, -574.133 )
+amount = 1500
+lifetime = 15.0
+preprocess = 200.0
+randomness = 1.0
+process_material = SubResource( 3 )
+
 [node name="Platforms" type="Node2D" parent="."]
+position = Vector2( -3.77551, -117.04 )
 
 [node name="Platform" parent="Platforms" instance=ExtResource( 1 )]
 position = Vector2( 229.443, 132.109 )
@@ -161,13 +170,6 @@ piezanombre = "cabeza-brazo"
 position = Vector2( 995.274, 528.783 )
 piezanombre = "cabeza-pierna"
 
-[node name="Particles2D" type="Particles2D" parent="."]
-position = Vector2( 512.19, -279.114 )
-amount = 1500
-lifetime = 15.0
-preprocess = 200.0
-randomness = 1.0
-process_material = SubResource( 3 )
 [node name="parteRobot4" parent="." instance=ExtResource( 5 )]
 position = Vector2( 440.9, 1859.28 )
 piezanombre = "cabeza-pierna"
