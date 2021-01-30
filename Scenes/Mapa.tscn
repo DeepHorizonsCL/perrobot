@@ -16,38 +16,57 @@ position = Vector2( 245.601, 57.1622 )
 [node name="Camera2D" type="Camera2D" parent="roboto"]
 current = true
 
-[node name="Platform" parent="." instance=ExtResource( 1 )]
+[node name="Platforms" type="Node2D" parent="."]
+
+[node name="Platform" parent="Platforms" instance=ExtResource( 1 )]
 position = Vector2( 229.443, 132.109 )
 
-[node name="Platform2" parent="." instance=ExtResource( 1 )]
+[node name="Platform2" parent="Platforms" instance=ExtResource( 1 )]
 position = Vector2( 686.388, 443.739 )
 
-[node name="Platform3" parent="." instance=ExtResource( 1 )]
-position = Vector2( 454.708, 213.477 )
+[node name="Platform3" parent="Platforms" instance=ExtResource( 1 )]
+position = Vector2( 463.208, 216.477 )
 rotation = 0.69578
 
-[node name="Platform4" parent="." instance=ExtResource( 1 )]
+[node name="Platform4" parent="Platforms" instance=ExtResource( 1 )]
 position = Vector2( 954.627, 401.505 )
 rotation = -0.322836
 
-[node name="Platform5" parent="." instance=ExtResource( 1 )]
+[node name="Platform5" parent="Platforms" instance=ExtResource( 1 )]
 position = Vector2( 1447.33, 284.465 )
 rotation = -0.751508
 
-[node name="Platform6" parent="." instance=ExtResource( 1 )]
+[node name="Platform6" parent="Platforms" instance=ExtResource( 1 )]
 position = Vector2( 1216.84, 360.678 )
 
-[node name="bloqueador" parent="." instance=ExtResource( 4 )]
+[node name="bloqueador" parent="Platforms" instance=ExtResource( 4 )]
 position = Vector2( 1425, 187 )
 
-[node name="Floor" parent="." instance=ExtResource( 2 )]
-position = Vector2( 509.535, 587.637 )
-scale = Vector2( 17.7562, 0.984075 )
+[node name="Floor" parent="Platforms" instance=ExtResource( 2 )]
+position = Vector2( 505.297, 587.637 )
+scale = Vector2( 32.3403, -1.53418 )
+
+[node name="Platform7" parent="Platforms" instance=ExtResource( 1 )]
+position = Vector2( 1671.35, 194.824 )
+
+[node name="Platform8" parent="Platforms" instance=ExtResource( 1 )]
+position = Vector2( 1950.53, 194.824 )
+
+[node name="Floor2" parent="Platforms" instance=ExtResource( 2 )]
+position = Vector2( 2043.31, 561.455 )
+
+[node name="Floor3" parent="Platforms" instance=ExtResource( 2 )]
+position = Vector2( 1564, 719.543 )
+rotation = 1.5708
 
 [node name="parteRobot" parent="." instance=ExtResource( 5 )]
 position = Vector2( 4.00452, 511.244 )
 piezanombre = "cabeza-brazo"
 
 [node name="parteRobot2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 995.274, 527.373 )
+position = Vector2( 995.274, 525.786 )
 piezanombre = "cabeza-pierna"
+
+[node name="parteRobot3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 2032.44, 160.535 )
+piezanombre = "cuerpo-entero"
