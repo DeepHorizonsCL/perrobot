@@ -6,7 +6,7 @@ var cantidad_brazos = 0
 var cantidad_piernas = 0
 var cantidad_torso = 0
 var parte = preload("res://Objects/Player/parterobot.tscn")
-var nubecita = preload("res://Objects/Player/parterobot.tscn")
+var nubecita = preload("res://Objects/Player/incorporeo.tscn")
 var actual_ani 
 
 #dirección
@@ -502,17 +502,20 @@ func dano():
 			
 		if cantidad_brazos + cantidad_piernas + cantidad_torso == 0:
 			move = 0
-			visible = false
+			#visible = false
+			var new_nubesita = nubecita.instance()
+			new_nubesita.subiendo = true
+			get_parent().add_child(new_nubesita)
+			new_nubesita.position +=  Vector2(position.x, position.y)
 			$TimerMuerte.start()
+		else:
+			cantidad_brazos = 0
+			cantidad_piernas = 0
+			cantidad_torso = 0
 			
-		cantidad_brazos = 0
-		cantidad_piernas = 0
-		cantidad_torso = 0
+			update_piezas()
 		
-		
-		update_piezas()
-		
-		$TimerInmune.start()
+			$TimerInmune.start()
 
 
 func _on_TimerInmune_timeout():
@@ -558,7 +561,6 @@ func _on_ani_cabeza_brazos_piernas_animation_finished():
 		move = 1
 		bajando = false
 
-		
 
 
 func _on_TimerMuerte_timeout():

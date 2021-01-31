@@ -6,7 +6,7 @@
 [ext_resource path="res://Objects/Bloqueador.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Objects/Player/parterobot.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Objects/puas.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Objects/incorporeo.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Objects/Player/incorporeo.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Objects/nave.tscn" type="PackedScene" id=8]
 
 [sub_resource type="Environment" id=1]
@@ -205,10 +205,10 @@ piezanombre = "brazo"
 cantidad = 2
 
 [node name="espinas" parent="." instance=ExtResource( 6 )]
-position = Vector2( 172.004, 3213.64 )
+position = Vector2( 171.559, 3218.99 )
 
 [node name="espinas2" parent="." instance=ExtResource( 6 )]
-position = Vector2( 351.344, 546.065 )
+position = Vector2( 1863.3, 169.322 )
 
 [node name="Button" type="Button" parent="."]
 margin_left = 485.134
@@ -222,6 +222,7 @@ __meta__ = {
 
 [node name="incorporeo" parent="." instance=ExtResource( 7 )]
 position = Vector2( 97.1409, -1744.45 )
+inicializarrobot = true
 robotopath = NodePath("../roboto")
 buttonpath = NodePath("../Button")
 camerapath = NodePath("CameraMasa")
@@ -229,9 +230,6 @@ camerarobopath = NodePath("../roboto/CameraRobot")
 
 [node name="CollisionShape2D" parent="incorporeo/Area2D" index="0"]
 position = Vector2( -2.3811, -0.793701 )
-
-[node name="incorporeo" parent="incorporeo" index="1"]
-modulate = Color( 6.87059, 1.74902, 21.3804, 0.192157 )
 
 [node name="CameraMasa" type="Camera2D" parent="incorporeo"]
 position = Vector2( 418.649, 197.799 )

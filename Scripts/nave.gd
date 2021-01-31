@@ -25,6 +25,6 @@ func _process(delta):
 
 
 func _on_cambioRitmo_timeout():
+	print ("stopMasita")
 	estado = 2
-	masita.bajando = false
 	masita.activateButton()

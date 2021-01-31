@@ -3,16 +3,17 @@
 [ext_resource path="res://Sprites/incorporeo.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/incorporeo.gd" type="Script" id=2]
 
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="CircleShape2D" id=1]
 radius = 39.1948
 
 [node name="Incorporeo" type="Node2D"]
+modulate = Color( 6.87, 1.75, 21.38, 0.2 )
 script = ExtResource( 2 )
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="incorporeo" type="Sprite" parent="."]
 texture = ExtResource( 1 )
