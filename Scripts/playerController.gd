@@ -6,6 +6,7 @@ var cantidad_brazos = 0
 var cantidad_piernas = 0
 var cantidad_torso = 0
 var parte = preload("res://Objects/Player/parterobot.tscn")
+var nubecita = preload("res://Objects/Player/parterobot.tscn")
 var actual_ani 
 
 #dirección
@@ -500,7 +501,9 @@ func dano():
 			expulsarParte("torso",-100)
 			
 		if cantidad_brazos + cantidad_piernas + cantidad_torso == 0:
-			get_tree().reload_current_scene()
+			move = 0
+			visible = false
+			$TimerMuerte.start()
 			
 		cantidad_brazos = 0
 		cantidad_piernas = 0
@@ -553,3 +556,7 @@ func _on_ani_cabeza_brazos_piernas_animation_finished():
 		bajando = false
 
 		
+
+
+func _on_TimerMuerte_timeout():
+	get_tree().reload_current_scene()

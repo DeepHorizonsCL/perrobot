@@ -97,6 +97,11 @@ animations = [ {
 "name": "idle",
 "speed": 15.0
 }, {
+"frames": [ ExtResource( 59 ), ExtResource( 76 ), ExtResource( 29 ), ExtResource( 38 ), ExtResource( 78 ) ],
+"loop": false,
+"name": "jump",
+"speed": 15.0
+}, {
 "frames": [ ExtResource( 60 ), ExtResource( 30 ), ExtResource( 69 ), ExtResource( 18 ), ExtResource( 74 ), ExtResource( 53 ), ExtResource( 49 ), ExtResource( 28 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 62 ) ],
 "loop": false,
 "name": "land",
@@ -107,20 +112,15 @@ animations = [ {
 "name": "walk",
 "speed": 15.0
 }, {
-"frames": [ ExtResource( 22 ), ExtResource( 66 ), ExtResource( 67 ), ExtResource( 70 ), ExtResource( 51 ), ExtResource( 54 ), ExtResource( 52 ), ExtResource( 39 ), ExtResource( 24 ) ],
-"loop": false,
-"name": "pre_jump",
-"speed": 30.0
-}, {
 "frames": [ ExtResource( 35 ), ExtResource( 48 ), ExtResource( 68 ) ],
 "loop": false,
 "name": "post_jump",
 "speed": 25.0
 }, {
-"frames": [ ExtResource( 59 ), ExtResource( 76 ), ExtResource( 29 ), ExtResource( 38 ), ExtResource( 78 ) ],
+"frames": [ ExtResource( 22 ), ExtResource( 66 ), ExtResource( 67 ), ExtResource( 70 ), ExtResource( 51 ), ExtResource( 54 ), ExtResource( 52 ), ExtResource( 39 ), ExtResource( 24 ) ],
 "loop": false,
-"name": "jump",
-"speed": 15.0
+"name": "pre_jump",
+"speed": 30.0
 } ]
 
 [node name="roboto" type="KinematicBody2D"]
@@ -185,6 +185,9 @@ shape = SubResource( 1 )
 wait_time = 2.0
 one_shot = true
 
+[node name="TimerMuerte" type="Timer" parent="."]
+wait_time = 1.65
+
 [node name="ani_cabeza_brazos_piernas" type="AnimatedSprite" parent="."]
 position = Vector2( 7.43451, -103.469 )
 scale = Vector2( 0.65, 0.65 )
@@ -193,4 +196,5 @@ animation = "pre_jump"
 frame = 8
 playing = true
 [connection signal="timeout" from="TimerInmune" to="." method="_on_TimerInmune_timeout"]
+[connection signal="timeout" from="TimerMuerte" to="." method="_on_TimerMuerte_timeout"]
 [connection signal="animation_finished" from="ani_cabeza_brazos_piernas" to="." method="_on_ani_cabeza_brazos_piernas_animation_finished"]
