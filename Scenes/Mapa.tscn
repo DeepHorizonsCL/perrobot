@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Objects/Platform.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Floor.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Backgrounds/fondo.png" type="Texture" id=9]
 [ext_resource path="res://Sprites/marcas_stuck.png" type="Texture" id=10]
 [ext_resource path="res://Sounds/Music/Stuck_Junk_in_the_early_90s.ogg" type="AudioStream" id=11]
+[ext_resource path="res://Sounds/Ambient/GGJ2021_Viento-1.ogg" type="AudioStream" id=12]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -40,7 +41,7 @@ __meta__ = {
 [node name="roboto" parent="." groups=[
 "player",
 ] instance=ExtResource( 3 )]
-position = Vector2( 243.573, -9.59415 )
+position = Vector2( 243.573, -5.59415 )
 cancionpath = NodePath("../LevelMusic")
 
 [node name="CameraRobot" type="Camera2D" parent="roboto"]
@@ -50,6 +51,11 @@ drag_margin_v_enabled = true
 
 [node name="LevelMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )
+bus = "Music_bus"
+
+[node name="ambien_Viento" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+volume_db = 1.0
 bus = "Music_bus"
 
 [node name="Platforms" type="Node2D" parent="."]

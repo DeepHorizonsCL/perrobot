@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/GGJ2021_Salto.ogg-350ca92291e8d8e54a9dba8f0c674e98.oggstr"
+
+[deps]
+
+source_file="res://Sounds/effects/GGJ2021_Salto.ogg"
+dest_files=[ "res://.import/GGJ2021_Salto.ogg-350ca92291e8d8e54a9dba8f0c674e98.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
