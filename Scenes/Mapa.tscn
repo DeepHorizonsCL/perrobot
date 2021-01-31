@@ -12,7 +12,7 @@
 [node name="roboto" parent="." groups=[
 "player",
 ] instance=ExtResource( 3 )]
-position = Vector2( 245.433, 48.677 )
+position = Vector2( 247.811, -9.59415 )
 
 [node name="Camera2D" type="Camera2D" parent="roboto"]
 position = Vector2( 7.13513, -174.615 )
