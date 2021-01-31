@@ -12,7 +12,7 @@
 [node name="roboto" parent="." groups=[
 "player",
 ] instance=ExtResource( 3 )]
-position = Vector2( 245.433, 54.3338 )
+position = Vector2( 245.433, 48.677 )
 
 [node name="Camera2D" type="Camera2D" parent="roboto"]
 position = Vector2( -0.00012207, -322.077 )
@@ -23,7 +23,7 @@ drag_margin_v_enabled = true
 [node name="Platforms" type="Node2D" parent="."]
 
 [node name="Platform" parent="Platforms" instance=ExtResource( 1 )]
-position = Vector2( 229.443, 132.109 )
+position = Vector2( 227.324, 134.228 )
 
 [node name="Platform10" parent="Platforms" instance=ExtResource( 1 )]
 position = Vector2( 1408.73, 958.617 )
@@ -77,7 +77,7 @@ position = Vector2( -1000.24, 1195.48 )
 position = Vector2( 686.388, 443.739 )
 
 [node name="Platform3" parent="Platforms" instance=ExtResource( 1 )]
-position = Vector2( 463.208, 216.477 )
+position = Vector2( 463.208, 216.057 )
 rotation = 0.69578
 
 [node name="Platform4" parent="Platforms" instance=ExtResource( 1 )]
@@ -90,21 +90,6 @@ rotation = -0.751508
 
 [node name="Platform6" parent="Platforms" instance=ExtResource( 1 )]
 position = Vector2( 1216.84, 360.678 )
-
-[node name="Platform25" parent="Platforms" instance=ExtResource( 1 )]
-position = Vector2( 2385.7, 3090.39 )
-
-[node name="Platform26" parent="Platforms" instance=ExtResource( 1 )]
-position = Vector2( 2642.28, 3090.39 )
-
-[node name="Platform27" parent="Platforms" instance=ExtResource( 1 )]
-position = Vector2( 3015.89, 2994.14 )
-
-[node name="Platform28" parent="Platforms" instance=ExtResource( 1 )]
-position = Vector2( 3440.37, 2916.72 )
-
-[node name="Platform29" parent="Platforms" instance=ExtResource( 1 )]
-position = Vector2( 3864.85, 2911.38 )
 
 [node name="bloqueador" parent="Platforms" instance=ExtResource( 4 )]
 position = Vector2( 1425, 187 )
@@ -122,11 +107,19 @@ position = Vector2( -966.272, 3269.38 )
 scale = Vector2( 32.3403, -1.53418 )
 
 [node name="Floor10" parent="Platforms" instance=ExtResource( 2 )]
-position = Vector2( 1071.76, 3266.44 )
+position = Vector2( 1072.29, 3269.8 )
+scale = Vector2( 32.3403, -1.53418 )
+
+[node name="Floor13" parent="Platforms" instance=ExtResource( 2 )]
+position = Vector2( 3513.8, 3172.33 )
+scale = Vector2( 32.3403, -1.53418 )
+
+[node name="Floor14" parent="Platforms" instance=ExtResource( 2 )]
+position = Vector2( -2169.64, 2986.09 )
 scale = Vector2( 32.3403, -1.53418 )
 
 [node name="Floor12" parent="Platforms" instance=ExtResource( 2 )]
-position = Vector2( 5314.85, 3019.08 )
+position = Vector2( 5775.46, 3008.22 )
 scale = Vector2( 32.3403, -1.53418 )
 
 [node name="Platform7" parent="Platforms" instance=ExtResource( 1 )]
@@ -183,11 +176,11 @@ position = Vector2( 849.808, 1566.06 )
 piezanombre = "torso"
 
 [node name="pierna1" parent="." instance=ExtResource( 5 )]
-position = Vector2( 995.274, 528.783 )
+position = Vector2( 692.368, 368.421 )
 piezanombre = "pierna"
 
 [node name="pierna2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 875.082, 1089.08 )
+position = Vector2( 1170.86, 283.708 )
 piezanombre = "pierna"
 
 [node name="pierna3" parent="." instance=ExtResource( 5 )]

@@ -114,7 +114,7 @@ func updateRoboto(tranformacion):
 	match tranformacion:
 		"cabeza":
 			speed = 125
-			topeMax = 2120
+			topeMax = 1850
 			correr_value = 1
 			
 			dificultadsalto_value = 0
@@ -183,7 +183,7 @@ func updateRoboto(tranformacion):
 			$colision_sup.disabled = false
 			
 		"cabeza-pierna":
-			speed = 725
+			speed = 120
 			topeMax = 2600
 			correr_value = 1.12
 			
@@ -228,7 +228,7 @@ func updateRoboto(tranformacion):
 			
 			
 		"cabeza-brazos_piernas":
-			speed = 725
+			speed = 812
 			topeMax = 2800
 			correr_value = 1.12
 			
@@ -317,8 +317,8 @@ func updateRoboto(tranformacion):
 			$colision_sup.disabled = false
 			
 		"cuerpo-entero":
-			speed = 824
-			topeMax = 3000
+			speed = 832
+			topeMax = 3112
 			correr_value = 2.24
 			
 			dificultadsalto_value = 1
@@ -346,6 +346,12 @@ func _physics_process(delta):
 	
 	if estado_robot == "cabeza":
 		move_x = ( pres ) * speed * correr * dificultadsalto * move + empuje
+	elif estado_robot == "cabeza-pierna" :
+		if not is_on_floor():
+			speed = 720
+		else:
+			speed = 125
+		move_x = ( int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left")) ) * speed * correr * dificultadsalto * devolverseEnSalto * move + empuje
 	elif estado_robot == "cabeza-torso" :
 		if not is_on_floor():
 			move_x = ( int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left")) ) * speed * correr * dificultadsalto * devolverseEnSalto * move + empuje
@@ -417,7 +423,7 @@ func _physics_process(delta):
 		jump = false
 		prejump = true
 		if tope < topeMax:
-			tope += 62
+			tope += 64
 			#print ("tope: " +  str(tope) + " "  +str(prejump))
 		
 		empuje = 0
@@ -441,6 +447,7 @@ func _physics_process(delta):
 			#subida += (1000 + sumador_salto)
 			#sumador_salto += 60
 		else:
+			subida  = tope
 			saltando = false
 			tope = 0
 			subida = 0
