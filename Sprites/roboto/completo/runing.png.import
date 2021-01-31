@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/jump_FB0003.png-5dfc2c3d83792b58f63885e892f9f3d3.stex"
+path="res://.import/runing.png-bd1ff552a152f2a66bf146aed129ddb9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/roboto/completo/saltando/jump_FB0003.png"
-dest_files=[ "res://.import/jump_FB0003.png-5dfc2c3d83792b58f63885e892f9f3d3.stex" ]
+source_file="res://Sprites/roboto/completo/runing.png"
+dest_files=[ "res://.import/runing.png-bd1ff552a152f2a66bf146aed129ddb9.stex" ]
 
 [params]
 
