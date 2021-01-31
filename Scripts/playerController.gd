@@ -48,12 +48,15 @@ var pres = 0.0
 var inmunidadTemporal = false
 
 #estado actual del robot
-var estado_robot = "cabeza"
+var estado_robot = "vacio"
 
 func _ready():
 	updateRoboto("cabeza")
+	actual_ani = $ani_cabeza_brazos_piernas
 	
-
+func init_robot():
+	updateRoboto("cabeza")
+	
 func add_pieza(pieza,num):
 	
 	match pieza:
@@ -344,6 +347,8 @@ func updateRoboto(tranformacion):
 
 func _physics_process(delta):
 	
+	if estado_robot == "vacio":
+		move = 0
 	if estado_robot == "cabeza":
 		move_x = ( pres ) * speed * correr * dificultadsalto * move + empuje
 	elif estado_robot == "cabeza-pierna" :
@@ -364,7 +369,7 @@ func _physics_process(delta):
 		pres = pres / 1.32
 		if abs(pres)<0.01:
 			pres = 0.0
-			
+
 	if Input.is_action_pressed("ui_right"):
 		dir = 1
 		pres += 1.0
@@ -452,6 +457,7 @@ func _physics_process(delta):
 			tope = 0
 			subida = 0
 		print (" subida: " +  str(subida) + " VS tope: " + str(tope)  +  ' VS Tope MAX:  ' + str(topeMax) )
+		actual_ani.animation = "jump"
 	else :
 		gravity = gravity_val
 		if not is_on_floor():
