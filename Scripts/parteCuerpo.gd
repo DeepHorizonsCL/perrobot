@@ -48,8 +48,9 @@ func _process(delta):
 
 func _on_Area2D_body_entered(body):
 	if body.is_in_group("player") and estadoRecogible:
-		body.add_pieza(piezanombre,cantidad)
-		queue_free()
+		if body.checkParte(piezanombre):
+			body.add_pieza(piezanombre,cantidad)
+			queue_free()
 
 func colisionTrampa():
 	if(!estadoRecogible):

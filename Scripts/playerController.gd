@@ -8,6 +8,11 @@ var cantidad_torso = 0
 var parte = preload("res://Objects/Player/parterobot.tscn")
 var nubecita = preload("res://Objects/Player/incorporeo.tscn")
 var actual_ani 
+var notdeath = 0
+
+#Music
+export (NodePath) var cancionpath
+onready var cancion = get_node(cancionpath)
 
 #dirección
 var dir = 1
@@ -59,6 +64,8 @@ func init_robot():
 	print ("inciar robot")
 	updateRoboto("cabeza")
 	move = 1
+	notdeath = 1
+	cancion.play()
 	
 func add_pieza(pieza,num):
 	
@@ -351,20 +358,20 @@ func _physics_process(delta):
 	if estado_robot == "vacio":
 		move = 0
 	if estado_robot == "cabeza":
-		move_x = ( pres ) * speed * correr * dificultadsalto * move + empuje
+		move_x = ( pres ) * speed * correr * dificultadsalto * move * notdeath + empuje 
 	elif estado_robot == "cabeza-pierna" :
 		if not is_on_floor():
 			speed = 720
 		else:
 			speed = 125
-		move_x = ( int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left")) ) * speed * correr * dificultadsalto * devolverseEnSalto * move + empuje
+		move_x = ( int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left")) ) * speed * correr * dificultadsalto * devolverseEnSalto * move * notdeath + empuje  
 	elif estado_robot == "cabeza-torso" :
 		if not is_on_floor():
-			move_x = ( int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left")) ) * speed * correr * dificultadsalto * devolverseEnSalto * move + empuje
+			move_x = ( int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left")) ) * speed * correr * dificultadsalto * devolverseEnSalto * move * notdeath + empuje
 		else:
 			move_x = 0
 	else:
-		move_x = ( int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left")) ) * speed * correr * dificultadsalto * devolverseEnSalto * move + empuje
+		move_x = ( int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left")) ) * speed * correr * dificultadsalto * devolverseEnSalto * move * notdeath + empuje
 
 	if abs(pres) > 0:
 		pres = pres / 1.32
@@ -387,12 +394,14 @@ func _physics_process(delta):
 	if is_on_floor():
 		dificultadsalto = 1
 		dirSalto = dir
-
+		#print("salatando " + str(saltando) + " prejump " + str(prejump) + " bajando " + str(bajando))
 		if saltando == false and prejump == false and bajando == false:
-			#print("salatando " + str(saltando) + " prejump " + str(prejump))
+			#print ("las ani")
 			if move_x != 0:
+				#print ("walk")
 				actual_ani.animation = "walk"
 			else:
+				#print ("iddle")
 				actual_ani.animation = "idle"
 		
 	else:
@@ -403,7 +412,7 @@ func _physics_process(delta):
 		#print ("dirSalto " + str(dirSalto == dir) + " " + str(dirSalto) + " VS "+ str(dir))
 #Correr
 	if Input.is_action_pressed("ui_run"):
-		#print("running")
+		print("running")
 		correr = correr_value
 		#$SpriteUp.speed_scale = 2.65
 		#$SpriteDown.speed_scale = 2.65
@@ -431,11 +440,8 @@ func _physics_process(delta):
 		if tope < topeMax:
 			tope += 64
 			#print ("tope: " +  str(tope) + " "  +str(prejump))
-		
 		empuje = 0
 		
-		
-	
 	"""
 	elif Input.is_action_just_released("ui_accept"):
 		move = 1
@@ -457,11 +463,12 @@ func _physics_process(delta):
 			saltando = false
 			tope = 0
 			subida = 0
-		print (" subida: " +  str(subida) + " VS tope: " + str(tope)  +  ' VS Tope MAX:  ' + str(topeMax) )
+		#print (" subida: " +  str(subida) + " VS tope: " + str(tope)  +  ' VS Tope MAX:  ' + str(topeMax) )
 		actual_ani.animation = "jump"
 	else :
 		gravity = gravity_val
 		if not is_on_floor():
+			prejump = false
 			bajando = true
 			actual_ani.animation = "post_jump"
 		else:
@@ -502,6 +509,7 @@ func dano():
 			
 		if cantidad_brazos + cantidad_piernas + cantidad_torso == 0:
 			move = 0
+			notdeath = 0
 			#visible = false
 			var new_nubesita = nubecita.instance()
 			new_nubesita.subiendo = true
@@ -542,8 +550,18 @@ func expulsarParte(nombre,distancia):
 	get_parent().add_child(nuevaparte)
 	nuevaparte.position +=  Vector2(position.x+distancia, position.y-200)
 	
-
-
+func checkParte(nombre):
+	match nombre:
+		"brazo":
+			if cantidad_brazos > 1:
+				return false
+		"pierna":
+			if cantidad_piernas > 1:
+				return false
+		"torso":
+			if cantidad_torso > 1:
+				return false
+	return true
 
 func _on_ani_cabeza_brazos_piernas_animation_finished():
 	if $ani_cabeza_brazos_piernas.animation == "pre_jump":
@@ -553,12 +571,10 @@ func _on_ani_cabeza_brazos_piernas_animation_finished():
 		move = 1
 		sumador_salto = 6
 		
-	if $ani_cabeza_brazos_piernas.animation == "post_jump" and is_on_floor() and not bajando:
-		move = 1
-		bajando = false
 		
 	if $ani_cabeza_brazos_piernas.animation == "land" and is_on_floor() and bajando:
 		move = 1
+		prejump = false
 		bajando = false
 
 

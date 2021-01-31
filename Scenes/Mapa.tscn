@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Objects/Platform.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Floor.tscn" type="PackedScene" id=2]
@@ -8,6 +8,9 @@
 [ext_resource path="res://Objects/puas.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Objects/Player/incorporeo.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Objects/nave.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Backgrounds/fondo.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/marcas_stuck.png" type="Texture" id=10]
+[ext_resource path="res://Sounds/Music/Stuck_Junk_in_the_early_90s.ogg" type="AudioStream" id=11]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -20,15 +23,34 @@ glow_hdr_scale = 2.25
 
 [node name="Node2D" type="Node2D"]
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer"]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/ParallaxBackground"]
+margin_left = -1845.82
+margin_top = -125.343
+margin_right = 5947.18
+margin_bottom = 3307.66
+texture = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="roboto" parent="." groups=[
 "player",
 ] instance=ExtResource( 3 )]
-position = Vector2( 247.811, -9.59415 )
+position = Vector2( 243.573, -9.59415 )
+cancionpath = NodePath("../LevelMusic")
 
 [node name="CameraRobot" type="Camera2D" parent="roboto"]
 position = Vector2( 24.324, -311.26 )
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
+
+[node name="LevelMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+bus = "Music_bus"
 
 [node name="Platforms" type="Node2D" parent="."]
 
@@ -219,6 +241,10 @@ text = "Start"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="marcas_stuck" type="Sprite" parent="Button"]
+position = Vector2( 52.5854, -283.493 )
+texture = ExtResource( 10 )
 
 [node name="incorporeo" parent="." instance=ExtResource( 7 )]
 position = Vector2( 97.1409, -1744.45 )
