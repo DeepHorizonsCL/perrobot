@@ -45,8 +45,14 @@ cancionpath = NodePath("../LevelMusic")
 
 [node name="CameraRobot" type="Camera2D" parent="roboto"]
 position = Vector2( 24.324, -311.26 )
+limit_left = -1700
+limit_top = -2000
+limit_right = 6000
+limit_bottom = 3500
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
+editor_draw_limits = true
+editor_draw_drag_margin = true
 
 [node name="LevelMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )
