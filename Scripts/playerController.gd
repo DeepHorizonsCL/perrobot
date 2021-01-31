@@ -60,7 +60,8 @@ func init_robot():
 	move = 1
 	
 func add_pieza(pieza,num):
-	
+	$Poof_sprite.visible = true
+	$Poof_sprite.play("explosion",true)
 	match pieza:
 		"brazo":
 			if cantidad_brazos < 2:
@@ -557,6 +558,6 @@ func _on_ani_cabeza_brazos_piernas_animation_finished():
 		bajando = false
 
 	
-#func _on_Poof_sprite_animation_finished():
-#	$Poof_sprite.stop()
-#	$Poof_sprite.visible =false
+func _on_Poof_sprite_animation_finished():
+	$Poof_sprite.stop()
+	$Poof_sprite.visible =false

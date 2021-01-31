@@ -1,5 +1,5 @@
+[gd_scene load_steps=44 format=2]
 
-[gd_scene load_steps=10 format=2]
 [ext_resource path="res://Objects/Platform.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Floor.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Objects/Player/roboto.tscn" type="PackedScene" id=3]
@@ -20,7 +20,7 @@ curve = SubResource( 1 )
 
 [sub_resource type="ParticlesMaterial" id=3]
 emission_shape = 2
-emission_box_extents = Vector3( 1024, 1, 1 )
+emission_box_extents = Vector3( 4096, 1, 1 )
 flag_disable_z = true
 gravity = Vector3( 0, 10, 0 )
 orbit_velocity = 0.0
@@ -183,45 +183,38 @@ region = Rect2( 1280, 1024, 256, 256 )
 resource_local_to_scene = true
 animations = [ {
 "frames": [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ) ],
-"loop": true,
-"name": "default",
+"loop": false,
+"name": "explosion",
 "speed": 30.0
 } ]
-
-[sub_resource type="Environment" id=1]
-background_mode = 4
-glow_enabled = true
-glow_intensity = 0.72
-glow_strength = 1.15
-glow_bloom = 0.28
-glow_hdr_luminance_cap = 9.32
-glow_hdr_scale = 2.25
 
 [node name="Node2D" type="Node2D"]
 
 [node name="roboto" parent="." groups=[
 "player",
 ] instance=ExtResource( 3 )]
-position = Vector2( 245.433, 48.677 )
+position = Vector2( 217.653, -153.717 )
 
 [node name="CameraRobot" type="Camera2D" parent="roboto"]
 position = Vector2( 24.324, -311.26 )
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
 
-[node name="Particles2D" type="Particles2D" parent="roboto"]
-position = Vector2( -16.5738, -574.133 )
-amount = 1500
+[node name="Particles2D" type="Particles2D" parent="roboto/CameraRobot"]
+position = Vector2( 50.362, -539.884 )
+amount = 5000
 lifetime = 15.0
 preprocess = 200.0
 randomness = 1.0
 process_material = SubResource( 3 )
 
 [node name="Poof_sprite" type="AnimatedSprite" parent="roboto"]
-visible = false
 position = Vector2( 20.0547, -50.4588 )
+scale = Vector2( 4, 4 )
 frames = SubResource( 34 )
-frame = 3
+animation = "explosion"
+frame = 29
+playing = true
 
 [node name="Platforms" type="Node2D" parent="."]
 position = Vector2( -3.77551, -117.04 )
@@ -339,10 +332,6 @@ position = Vector2( 2043.31, 561.455 )
 position = Vector2( 1560.64, 719.543 )
 rotation = 1.5708
 
-[node name="Floor7" parent="Platforms" instance=ExtResource( 2 )]
-position = Vector2( 238.238, 657.704 )
-rotation = 1.5708
-
 [node name="Floor4" parent="Platforms" instance=ExtResource( 2 )]
 position = Vector2( 201.748, 1139.99 )
 rotation = 1.5708
@@ -435,7 +424,6 @@ position = Vector2( 378.919, -1744.43 )
 masitapath = NodePath("../incorporeo")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 1 )
 [connection signal="pressed" from="Button" to="incorporeo" method="_on_Button_pressed"]
 
 [editable path="incorporeo"]
