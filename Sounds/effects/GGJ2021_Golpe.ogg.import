@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/GGJ2021_Golpe.ogg-4ead445fe78c3177b5a110ef2b960fc1.oggstr"
+
+[deps]
+
+source_file="res://Sounds/effects/GGJ2021_Golpe.ogg"
+dest_files=[ "res://.import/GGJ2021_Golpe.ogg-4ead445fe78c3177b5a110ef2b960fc1.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,15 +1,19 @@
 extends Node2D
 
-export var crecimiento =  0.65
+export var crecimiento =  0.012
 var poseedor
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	scale += Vector2(0.012,0.012)
+	scale += Vector2(0.0012,0.0012)
 
 func _process(delta):
+	crecimiento += 0.12
 	scale += Vector2(crecimiento,crecimiento)
 	$destello.rotation_degrees += 12
+	
+	if scale.x > 1:
+		crecimiento += 0.012
 	
 	if scale.x > 8:
 		change_camera()

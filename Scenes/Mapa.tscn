@@ -1,204 +1,53 @@
-[gd_scene load_steps=44 format=2]
 
+[gd_scene load_steps=14 format=2]
 [ext_resource path="res://Objects/Platform.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Floor.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Objects/Player/roboto.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Objects/Bloqueador.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Objects/Player/parterobot.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Objects/puas.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Objects/incorporeo.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Objects/Player/incorporeo.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Objects/nave.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Sprites/Poof.png" type="Texture" id=9]
-
-[sub_resource type="Curve" id=1]
-min_value = -40.0
-max_value = 40.0
-_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.08, -13.8182 ), -3986.01, -3986.01, 0, 0, Vector2( 0.1552, 25.4545 ), -2443.19, -2443.19, 0, 0, Vector2( 0.2272, 20.3636 ), 2171.72, 2171.72, 0, 0, Vector2( 0.272, -28.3636 ), -727.273, -727.273, 0, 0, Vector2( 0.3664, 32.7273 ), 0.0, 0.0, 0, 0, Vector2( 0.4304, -32.7273 ), -1354.66, -1354.66, 0, 0, Vector2( 0.496, 31.2727 ), -3909.08, -3909.08, 0, 0, Vector2( 0.5728, 15.2727 ), 3909.08, 3909.08, 0, 0, Vector2( 0.6544, -26.9091 ), 1022.73, 1022.73, 0, 0, Vector2( 0.76, -21.8182 ), -2062.93, -2062.93, 0, 0, Vector2( 0.8416, 38.5455 ), 0.0, 0.0, 0, 0, Vector2( 0.9056, -28.3636 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
-
-[sub_resource type="CurveTexture" id=2]
-curve = SubResource( 1 )
-
-[sub_resource type="ParticlesMaterial" id=3]
-emission_shape = 2
-emission_box_extents = Vector3( 4096, 1, 1 )
-flag_disable_z = true
-gravity = Vector3( 0, 10, 0 )
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
-tangential_accel_curve = SubResource( 2 )
-angle = 2.0
-angle_random = 1.0
-
-[sub_resource type="AtlasTexture" id=4]
-flags = 4
-atlas = ExtResource( 9 )
-region = Rect2( 0, 0, 256, 256 )
-
-[sub_resource type="AtlasTexture" id=5]
-flags = 4
-atlas = ExtResource( 9 )
-region = Rect2( 256, 0, 256, 256 )
-
-[sub_resource type="AtlasTexture" id=6]
-flags = 4
-atlas = ExtResource( 9 )
-region = Rect2( 512, 0, 256, 256 )
-
-[sub_resource type="AtlasTexture" id=7]
-flags = 4
-atlas = ExtResource( 9 )
-region = Rect2( 768, 0, 256, 256 )
-
-[sub_resource type="AtlasTexture" id=8]
-flags = 4
-atlas = ExtResource( 9 )
-region = Rect2( 1024, 0, 256, 256 )
-
-[sub_resource type="AtlasTexture" id=9]
-flags = 4
-atlas = ExtResource( 9 )
-region = Rect2( 1280, 0, 256, 256 )
-
-[sub_resource type="AtlasTexture" id=10]
-flags = 4
-atlas = ExtResource( 9 )
-region = Rect2( 0, 256, 256, 256 )
-
-[sub_resource type="AtlasTexture" id=11]
-flags = 4
-atlas = ExtResource( 9 )
-region = Rect2( 256, 256, 256, 256 )
-
-[sub_resource type="AtlasTexture" id=12]
-flags = 4
-atlas = ExtResource( 9 )
-region = Rect2( 512, 256, 256, 256 )
-
-[sub_resource type="AtlasTexture" id=13]
-flags = 4
-atlas = ExtResource( 9 )
-region = Rect2( 768, 256, 256, 256 )
-
-[sub_resource type="AtlasTexture" id=14]
-flags = 4
-atlas = ExtResource( 9 )
-region = Rect2( 1024, 256, 256, 256 )
-
-[sub_resource type="AtlasTexture" id=15]
-flags = 4
-atlas = ExtResource( 9 )
-region = Rect2( 1280, 256, 256, 256 )
-
-[sub_resource type="AtlasTexture" id=16]
-flags = 4
-atlas = ExtResource( 9 )
-region = Rect2( 0, 512, 256, 256 )
-
-[sub_resource type="AtlasTexture" id=17]
-flags = 4
-atlas = ExtResource( 9 )
-region = Rect2( 256, 512, 256, 256 )
-
-[sub_resource type="AtlasTexture" id=18]
-flags = 4
-atlas = ExtResource( 9 )
-region = Rect2( 512, 512, 256, 256 )
-
-[sub_resource type="AtlasTexture" id=19]
-flags = 4
-atlas = ExtResource( 9 )
-region = Rect2( 768, 512, 256, 256 )
-
-[sub_resource type="AtlasTexture" id=20]
-flags = 4
-atlas = ExtResource( 9 )
-region = Rect2( 1024, 512, 256, 256 )
-
-[sub_resource type="AtlasTexture" id=21]
-flags = 4
-atlas = ExtResource( 9 )
-region = Rect2( 1280, 512, 256, 256 )
-
-[sub_resource type="AtlasTexture" id=22]
-flags = 4
-atlas = ExtResource( 9 )
-region = Rect2( 0, 768, 256, 256 )
-
-[sub_resource type="AtlasTexture" id=23]
-flags = 4
-atlas = ExtResource( 9 )
-region = Rect2( 256, 768, 256, 256 )
-
-[sub_resource type="AtlasTexture" id=24]
-flags = 4
-atlas = ExtResource( 9 )
-region = Rect2( 512, 768, 256, 256 )
-
-[sub_resource type="AtlasTexture" id=25]
-flags = 4
-atlas = ExtResource( 9 )
-region = Rect2( 768, 768, 256, 256 )
-
-[sub_resource type="AtlasTexture" id=26]
-flags = 4
-atlas = ExtResource( 9 )
-region = Rect2( 1024, 768, 256, 256 )
-
-[sub_resource type="AtlasTexture" id=27]
-flags = 4
-atlas = ExtResource( 9 )
-region = Rect2( 1280, 768, 256, 256 )
-
-[sub_resource type="AtlasTexture" id=28]
-flags = 4
-atlas = ExtResource( 9 )
-region = Rect2( 0, 1024, 256, 256 )
-
-[sub_resource type="AtlasTexture" id=29]
-flags = 4
-atlas = ExtResource( 9 )
-region = Rect2( 256, 1024, 256, 256 )
-
-[sub_resource type="AtlasTexture" id=30]
-flags = 4
-atlas = ExtResource( 9 )
-region = Rect2( 512, 1024, 256, 256 )
-
-[sub_resource type="AtlasTexture" id=31]
-flags = 4
-atlas = ExtResource( 9 )
-region = Rect2( 768, 1024, 256, 256 )
-
-[sub_resource type="AtlasTexture" id=32]
-flags = 4
-atlas = ExtResource( 9 )
-region = Rect2( 1024, 1024, 256, 256 )
-
-[sub_resource type="AtlasTexture" id=33]
-flags = 4
-atlas = ExtResource( 9 )
-region = Rect2( 1280, 1024, 256, 256 )
-
-[sub_resource type="SpriteFrames" id=34]
-resource_local_to_scene = true
-animations = [ {
-"frames": [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ) ],
-"loop": false,
-"name": "explosion",
-"speed": 30.0
-} ]
+[ext_resource path="res://Objects/ParallaxBackground.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Sprites/marcas_stuck.png" type="Texture" id=10]
+[ext_resource path="res://Sounds/Music/Stuck_Junk_in_the_early_90s.ogg" type="AudioStream" id=11]
+[ext_resource path="res://Sounds/Ambient/GGJ2021_Viento-1.ogg" type="AudioStream" id=12]
+[sub_resource type="Environment" id=1]
+background_mode = 4
+glow_enabled = true
+glow_intensity = 0.72
+glow_strength = 1.15
+glow_bloom = 0.28
+glow_hdr_luminance_cap = 9.32
+glow_hdr_scale = 2.25
 
 [node name="Node2D" type="Node2D"]
 
 [node name="roboto" parent="." groups=[
 "player",
 ] instance=ExtResource( 3 )]
-position = Vector2( 217.653, -153.717 )
+position = Vector2( 243.573, -5.59415 )
+cancionpath = NodePath("../LevelMusic")
 
 [node name="CameraRobot" type="Camera2D" parent="roboto"]
 position = Vector2( 24.324, -311.26 )
+limit_left = -1700
+limit_top = -2000
+limit_right = 6000
+limit_bottom = 3500
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
+editor_draw_limits = true
+editor_draw_drag_margin = true
+
+[node name="LevelMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+bus = "Music_bus"
+
+[node name="ambien_Viento" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+volume_db = 1.0
+bus = "Music_bus"
 
 [node name="Particles2D" type="Particles2D" parent="roboto/CameraRobot"]
 position = Vector2( 50.362, -539.884 )
@@ -353,7 +202,7 @@ rotation = 1.5708
 scale = Vector2( 30.7933, 2.1401 )
 
 [node name="brazo1" parent="." instance=ExtResource( 5 )]
-position = Vector2( -534.169, 537.459 )
+position = Vector2( -534.169, 540.456 )
 piezanombre = "brazo"
 
 [node name="brazo2" parent="." instance=ExtResource( 5 )]
@@ -361,7 +210,7 @@ position = Vector2( -916.651, 944.751 )
 piezanombre = "brazo"
 
 [node name="torso1" parent="." instance=ExtResource( 5 )]
-position = Vector2( -123.661, 1380.7 )
+position = Vector2( -125.549, 1378.81 )
 piezanombre = "torso"
 
 [node name="torso2" parent="." instance=ExtResource( 5 )]
@@ -369,7 +218,7 @@ position = Vector2( 849.808, 1566.06 )
 piezanombre = "torso"
 
 [node name="pierna1" parent="." instance=ExtResource( 5 )]
-position = Vector2( 692.368, 368.421 )
+position = Vector2( 690.48, 368.421 )
 piezanombre = "pierna"
 
 [node name="pierna2" parent="." instance=ExtResource( 5 )]
@@ -377,18 +226,21 @@ position = Vector2( 1170.86, 283.708 )
 piezanombre = "pierna"
 
 [node name="pierna3" parent="." instance=ExtResource( 5 )]
-position = Vector2( -18.1407, 2643.01 )
+position = Vector2( -18.1407, 2648.35 )
 scale = Vector2( 0.998682, 1 )
 piezanombre = "pierna"
 cantidad = 2
 
 [node name="brazo3" parent="." instance=ExtResource( 5 )]
-position = Vector2( 388.927, 2623.66 )
+position = Vector2( 394.266, 2623.66 )
 piezanombre = "brazo"
 cantidad = 2
 
 [node name="espinas" parent="." instance=ExtResource( 6 )]
-position = Vector2( 172.004, 3213.64 )
+position = Vector2( 171.559, 3218.99 )
+
+[node name="espinas2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1863.3, 169.322 )
 
 [node name="Button" type="Button" parent="."]
 margin_left = 485.134
@@ -400,8 +252,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="marcas_stuck" type="Sprite" parent="Button"]
+position = Vector2( 52.5854, -283.493 )
+texture = ExtResource( 10 )
+
 [node name="incorporeo" parent="." instance=ExtResource( 7 )]
 position = Vector2( 97.1409, -1744.45 )
+inicializarrobot = true
 robotopath = NodePath("../roboto")
 buttonpath = NodePath("../Button")
 camerapath = NodePath("CameraMasa")
@@ -409,9 +266,6 @@ camerarobopath = NodePath("../roboto/CameraRobot")
 
 [node name="CollisionShape2D" parent="incorporeo/Area2D" index="0"]
 position = Vector2( -2.3811, -0.793701 )
-
-[node name="incorporeo" parent="incorporeo" index="1"]
-modulate = Color( 6.87059, 1.74902, 21.3804, 0.192157 )
 
 [node name="CameraMasa" type="Camera2D" parent="incorporeo"]
 position = Vector2( 418.649, 197.799 )
@@ -424,6 +278,9 @@ position = Vector2( 378.919, -1744.43 )
 masitapath = NodePath("../incorporeo")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 1 )
+
+[node name="ParallaxBackground" parent="." instance=ExtResource( 9 )]
 [connection signal="pressed" from="Button" to="incorporeo" method="_on_Button_pressed"]
 
 [editable path="incorporeo"]

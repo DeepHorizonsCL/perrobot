@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/GGJ2021_Viento-1.ogg-a4e44845a70560b21610bf4b2c65d09f.oggstr"
+
+[deps]
+
+source_file="res://Sounds/Ambient/GGJ2021_Viento-1.ogg"
+dest_files=[ "res://.import/GGJ2021_Viento-1.ogg-a4e44845a70560b21610bf4b2c65d09f.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
