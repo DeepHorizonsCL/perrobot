@@ -1,9 +1,10 @@
 [gd_scene load_steps=2 format=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 31.967, 17.4934 )
+extents = Vector2( 31.8329, 31.029 )
 
 [node name="Platform" type="StaticBody2D"]
+position = Vector2( 0, 0.280617 )
 scale = Vector2( 4.43, 0.75 )
 collision_layer = 3
 collision_mask = 3
@@ -17,8 +18,11 @@ margin_top = -32.0
 margin_right = 32.0
 margin_bottom = 32.0
 color = Color( 0.0156863, 0.223529, 0.298039, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0.0597883, -15.7462 )
+position = Vector2( 0.0597883, -0.0317307 )
 shape = SubResource( 1 )
 one_way_collision = true
