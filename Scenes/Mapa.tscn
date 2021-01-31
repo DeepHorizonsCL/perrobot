@@ -8,7 +8,7 @@
 [ext_resource path="res://Objects/puas.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Objects/Player/incorporeo.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Objects/nave.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Backgrounds/fondo.png" type="Texture" id=9]
+[ext_resource path="res://Objects/ParallaxBackground.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Sprites/marcas_stuck.png" type="Texture" id=10]
 [ext_resource path="res://Sounds/Music/Stuck_Junk_in_the_early_90s.ogg" type="AudioStream" id=11]
 [ext_resource path="res://Sounds/Ambient/GGJ2021_Viento-1.ogg" type="AudioStream" id=12]
@@ -23,21 +23,6 @@ glow_hdr_luminance_cap = 9.32
 glow_hdr_scale = 2.25
 
 [node name="Node2D" type="Node2D"]
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer"]
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/ParallaxBackground"]
-visible = false
-margin_left = -1845.82
-margin_top = -125.343
-margin_right = 5947.18
-margin_bottom = 3307.66
-texture = ExtResource( 9 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="roboto" parent="." groups=[
 "player",
@@ -282,6 +267,8 @@ masitapath = NodePath("../incorporeo")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 1 )
+
+[node name="ParallaxBackground" parent="." instance=ExtResource( 9 )]
 [connection signal="pressed" from="Button" to="incorporeo" method="_on_Button_pressed"]
 
 [editable path="incorporeo"]
