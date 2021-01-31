@@ -491,13 +491,13 @@ func dano():
 
 		
 		if cantidad_brazos > 1:
-			expulsarParte("brazo",-400)
+			expulsarParte("brazo",-200)
 			
 		if cantidad_piernas > 1:
-			expulsarParte("pierna",+600)
+			expulsarParte("pierna",+300)
 			
 		if cantidad_torso > 0:
-			expulsarParte("torso",-100)
+			expulsarParte("torso",-300)
 			
 		if cantidad_brazos + cantidad_piernas + cantidad_torso == 0:
 			get_tree().reload_current_scene()
@@ -521,7 +521,9 @@ func _on_TimerInmune_timeout():
 func expulsarParte(nombre,distancia):
 	var nuevaparte = parte.instance()
 	nuevaparte.piezanombre = nombre
-	
+	nuevaparte.estadoRecogible = false;
+
+	nuevaparte.timerStart();
 	match nombre:
 		"brazo":
 			nuevaparte.cantidad =2 
@@ -530,8 +532,9 @@ func expulsarParte(nombre,distancia):
 		"torso":
 			nuevaparte.cantidad =1
 			
+	
 	get_parent().add_child(nuevaparte)
-	nuevaparte.position +=  Vector2(position.x+distancia, position.y)
+	nuevaparte.position +=  Vector2(position.x+distancia, position.y-200)
 	
 
 
