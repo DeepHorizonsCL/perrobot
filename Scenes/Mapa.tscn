@@ -12,10 +12,13 @@
 [node name="roboto" parent="." groups=[
 "player",
 ] instance=ExtResource( 3 )]
-position = Vector2( 245.601, 57.1622 )
+position = Vector2( 245.433, 54.3338 )
 
 [node name="Camera2D" type="Camera2D" parent="roboto"]
+position = Vector2( -0.00012207, -322.077 )
 current = true
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
 
 [node name="Platforms" type="Node2D" parent="."]
 

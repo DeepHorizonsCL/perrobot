@@ -14,7 +14,7 @@ var dir = 1
 #movimiento en los ejes
 var move_x = 0
 var move_y = 0
-var gravity_val = 1000
+var gravity_val = 1224
 var gravity = 0
 
 
@@ -22,6 +22,7 @@ var tope = 700
 var topeIni = 500
 var topeMax = 700
 var subida = 0
+var bajando = false
 
 #Variables que afectan al movimiento
 var speed = 125
@@ -29,6 +30,7 @@ var prejump = false
 var jump = false
 var saltando = false
 var postsalto = false
+var sumador_salto = 0
 var controlEnSalto = 1
 var devolverseEnSalto = 1
 var devolverEnSalto_value = 1
@@ -112,8 +114,8 @@ func updateRoboto(tranformacion):
 	match tranformacion:
 		"cabeza":
 			speed = 125
-			topeIni = 1242
-			topeMax = 1242
+			topeIni = 1212
+			topeMax = 1212
 			correr_value = 1
 			
 			dificultadsalto_value = 0
@@ -138,8 +140,8 @@ func updateRoboto(tranformacion):
 			
 		"cabeza-brazo":
 			speed = 625
-			topeIni = 2500
-			topeMax = 5200
+			topeIni = 2000
+			topeMax = 3500
 			
 			correr_value = 1
 			
@@ -162,8 +164,8 @@ func updateRoboto(tranformacion):
 			
 		"cabeza-2brazos":
 			speed = 645
-			topeIni = 2500
-			topeMax = 5400
+			topeIni = 2000
+			topeMax = 4000
 			correr_value = 1
 			
 			dificultadsalto_value = 0.45
@@ -185,7 +187,7 @@ func updateRoboto(tranformacion):
 			
 		"cabeza-pierna":
 			speed = 725
-			topeIni = 2500
+			topeIni = 2000
 			topeMax = 6000
 			correr_value = 1.12
 			
@@ -208,8 +210,8 @@ func updateRoboto(tranformacion):
 			
 		"cabeza-2piernas":
 			speed = 725
-			topeIni = 2500
-			topeMax = 6200
+			topeIni = 2000
+			topeMax = 4000
 			correr_value = 1.12
 			
 			dificultadsalto_value = 0.65
@@ -232,8 +234,8 @@ func updateRoboto(tranformacion):
 			
 		"cabeza-brazos_piernas":
 			speed = 725
-			topeIni = 2500
-			topeMax = 6400
+			topeIni = 2000
+			topeMax = 4000
 			correr_value = 1.12
 			
 			dificultadsalto_value = 0.85
@@ -257,7 +259,7 @@ func updateRoboto(tranformacion):
 		"cabeza-torso":
 			speed = 812
 			topeIni = 2500
-			topeMax = 5000
+			topeMax = 4000
 			correr_value = 2.24
 			
 			dificultadsalto_value = 1
@@ -279,8 +281,8 @@ func updateRoboto(tranformacion):
 			
 		"cabeza-torso-brazos":
 			speed = 812
-			topeIni = 2500
-			topeMax = 5300
+			topeIni = 2000
+			topeMax = 3600
 			correr_value = 2.24
 			
 			dificultadsalto_value = 1
@@ -303,7 +305,7 @@ func updateRoboto(tranformacion):
 		"cabeza-torso-piernas":
 			speed = 812
 			topeIni = 2500
-			topeMax = 6500
+			topeMax = 3800
 			correr_value = 2.24
 			
 			dificultadsalto_value = 1
@@ -324,9 +326,9 @@ func updateRoboto(tranformacion):
 			$colision_sup.disabled = false
 			
 		"cuerpo-entero":
-			speed = 812
-			topeIni = 2500
-			topeMax = 6800
+			speed = 824
+			topeIni = 2000
+			topeMax = 4000
 			correr_value = 2.24
 			
 			dificultadsalto_value = 1
@@ -383,12 +385,14 @@ func _physics_process(delta):
 	if is_on_floor():
 		dificultadsalto = 1
 		dirSalto = dir
-		jump = true
-		#if move_x == 0 and prejump == false:
-		#	actual_ani.animation = "Idle"
-		#else:
-		#	if saltando == false:
-		#		actual_ani.animation = "walk"
+
+		if saltando == false and prejump == false and bajando == false:
+			#print("salatando " + str(saltando) + " prejump " + str(prejump))
+			if move_x != 0:
+				actual_ani.animation = "walk"
+			else:
+				actual_ani.animation = "idle"
+		
 	else:
 		if dir == dirSalto:
 			devolverseEnSalto = 1
@@ -408,47 +412,59 @@ func _physics_process(delta):
 
 #Saltos
 	
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor() and jump == true and prejump == false:
+	if Input.is_action_just_pressed("ui_accept") and is_on_floor() and not bajando and not prejump and move == 1 :
 		#print("salto")
+		saltando = false
+		prejump = true
 		dirSalto = dir
 		tope = topeIni
 		#print ("dir " + str(dir) + " dirSalto " + str(dirSalto))
 		actual_ani.animation = "pre_jump"
 	
-	if Input.is_action_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_pressed("ui_accept") and is_on_floor() and not bajando and prejump:
 		move = 0
+		saltando = false
 		jump = false
 		prejump = true
 		if tope < topeMax:
-			tope += 12
-			print ("tope: " +  str(tope))
+			tope += 62
+			#print ("tope: " +  str(tope) + " "  +str(prejump))
 		
 		empuje = 0
 		
 		
-		
-	elif Input.is_action_just_released("ui_accept") and prejump:
+	
+	"""
+	elif Input.is_action_just_released("ui_accept"):
 		move = 1
 		print("comence el salto")
 		prejump = false
 		saltando = true
-
+	"""
 	
 	if saltando:
 		move = 1
+		bajando = false
 		prejump = false
 		if subida < tope:
-			subida += 120
+			subida = lerp(subida,tope+0.1, 0.42)
+			#subida += (1000 + sumador_salto)
+			#sumador_salto += 60
 		else:
 			saltando = false
 			tope = 0
 			subida = 0
-		print (" subida: " +  str(subida) + " VS tope: " + str(tope)  )
+		print (" subida: " +  str(subida) + " VS tope: " + str(tope)  +  ' VS Tope MAX:  ' + str(topeMax) )
 	else :
 		gravity = gravity_val
 		if not is_on_floor():
+			bajando = true
 			actual_ani.animation = "post_jump"
-		#print (gravity)
+		else:
+			if bajando:
+				actual_ani.animation = "land"
+				move = 0
+	#print ("bajando" + str(bajando))
 
 	var colliders = move_and_slide(Vector2(move_x,gravity-subida), Vector2(0,-1))
 	
@@ -518,9 +534,15 @@ func expulsarParte(nombre,distancia):
 
 
 func _on_ani_cabeza_brazos_piernas_animation_finished():
-	if $ani_cabeza_brazos_piernas.animation == "pre_jump" and prejump == true:
+	if $ani_cabeza_brazos_piernas.animation == "pre_jump":
 		print("comence el salto")
 		prejump = false
 		saltando = true
 		move = 1
+		sumador_salto = 6
+		
+	if $ani_cabeza_brazos_piernas.animation == "land" and is_on_floor() and bajando:
+		move = 1
+		bajando = false
+
 		
