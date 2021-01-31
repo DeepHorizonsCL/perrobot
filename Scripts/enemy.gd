@@ -1,29 +1,32 @@
 extends KinematicBody2D
 
-export (int) var run_speed = 100
-export (int) var jump_speed = -400
-export (int) var gravity = 1200
+export (int) var run_speed = 60
+export (int) var gravity = 120
 
 var velocity = Vector2()
 var jumping = false
-
-func get_input():
-	velocity.x = 0
-	var right = Input.is_action_pressed('ui_right')
-	var left = Input.is_action_pressed('ui_left')
-	var jump = Input.is_action_just_pressed('ui_select')
-
-	if jump and is_on_floor():
-		jumping = true
-		velocity.y = jump_speed
-	if right:
-		velocity.x += run_speed
-	if left:
-		velocity.x -= run_speed
+var dir = 1
 
 func _physics_process(delta):
-	get_input()
-	velocity.y += gravity * delta
-	if jumping and is_on_floor():
-		jumping = false
+	var izq = $izq.get_collider()
+	var der = $der.get_collider()
+	print(izq)
+	if not der and izq:
+		dir = -1
+	elif der and not izq:
+		dir = 1
+		
+	if is_on_wall():
+		dir *= -1
+		
+	$AnimatedSprite.scale.x = abs($AnimatedSprite.scale.x) * -dir
+		
+	velocity.x = run_speed * dir
+	velocity.y += gravity
 	velocity = move_and_slide(velocity, Vector2(0, -1))
+	
+	for i in get_slide_count():
+		var col = get_slide_collision(i).collider
+		if col.is_in_group("player"):
+			col.dano()
+		

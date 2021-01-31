@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Objects/Platform.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Floor.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Sprites/marcas_stuck.png" type="Texture" id=10]
 [ext_resource path="res://Sounds/Music/Stuck_Junk_in_the_early_90s.ogg" type="AudioStream" id=11]
 [ext_resource path="res://Sounds/Ambient/GGJ2021_Viento-1.ogg" type="AudioStream" id=12]
+[ext_resource path="res://Objects/enemy.tscn" type="PackedScene" id=13]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -28,6 +29,8 @@ glow_hdr_scale = 2.25
 "player",
 ] instance=ExtResource( 3 )]
 position = Vector2( 243.573, -5.59415 )
+collision_layer = 5
+collision_mask = 5
 cancionpath = NodePath("../LevelMusic")
 
 [node name="CameraRobot" type="Camera2D" parent="roboto"]
@@ -269,6 +272,8 @@ masitapath = NodePath("../incorporeo")
 environment = SubResource( 1 )
 
 [node name="ParallaxBackground" parent="." instance=ExtResource( 9 )]
+
+[node name="enemy" parent="." instance=ExtResource( 13 )]
 [connection signal="pressed" from="Button" to="incorporeo" method="_on_Button_pressed"]
 
 [editable path="incorporeo"]
