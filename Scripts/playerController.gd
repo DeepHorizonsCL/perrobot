@@ -136,8 +136,8 @@ func updateRoboto(tranformacion):
 			$cabeza_torso_piernas.visible = false
 			$cuerpoentero.visible = false
 			
-			$colision_inf.disabled = false
-			$colision_sup.disabled = true
+			#$colision_inf.disabled = false
+			#$colision_sup.disabled = true
 
 			
 		"cabeza-brazo":
@@ -160,8 +160,8 @@ func updateRoboto(tranformacion):
 			$cabeza_torso_piernas.visible = false
 			$cuerpoentero.visible = false
 			
-			$colision_inf.disabled = false
-			$colision_sup.disabled = false
+			#$colision_inf.disabled = false
+			#$colision_sup.disabled = false
 			
 		"cabeza-2brazos":
 			speed = 645
@@ -182,8 +182,8 @@ func updateRoboto(tranformacion):
 			$cabeza_torso_piernas.visible = false
 			$cuerpoentero.visible = false
 			
-			$colision_inf.disabled = false
-			$colision_sup.disabled = false
+			#$colision_inf.disabled = false
+			#$colision_sup.disabled = false
 			
 		"cabeza-pierna":
 			speed = 120
@@ -204,8 +204,8 @@ func updateRoboto(tranformacion):
 			$cabeza_torso_piernas.visible = false
 			$cuerpoentero.visible = false
 			
-			$colision_inf.disabled = false
-			$colision_sup.disabled = false
+			#$colision_inf.disabled = false
+			#$colision_sup.disabled = false
 			
 		"cabeza-2piernas":
 			speed = 725
@@ -226,8 +226,8 @@ func updateRoboto(tranformacion):
 			$cabeza_torso_piernas.visible = false
 			$cuerpoentero.visible = false
 			
-			$colision_inf.disabled = false
-			$colision_sup.disabled = false
+			#$colision_inf.disabled = false
+			#$colision_sup.disabled = false
 			
 			
 		"cabeza-brazos_piernas":
@@ -249,8 +249,8 @@ func updateRoboto(tranformacion):
 			$cabeza_torso_piernas.visible = false
 			$cuerpoentero.visible = false
 			
-			$colision_inf.disabled = false
-			$colision_sup.disabled = false
+			#$colision_inf.disabled = false
+			#$colision_sup.disabled = false
 			
 			
 		"cabeza-torso":
@@ -272,8 +272,8 @@ func updateRoboto(tranformacion):
 			$cabeza_torso_piernas.visible = false
 			$cuerpoentero.visible = false
 			
-			$colision_inf.disabled = false
-			$colision_sup.disabled = false
+			#$colision_inf.disabled = false
+			#$colision_sup.disabled = false
 			
 		"cabeza-torso-brazos":
 			speed = 812
@@ -294,8 +294,8 @@ func updateRoboto(tranformacion):
 			$cabeza_torso_piernas.visible = false
 			$cuerpoentero.visible = false
 			
-			$colision_inf.disabled = false
-			$colision_sup.disabled = false
+			#$colision_inf.disabled = false
+			#$colision_sup.disabled = false
 			
 		"cabeza-torso-piernas":
 			speed = 812
@@ -316,8 +316,8 @@ func updateRoboto(tranformacion):
 			$cabeza_torso_piernas.visible = true
 			$cuerpoentero.visible = false
 			
-			$colision_inf.disabled = false
-			$colision_sup.disabled = false
+			#$colision_inf.disabled = false
+			#$colision_sup.disabled = false
 			
 		"cuerpo-entero":
 			speed = 832
@@ -338,11 +338,8 @@ func updateRoboto(tranformacion):
 			$cabeza_torso_piernas.visible = false
 			$cuerpoentero.visible = true
 			
-			$colision_inf.disabled = false
-			$colision_sup.disabled = false
-			
-		
-			
+			#$colision_inf.disabled = false
+			#$colision_sup.disabled = false
 		
 
 func _physics_process(delta):

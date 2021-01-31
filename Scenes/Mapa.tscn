@@ -199,3 +199,4 @@ cantidad = 2
 position = Vector2( 172.004, 3213.64 )
 
 [node name="incorporeo" parent="." instance=ExtResource( 7 )]
+position = Vector2( 237.133, -585.264 )
