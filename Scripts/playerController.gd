@@ -19,8 +19,8 @@ var gravity = 0
 
 
 var tope = 700
-var topeIni = 500
-var topeMax = 700
+var topeIni = 1800
+var topeMax = 2000
 var subida = 0
 var bajando = false
 
@@ -114,8 +114,7 @@ func updateRoboto(tranformacion):
 	match tranformacion:
 		"cabeza":
 			speed = 125
-			topeIni = 1212
-			topeMax = 1212
+			topeMax = 2120
 			correr_value = 1
 			
 			dificultadsalto_value = 0
@@ -140,8 +139,7 @@ func updateRoboto(tranformacion):
 			
 		"cabeza-brazo":
 			speed = 625
-			topeIni = 2000
-			topeMax = 3500
+			topeMax = 2500
 			
 			correr_value = 1
 			
@@ -164,8 +162,7 @@ func updateRoboto(tranformacion):
 			
 		"cabeza-2brazos":
 			speed = 645
-			topeIni = 2000
-			topeMax = 4000
+			topeMax = 2600
 			correr_value = 1
 			
 			dificultadsalto_value = 0.45
@@ -187,8 +184,7 @@ func updateRoboto(tranformacion):
 			
 		"cabeza-pierna":
 			speed = 725
-			topeIni = 2000
-			topeMax = 6000
+			topeMax = 2600
 			correr_value = 1.12
 			
 			dificultadsalto_value = 0.65
@@ -210,8 +206,7 @@ func updateRoboto(tranformacion):
 			
 		"cabeza-2piernas":
 			speed = 725
-			topeIni = 2000
-			topeMax = 4000
+			topeMax = 2700
 			correr_value = 1.12
 			
 			dificultadsalto_value = 0.65
@@ -234,8 +229,7 @@ func updateRoboto(tranformacion):
 			
 		"cabeza-brazos_piernas":
 			speed = 725
-			topeIni = 2000
-			topeMax = 4000
+			topeMax = 2800
 			correr_value = 1.12
 			
 			dificultadsalto_value = 0.85
@@ -258,8 +252,7 @@ func updateRoboto(tranformacion):
 			
 		"cabeza-torso":
 			speed = 812
-			topeIni = 2500
-			topeMax = 4000
+			topeMax = 2500
 			correr_value = 2.24
 			
 			dificultadsalto_value = 1
@@ -281,8 +274,7 @@ func updateRoboto(tranformacion):
 			
 		"cabeza-torso-brazos":
 			speed = 812
-			topeIni = 2000
-			topeMax = 3600
+			topeMax = 2600
 			correr_value = 2.24
 			
 			dificultadsalto_value = 1
@@ -304,8 +296,7 @@ func updateRoboto(tranformacion):
 			
 		"cabeza-torso-piernas":
 			speed = 812
-			topeIni = 2500
-			topeMax = 3800
+			topeMax = 2700
 			correr_value = 2.24
 			
 			dificultadsalto_value = 1
@@ -327,8 +318,7 @@ func updateRoboto(tranformacion):
 			
 		"cuerpo-entero":
 			speed = 824
-			topeIni = 2000
-			topeMax = 4000
+			topeMax = 3000
 			correr_value = 2.24
 			
 			dificultadsalto_value = 1
@@ -540,6 +530,10 @@ func _on_ani_cabeza_brazos_piernas_animation_finished():
 		saltando = true
 		move = 1
 		sumador_salto = 6
+		
+	if $ani_cabeza_brazos_piernas.animation == "post_jump" and is_on_floor() and not bajando:
+		move = 1
+		bajando = false
 		
 	if $ani_cabeza_brazos_piernas.animation == "land" and is_on_floor() and bajando:
 		move = 1
