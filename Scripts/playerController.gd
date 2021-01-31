@@ -51,11 +51,13 @@ var inmunidadTemporal = false
 var estado_robot = "vacio"
 
 func _ready():
-	updateRoboto("cabeza")
+	#updateRoboto("cabeza")
 	actual_ani = $ani_cabeza_brazos_piernas
 	
 func init_robot():
+	print ("inciar robot")
 	updateRoboto("cabeza")
+	move = 1
 	
 func add_pieza(pieza,num):
 	
@@ -116,6 +118,7 @@ func updateRoboto(tranformacion):
 	
 	match tranformacion:
 		"cabeza":
+			print("cabeza")
 			speed = 125
 			topeMax = 1850
 			correr_value = 1
@@ -367,14 +370,14 @@ func _physics_process(delta):
 		if abs(pres)<0.01:
 			pres = 0.0
 
-	if Input.is_action_pressed("ui_right"):
+	if Input.is_action_pressed("ui_right") and move != 0:
 		dir = 1
 		pres += 1.0
 		if is_on_floor(): 
 			actual_ani.flip_h = true
 
 		
-	if Input.is_action_pressed("ui_left"):
+	if Input.is_action_pressed("ui_left") and move != 0:
 		dir = -1
 		pres -= 1.0
 		if is_on_floor(): 
