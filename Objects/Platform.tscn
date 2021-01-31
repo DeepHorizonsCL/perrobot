@@ -6,8 +6,8 @@ extents = Vector2( 31.8329, 31.029 )
 [node name="Platform" type="StaticBody2D"]
 position = Vector2( 0, 0.280617 )
 scale = Vector2( 4.43, 0.75 )
-collision_layer = 3
-collision_mask = 3
+collision_layer = 7
+collision_mask = 7
 __meta__ = {
 "_edit_group_": true
 }
