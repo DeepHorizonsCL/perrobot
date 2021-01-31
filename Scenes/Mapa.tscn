@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Objects/Platform.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Floor.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Objects/Player/parterobot.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Objects/puas.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Objects/incorporeo.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Objects/nave.tscn" type="PackedScene" id=8]
 
 [node name="Node2D" type="Node2D"]
 
@@ -15,9 +16,8 @@
 ] instance=ExtResource( 3 )]
 position = Vector2( 245.433, 48.677 )
 
-[node name="Camera2D" type="Camera2D" parent="roboto"]
-position = Vector2( -0.00012207, -322.077 )
-current = true
+[node name="CameraRobot" type="Camera2D" parent="roboto"]
+position = Vector2( 24.324, -311.26 )
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
 
@@ -198,5 +198,30 @@ cantidad = 2
 [node name="espinas" parent="." instance=ExtResource( 6 )]
 position = Vector2( 172.004, 3213.64 )
 
+[node name="Button" type="Button" parent="."]
+margin_left = 485.134
+margin_top = -1228.21
+margin_right = 592.134
+margin_bottom = -1158.21
+text = "Start"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="incorporeo" parent="." instance=ExtResource( 7 )]
-position = Vector2( 237.133, -585.264 )
+position = Vector2( 97.1409, -1744.45 )
+robotopath = NodePath("../roboto")
+buttonpath = NodePath("../Button")
+camerapath = NodePath("CameraMasa")
+camerarobopath = NodePath("../roboto/CameraRobot")
+
+[node name="CameraMasa" type="Camera2D" parent="incorporeo"]
+position = Vector2( 418.649, 197.799 )
+current = true
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+
+[node name="nave" parent="." instance=ExtResource( 8 )]
+position = Vector2( 182.371, -1738.13 )
+masitapath = NodePath("../incorporeo")
+[connection signal="pressed" from="Button" to="incorporeo" method="_on_Button_pressed"]
