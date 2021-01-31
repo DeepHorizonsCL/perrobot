@@ -8,7 +8,7 @@ export var estadoColision = false;
 
 
 #variables de posicion
-var push_x = 50;
+var push_x = 60;
 var push_y = 50;
 
 #movimiento en los ejes
@@ -16,7 +16,7 @@ var move_x = 0
 var move_y = 0
 
 #variables de gravedad
-var gravity_val = 1224
+var gravity_val = 1112
 var gravity = 0
 
 var tope = 700
