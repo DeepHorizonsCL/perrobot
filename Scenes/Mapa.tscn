@@ -1,11 +1,13 @@
-[gd_scene load_steps=10 format=2]
 
+[gd_scene load_steps=10 format=2]
 [ext_resource path="res://Objects/Platform.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Floor.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Objects/Player/roboto.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Objects/Bloqueador.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Objects/Player/parterobot.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Objects/puas.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Objects/incorporeo.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Objects/nave.tscn" type="PackedScene" id=8]
 
 [sub_resource type="Curve" id=1]
 min_value = -40.0
@@ -31,10 +33,12 @@ angle_random = 1.0
 [node name="roboto" parent="." groups=[
 "player",
 ] instance=ExtResource( 3 )]
-position = Vector2( 245.601, 57.1622 )
+position = Vector2( 245.433, 48.677 )
 
-[node name="Camera2D" type="Camera2D" parent="roboto"]
-current = true
+[node name="CameraRobot" type="Camera2D" parent="roboto"]
+position = Vector2( 24.324, -311.26 )
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
 
 [node name="Particles2D" type="Particles2D" parent="roboto"]
 position = Vector2( -16.5738, -574.133 )
@@ -48,7 +52,7 @@ process_material = SubResource( 3 )
 position = Vector2( -3.77551, -117.04 )
 
 [node name="Platform" parent="Platforms" instance=ExtResource( 1 )]
-position = Vector2( 229.443, 132.109 )
+position = Vector2( 227.324, 134.228 )
 
 [node name="Platform10" parent="Platforms" instance=ExtResource( 1 )]
 position = Vector2( 1408.73, 958.617 )
@@ -102,7 +106,7 @@ position = Vector2( -1000.24, 1195.48 )
 position = Vector2( 686.388, 443.739 )
 
 [node name="Platform3" parent="Platforms" instance=ExtResource( 1 )]
-position = Vector2( 463.208, 216.477 )
+position = Vector2( 463.208, 216.057 )
 rotation = 0.69578
 
 [node name="Platform4" parent="Platforms" instance=ExtResource( 1 )]
@@ -115,21 +119,6 @@ rotation = -0.751508
 
 [node name="Platform6" parent="Platforms" instance=ExtResource( 1 )]
 position = Vector2( 1216.84, 360.678 )
-
-[node name="Platform25" parent="Platforms" instance=ExtResource( 1 )]
-position = Vector2( 2385.7, 3090.39 )
-
-[node name="Platform26" parent="Platforms" instance=ExtResource( 1 )]
-position = Vector2( 2642.28, 3090.39 )
-
-[node name="Platform27" parent="Platforms" instance=ExtResource( 1 )]
-position = Vector2( 3015.89, 2994.14 )
-
-[node name="Platform28" parent="Platforms" instance=ExtResource( 1 )]
-position = Vector2( 3440.37, 2916.72 )
-
-[node name="Platform29" parent="Platforms" instance=ExtResource( 1 )]
-position = Vector2( 3864.85, 2911.38 )
 
 [node name="bloqueador" parent="Platforms" instance=ExtResource( 4 )]
 position = Vector2( 1425, 187 )
@@ -147,11 +136,19 @@ position = Vector2( -966.272, 3269.38 )
 scale = Vector2( 32.3403, -1.53418 )
 
 [node name="Floor10" parent="Platforms" instance=ExtResource( 2 )]
-position = Vector2( 1071.76, 3266.44 )
+position = Vector2( 1072.29, 3269.8 )
+scale = Vector2( 32.3403, -1.53418 )
+
+[node name="Floor13" parent="Platforms" instance=ExtResource( 2 )]
+position = Vector2( 3513.8, 3172.33 )
+scale = Vector2( 32.3403, -1.53418 )
+
+[node name="Floor14" parent="Platforms" instance=ExtResource( 2 )]
+position = Vector2( -2169.64, 2986.09 )
 scale = Vector2( 32.3403, -1.53418 )
 
 [node name="Floor12" parent="Platforms" instance=ExtResource( 2 )]
-position = Vector2( 5314.85, 3019.08 )
+position = Vector2( 5775.46, 3008.22 )
 scale = Vector2( 32.3403, -1.53418 )
 
 [node name="Platform7" parent="Platforms" instance=ExtResource( 1 )]
@@ -208,11 +205,11 @@ position = Vector2( 849.808, 1566.06 )
 piezanombre = "torso"
 
 [node name="pierna1" parent="." instance=ExtResource( 5 )]
-position = Vector2( 995.274, 528.783 )
+position = Vector2( 692.368, 368.421 )
 piezanombre = "pierna"
 
 [node name="pierna2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 875.082, 1089.08 )
+position = Vector2( 1170.86, 283.708 )
 piezanombre = "pierna"
 
 [node name="pierna3" parent="." instance=ExtResource( 5 )]
@@ -228,3 +225,31 @@ cantidad = 2
 
 [node name="espinas" parent="." instance=ExtResource( 6 )]
 position = Vector2( 172.004, 3213.64 )
+
+[node name="Button" type="Button" parent="."]
+margin_left = 485.134
+margin_top = -1228.21
+margin_right = 592.134
+margin_bottom = -1158.21
+text = "Start"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="incorporeo" parent="." instance=ExtResource( 7 )]
+position = Vector2( 97.1409, -1744.45 )
+robotopath = NodePath("../roboto")
+buttonpath = NodePath("../Button")
+camerapath = NodePath("CameraMasa")
+camerarobopath = NodePath("../roboto/CameraRobot")
+
+[node name="CameraMasa" type="Camera2D" parent="incorporeo"]
+position = Vector2( 418.649, 197.799 )
+current = true
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+
+[node name="nave" parent="." instance=ExtResource( 8 )]
+position = Vector2( 182.371, -1738.13 )
+masitapath = NodePath("../incorporeo")
+[connection signal="pressed" from="Button" to="incorporeo" method="_on_Button_pressed"]

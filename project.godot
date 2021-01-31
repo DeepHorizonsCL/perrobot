@@ -19,6 +19,10 @@ config/name="Perrobot"
 run/main_scene="res://Scenes/Mapa.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Global="*res://Scripts/Global.gd"
+
 [display]
 
 window/size/width=1920
