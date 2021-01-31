@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Objects/Platform.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Floor.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Objects/Bloqueador.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Objects/Player/parterobot.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Objects/puas.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Objects/incorporeo.tscn" type="PackedScene" id=7]
 
 [node name="Node2D" type="Node2D"]
 
@@ -204,3 +205,6 @@ estadoColision = true
 
 [node name="espinas" parent="." instance=ExtResource( 6 )]
 position = Vector2( 172.004, 3213.64 )
+
+[node name="incorporeo" parent="." instance=ExtResource( 7 )]
+position = Vector2( 237.133, -585.264 )
