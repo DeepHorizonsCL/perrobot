@@ -5,6 +5,7 @@
 [ext_resource path="res://Objects/Player/roboto.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Objects/Bloqueador.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Objects/Player/parterobot.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Objects/puas.tscn" type="PackedScene" id=6]
 
 [sub_resource type="Curve" id=1]
 min_value = -40.0
@@ -115,6 +116,21 @@ rotation = -0.751508
 [node name="Platform6" parent="Platforms" instance=ExtResource( 1 )]
 position = Vector2( 1216.84, 360.678 )
 
+[node name="Platform25" parent="Platforms" instance=ExtResource( 1 )]
+position = Vector2( 2385.7, 3090.39 )
+
+[node name="Platform26" parent="Platforms" instance=ExtResource( 1 )]
+position = Vector2( 2642.28, 3090.39 )
+
+[node name="Platform27" parent="Platforms" instance=ExtResource( 1 )]
+position = Vector2( 3015.89, 2994.14 )
+
+[node name="Platform28" parent="Platforms" instance=ExtResource( 1 )]
+position = Vector2( 3440.37, 2916.72 )
+
+[node name="Platform29" parent="Platforms" instance=ExtResource( 1 )]
+position = Vector2( 3864.85, 2911.38 )
+
 [node name="bloqueador" parent="Platforms" instance=ExtResource( 4 )]
 position = Vector2( 1425, 187 )
 
@@ -123,7 +139,19 @@ position = Vector2( 232.847, 611.182 )
 scale = Vector2( 32.3403, -1.53418 )
 
 [node name="Floor8" parent="Platforms" instance=ExtResource( 2 )]
-position = Vector2( 99.2992, 2720.71 )
+position = Vector2( 99.2992, 2728.71 )
+scale = Vector2( 32.3403, -1.53418 )
+
+[node name="Floor9" parent="Platforms" instance=ExtResource( 2 )]
+position = Vector2( -966.272, 3269.38 )
+scale = Vector2( 32.3403, -1.53418 )
+
+[node name="Floor10" parent="Platforms" instance=ExtResource( 2 )]
+position = Vector2( 1071.76, 3266.44 )
+scale = Vector2( 32.3403, -1.53418 )
+
+[node name="Floor12" parent="Platforms" instance=ExtResource( 2 )]
+position = Vector2( 5314.85, 3019.08 )
 scale = Vector2( 32.3403, -1.53418 )
 
 [node name="Platform7" parent="Platforms" instance=ExtResource( 1 )]
@@ -153,27 +181,50 @@ position = Vector2( -1401.87, 594.761 )
 rotation = 1.5708
 scale = Vector2( 37.15, 6.03 )
 
-[node name="Floor6" parent="Platforms" instance=ExtResource( 2 )]
-position = Vector2( 192.47, 2256.37 )
+[node name="Floor11" parent="Platforms" instance=ExtResource( 2 )]
+position = Vector2( -1774.81, 2146.98 )
 rotation = 1.5708
-scale = Vector2( 22.3223, 2.67321 )
+scale = Vector2( 37.15, 6.03 )
+
+[node name="Floor6" parent="Platforms" instance=ExtResource( 2 )]
+position = Vector2( 181.791, 1999.42 )
+rotation = 1.5708
+scale = Vector2( 30.7933, 2.1401 )
 
 [node name="brazo1" parent="." instance=ExtResource( 5 )]
 position = Vector2( -534.169, 537.459 )
-piezanombre = "cabeza-brazo"
+piezanombre = "brazo"
 
 [node name="brazo2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 14.2865, 2644.99 )
-piezanombre = "cabeza-brazo"
+position = Vector2( -916.651, 944.751 )
+piezanombre = "brazo"
 
-[node name="parteRobot2" parent="." instance=ExtResource( 5 )]
+[node name="torso1" parent="." instance=ExtResource( 5 )]
+position = Vector2( -123.661, 1380.7 )
+piezanombre = "torso"
+
+[node name="torso2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 849.808, 1566.06 )
+piezanombre = "torso"
+
+[node name="pierna1" parent="." instance=ExtResource( 5 )]
 position = Vector2( 995.274, 528.783 )
-piezanombre = "cabeza-pierna"
+piezanombre = "pierna"
 
-[node name="parteRobot4" parent="." instance=ExtResource( 5 )]
-position = Vector2( 440.9, 1859.28 )
-piezanombre = "cabeza-pierna"
+[node name="pierna2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 875.082, 1089.08 )
+piezanombre = "pierna"
 
-[node name="parteRobot3" parent="." instance=ExtResource( 5 )]
-position = Vector2( 2032.44, 160.535 )
-piezanombre = "cuerpo-entero"
+[node name="pierna3" parent="." instance=ExtResource( 5 )]
+position = Vector2( -18.1407, 2643.01 )
+scale = Vector2( 0.998682, 1 )
+piezanombre = "pierna"
+cantidad = 2
+
+[node name="brazo3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 388.927, 2623.66 )
+piezanombre = "brazo"
+cantidad = 2
+
+[node name="espinas" parent="." instance=ExtResource( 6 )]
+position = Vector2( 172.004, 3213.64 )

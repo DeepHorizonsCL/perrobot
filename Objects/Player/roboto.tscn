@@ -1,10 +1,16 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://Sprites/robotHead.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/roboto/robotHead.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/playerController.gd" type="Script" id=2]
-[ext_resource path="res://Sprites/mano.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/pierna.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/cuerpoentero.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/roboto/mano.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/roboto/pierna.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/roboto/cuerpoentero.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/roboto/2manos.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/roboto/torso.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/roboto/2piernas.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/roboto/torsopiernas.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/roboto/torso_brazos.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/roboto/cabeza_brazos_piernas.png" type="Texture" id=11]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 21.1276
@@ -20,13 +26,44 @@ visible = false
 position = Vector2( 2.12148, -37.9837 )
 texture = ExtResource( 3 )
 
+[node name="cabeza_2manos" type="Sprite" parent="."]
+visible = false
+position = Vector2( 2.98129, -31.0401 )
+texture = ExtResource( 6 )
+
 [node name="cabeza_pierna" type="Sprite" parent="."]
 visible = false
 position = Vector2( 2.21622, -39.1408 )
 texture = ExtResource( 4 )
 
+[node name="cabeza_2piernas" type="Sprite" parent="."]
+visible = false
+position = Vector2( 0.736389, -44.5097 )
+texture = ExtResource( 8 )
+
+[node name="cabeza_brazos_piernas" type="Sprite" parent="."]
+visible = false
+position = Vector2( 2.23694, -43.857 )
+texture = ExtResource( 11 )
+
+[node name="cabeza_torso" type="Sprite" parent="."]
+visible = false
+position = Vector2( 1.29761, -39.4586 )
+texture = ExtResource( 7 )
+
+[node name="cabeza_torso_brazos" type="Sprite" parent="."]
+visible = false
+position = Vector2( 1.85883, -40.0198 )
+texture = ExtResource( 10 )
+
+[node name="cabeza_torso_piernas" type="Sprite" parent="."]
+visible = false
+position = Vector2( 5.0434, -49.469 )
+texture = ExtResource( 9 )
+
 [node name="cuerpoentero" type="Sprite" parent="."]
 position = Vector2( 2.42014, -41.1422 )
+scale = Vector2( 1, 1.02265 )
 texture = ExtResource( 5 )
 
 [node name="colision_sup" type="CollisionShape2D" parent="."]
@@ -36,7 +73,7 @@ shape = SubResource( 1 )
 [node name="colision_inf" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 3.0
+[node name="TimerInmune" type="Timer" parent="."]
+wait_time = 2.0
 one_shot = true
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="TimerInmune" to="." method="_on_TimerInmune_timeout"]

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/robotHead.png-2aef01ab5a265643e8dc290ed72c6f9e.stex"
+path="res://.import/2piernas.png-cfd421a5723383a5bc21068d7b6e2438.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/robotHead.png"
-dest_files=[ "res://.import/robotHead.png-2aef01ab5a265643e8dc290ed72c6f9e.stex" ]
+source_file="res://Sprites/roboto/2piernas.png"
+dest_files=[ "res://.import/2piernas.png-cfd421a5723383a5bc21068d7b6e2438.stex" ]
 
 [params]
 
