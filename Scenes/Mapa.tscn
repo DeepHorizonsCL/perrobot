@@ -23,7 +23,7 @@ glow_hdr_scale = 2.25
 [node name="roboto" parent="." groups=[
 "player",
 ] instance=ExtResource( 3 )]
-position = Vector2( 245.433, 48.677 )
+position = Vector2( 247.811, -9.59415 )
 
 [node name="CameraRobot" type="Camera2D" parent="roboto"]
 position = Vector2( 24.324, -311.26 )
@@ -170,7 +170,7 @@ rotation = 1.5708
 scale = Vector2( 30.7933, 2.1401 )
 
 [node name="brazo1" parent="." instance=ExtResource( 5 )]
-position = Vector2( -534.169, 537.459 )
+position = Vector2( -534.169, 540.456 )
 piezanombre = "brazo"
 
 [node name="brazo2" parent="." instance=ExtResource( 5 )]
@@ -178,7 +178,7 @@ position = Vector2( -916.651, 944.751 )
 piezanombre = "brazo"
 
 [node name="torso1" parent="." instance=ExtResource( 5 )]
-position = Vector2( -123.661, 1380.7 )
+position = Vector2( -125.549, 1378.81 )
 piezanombre = "torso"
 
 [node name="torso2" parent="." instance=ExtResource( 5 )]
@@ -186,7 +186,7 @@ position = Vector2( 849.808, 1566.06 )
 piezanombre = "torso"
 
 [node name="pierna1" parent="." instance=ExtResource( 5 )]
-position = Vector2( 692.368, 368.421 )
+position = Vector2( 690.48, 368.421 )
 piezanombre = "pierna"
 
 [node name="pierna2" parent="." instance=ExtResource( 5 )]
@@ -194,18 +194,21 @@ position = Vector2( 1170.86, 283.708 )
 piezanombre = "pierna"
 
 [node name="pierna3" parent="." instance=ExtResource( 5 )]
-position = Vector2( -18.1407, 2643.01 )
+position = Vector2( -18.1407, 2648.35 )
 scale = Vector2( 0.998682, 1 )
 piezanombre = "pierna"
 cantidad = 2
 
 [node name="brazo3" parent="." instance=ExtResource( 5 )]
-position = Vector2( 388.927, 2623.66 )
+position = Vector2( 394.266, 2623.66 )
 piezanombre = "brazo"
 cantidad = 2
 
 [node name="espinas" parent="." instance=ExtResource( 6 )]
 position = Vector2( 172.004, 3213.64 )
+
+[node name="espinas2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 351.344, 546.065 )
 
 [node name="Button" type="Button" parent="."]
 margin_left = 485.134

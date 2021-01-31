@@ -107,10 +107,10 @@ animations = [ {
 "name": "land",
 "speed": 30.0
 }, {
-"frames": [ ExtResource( 43 ), ExtResource( 40 ), ExtResource( 34 ), ExtResource( 75 ), ExtResource( 25 ), ExtResource( 17 ), ExtResource( 19 ), ExtResource( 55 ), ExtResource( 20 ), ExtResource( 36 ), ExtResource( 50 ), ExtResource( 84 ), ExtResource( 79 ), ExtResource( 80 ), ExtResource( 81 ), ExtResource( 82 ), ExtResource( 83 ), ExtResource( 86 ), ExtResource( 85 ) ],
-"loop": true,
-"name": "walk",
-"speed": 15.0
+"frames": [ ExtResource( 35 ), ExtResource( 48 ), ExtResource( 68 ) ],
+"loop": false,
+"name": "post_jump",
+"speed": 25.0
 }, {
 "frames": [ ExtResource( 35 ), ExtResource( 48 ), ExtResource( 68 ) ],
 "loop": false,
