@@ -414,10 +414,14 @@ func _physics_process(delta):
 	if Input.is_action_pressed("ui_run"):
 		print("running")
 		correr = correr_value
+		if correr_value != 1:
+			actual_ani.animation = "run"
+			actual_ani.speed_scale = 2.65
 		#$SpriteUp.speed_scale = 2.65
 		#$SpriteDown.speed_scale = 2.65
 	else:
 		correr = 1
+		actual_ani.speed_scale = 1
 		#$SpriteUp.speed_scale = 2.12
 		#$SpriteDown.speed_scale = 2.64
 
@@ -496,7 +500,7 @@ func dano():
 		inmunidadTemporal = true
 		modulate.a = 0.45
 		print("ouch")
-
+		$sfx_golpe.play()
 		
 		if cantidad_brazos > 1:
 			expulsarParte("brazo",-200)
@@ -570,6 +574,7 @@ func _on_ani_cabeza_brazos_piernas_animation_finished():
 		saltando = true
 		move = 1
 		sumador_salto = 6
+		$sfx_salto.play()
 		
 		
 	if $ani_cabeza_brazos_piernas.animation == "land" and is_on_floor() and bajando:
