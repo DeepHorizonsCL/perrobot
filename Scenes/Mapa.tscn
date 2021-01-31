@@ -29,6 +29,7 @@ glow_hdr_scale = 2.25
 [node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer"]
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/ParallaxBackground"]
+visible = false
 margin_left = -1845.82
 margin_top = -125.343
 margin_right = 5947.18
