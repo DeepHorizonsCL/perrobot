@@ -17,7 +17,7 @@ onready var mycamera = get_node(camerapath)
 export (NodePath) var camerarobopath
 onready var robotocamera = get_node(camerarobopath) 
 
-
+var destello = preload("res://Objects/destello.tscn")
 
 func _ready():
 	button.visible = false
@@ -40,12 +40,18 @@ func activateMasita():
 
 func _on_Area2D_body_entered(body):
 	if body.is_in_group("player"):
+		print("crear destello")
+		var new_destello = destello.instance()
+		new_destello.poseedor = self
+		get_parent().add_child(new_destello)
+		new_destello.position = position
+		
+func activate_roboto():
 		visible = false
 		mycamera.current = false
 		robotocamera.make_current()
 		roboto. init_robot()
 		queue_free()
-
 
 func _on_Button_pressed():
 	activateMasita()
