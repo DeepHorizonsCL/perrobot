@@ -11,5 +11,5 @@ dest_files=[ "res://.import/GGJ2021_Golpe.ogg-4ead445fe78c3177b5a110ef2b960fc1.o
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

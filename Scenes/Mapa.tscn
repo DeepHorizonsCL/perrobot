@@ -25,10 +25,12 @@ glow_hdr_scale = 2.25
 
 [node name="Node2D" type="Node2D"]
 
+[node name="ParallaxBackground" parent="." instance=ExtResource( 9 )]
+
 [node name="roboto" parent="." groups=[
 "player",
 ] instance=ExtResource( 3 )]
-position = Vector2( 243.573, -5.59415 )
+position = Vector2( 243.573, -7.37595 )
 collision_layer = 5
 collision_mask = 5
 cancionpath = NodePath("../LevelMusic")
@@ -270,8 +272,6 @@ masitapath = NodePath("../incorporeo")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 1 )
-
-[node name="ParallaxBackground" parent="." instance=ExtResource( 9 )]
 
 [node name="enemy" parent="." instance=ExtResource( 13 )]
 [connection signal="pressed" from="Button" to="incorporeo" method="_on_Button_pressed"]

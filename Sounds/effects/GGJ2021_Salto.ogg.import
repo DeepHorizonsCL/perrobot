@@ -11,5 +11,5 @@ dest_files=[ "res://.import/GGJ2021_Salto.ogg-350ca92291e8d8e54a9dba8f0c674e98.o
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

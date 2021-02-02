@@ -10,7 +10,7 @@ var dir = 1
 func _physics_process(delta):
 	var izq = $izq.get_collider()
 	var der = $der.get_collider()
-	print(izq)
+	#print(izq)
 	if not der and izq:
 		dir = -1
 	elif der and not izq:
