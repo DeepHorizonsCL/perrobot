@@ -111,7 +111,7 @@ animations = [ {
 [node name="roboto" parent="." groups=[
 "player",
 ] instance=ExtResource( 3 )]
-position = Vector2( 243.573, -7.37595 )
+position = Vector2( 323.281, 2727.82 )
 collision_layer = 5
 collision_mask = 5
 cancionpath = NodePath("../LevelMusic")
@@ -140,10 +140,10 @@ bus = "Music_bus"
 [node name="Platforms" type="Node2D" parent="."]
 
 [node name="bloqueador" parent="Platforms" instance=ExtResource( 4 )]
-position = Vector2( 1425, 187 )
+position = Vector2( 2629.64, 151.041 )
 
 [node name="brazo1" parent="." instance=ExtResource( 5 )]
-position = Vector2( 798.209, -14.6558 )
+position = Vector2( 997.458, 2870.02 )
 piezanombre = "brazo"
 cantidad = 2
 
@@ -152,27 +152,23 @@ position = Vector2( -916.651, 944.751 )
 piezanombre = "brazo"
 
 [node name="Floor" parent="." instance=ExtResource( 2 )]
-position = Vector2( -514.143, 187.147 )
+position = Vector2( -763.88, 3053.24 )
 
 [node name="Floor2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 788.615, 77.5335 )
+position = Vector2( 786.698, 2955.97 )
 
 [node name="torso1" parent="." instance=ExtResource( 5 )]
 position = Vector2( -125.549, 1378.81 )
 piezanombre = "torso"
 
 [node name="torso2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 481.911, -26.4802 )
+position = Vector2( 572.24, 2795.6 )
 piezanombre = "torso"
 
 [node name="pierna1" parent="." instance=ExtResource( 5 )]
-position = Vector2( 626.48, -1.57901 )
+position = Vector2( 823.963, 2841.72 )
 piezanombre = "pierna"
 cantidad = 2
-
-[node name="pierna2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1040.86, -0.291992 )
-piezanombre = "pierna"
 
 [node name="espinas2" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1863.3, 169.322 )
@@ -216,16 +212,16 @@ masitapath = NodePath("../incorporeo")
 environment = SubResource( 1 )
 
 [node name="enemy" parent="." instance=ExtResource( 13 )]
-position = Vector2( -665.343, 80.5192 )
+position = Vector2( -871.397, 2962.12 )
 
 [node name="AnimatedSprite" parent="enemy" index="0"]
-visible = false
-frame = 14
+position = Vector2( -77.5553, -256.128 )
+frame = 6
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="enemy"]
-position = Vector2( -72.0435, -241.558 )
+visible = false
 frames = SubResource( 2 )
-frame = 11
+frame = 64
 playing = true
 [connection signal="pressed" from="Button" to="incorporeo" method="_on_Button_pressed"]
 
