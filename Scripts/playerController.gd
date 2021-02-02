@@ -68,7 +68,6 @@ func init_robot():
 	cancion.play()
 	
 func add_pieza(pieza,num):
-	
 	match pieza:
 		"brazo":
 			if cantidad_brazos < 2:

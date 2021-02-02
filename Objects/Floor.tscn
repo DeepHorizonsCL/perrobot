@@ -1,10 +1,12 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Sprites/plataforma/tbrender_Viewport_009.png" type="Texture" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 13, 32 )
+extents = Vector2( 259.139, 66.7075 )
 
 [node name="Floor" type="StaticBody2D"]
-scale = Vector2( 15.75, 0.75 )
+z_index = -2
 collision_layer = 7
 collision_mask = 7
 __meta__ = {
@@ -21,7 +23,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="tbrender_Viewport_009" type="Sprite" parent="."]
+position = Vector2( 1.7818, 1.67328 )
+texture = ExtResource( 1 )
+
 [node name="Collision" type="CollisionShape2D" parent="."]
-position = Vector2( -1.90735e-06, 0 )
+position = Vector2( 1.78174, 49.7818 )
 scale = Vector2( 2.46154, 1 )
 shape = SubResource( 1 )
