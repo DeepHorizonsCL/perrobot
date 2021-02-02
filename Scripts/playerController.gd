@@ -165,6 +165,7 @@ func updateRoboto(tranformacion):
 			$ani_cuerpo_entero.visible = false
 			$ani_torso.visible = false
 			$ani_torso_piernas.visible = false
+			$ani_cabeza_piernas.visible = false
 			
 			$cabeza.visible = false
 			$cabeza_mano.visible = true
@@ -189,9 +190,11 @@ func updateRoboto(tranformacion):
 			dificultadsalto_value = 0.45
 			devolverEnSalto_value = 0.45
 			
+			actual_ani = $ani_cabeza_piernas
 			$ani_cuerpo_entero.visible = false
 			$ani_torso.visible = false
 			$ani_torso_piernas.visible = false
+			$ani_cabeza_brazos_piernas.visible = false
 			
 			$cabeza.visible = false
 			$cabeza_mano.visible = false
@@ -215,9 +218,11 @@ func updateRoboto(tranformacion):
 			dificultadsalto_value = 0.65
 			devolverEnSalto_value = 0.45
 			
+			actual_ani = $ani_cabeza_piernas
 			$ani_cuerpo_entero.visible = false
 			$ani_torso.visible = false
 			$ani_torso_piernas.visible = false
+			$ani_cabeza_brazos_piernas.visible = false
 			
 			$cabeza.visible = false
 			$cabeza_mano.visible = false
@@ -241,9 +246,12 @@ func updateRoboto(tranformacion):
 			dificultadsalto_value = 0.65
 			devolverEnSalto_value = 0.45
 			
+			actual_ani = $ani_cabeza_piernas
 			$ani_cuerpo_entero.visible = false
 			$ani_torso.visible = false
 			$ani_torso_piernas.visible = false
+			$ani_cabeza_brazos_piernas.visible = false
+			
 			
 			$cabeza.visible = false
 			$cabeza_mano.visible = false
@@ -270,6 +278,7 @@ func updateRoboto(tranformacion):
 			$ani_cuerpo_entero.visible = false
 			$ani_torso.visible = false
 			$ani_torso_piernas.visible = false
+			$ani_cabeza_piernas.visible = false
 			
 			dificultadsalto_value = 0.85
 			devolverEnSalto_value = 0.45
@@ -301,6 +310,7 @@ func updateRoboto(tranformacion):
 			$ani_cuerpo_entero.visible = false
 			$ani_cabeza_brazos_piernas.visible = false
 			$ani_torso_piernas.visible = false
+			$ani_cabeza_piernas.visible = false
 			
 			$cabeza.visible = false
 			$cabeza_mano.visible = false
@@ -329,6 +339,7 @@ func updateRoboto(tranformacion):
 			$ani_torso.visible = false
 			$ani_torso_piernas.visible = false
 			$ani_cabeza_brazos_piernas.visible = false
+			$ani_cabeza_piernas.visible = false
 			
 			$cabeza.visible = false
 			$cabeza_mano.visible = false
@@ -357,7 +368,7 @@ func updateRoboto(tranformacion):
 			$ani_torso.visible = false
 			$ani_torso_piernas.visible = false
 			$ani_cabeza_brazos_piernas.visible = false
-			
+			$ani_cabeza_piernas.visible = false
 			
 			$cabeza.visible = false
 			$cabeza_mano.visible = false
@@ -385,6 +396,7 @@ func updateRoboto(tranformacion):
 			$ani_cabeza_brazos_piernas.visible = false
 			$ani_torso.visible = false
 			$ani_torso_piernas.visible = false
+			$ani_cabeza_piernas.visible = false
 			
 			$cabeza.visible = false
 			$cabeza_mano.visible = false
@@ -677,6 +689,22 @@ func _on_ani_torso_piernas_animation_finished():
 		
 		
 	if $ani_torso_piernas.animation == "land" and is_on_floor() and bajando:
+		move = 1
+		prejump = false
+		bajando = false
+
+
+func _on_ani_cabeza_piernas_animation_finished():
+	if $ani_cabeza_piernas.animation == "pre_jump":
+		print("comence el salto")
+		prejump = false
+		saltando = true
+		move = 1
+		sumador_salto = 6
+		$sfx_salto.play()
+		
+		
+	if $ani_cabeza_piernas.animation == "land" and is_on_floor() and bajando:
 		move = 1
 		prejump = false
 		bajando = false

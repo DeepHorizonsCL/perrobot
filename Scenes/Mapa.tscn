@@ -117,8 +117,8 @@ collision_mask = 5
 cancionpath = NodePath("../LevelMusic")
 
 [node name="CameraRobot" type="Camera2D" parent="roboto"]
-position = Vector2( 24.324, -311.26 )
-zoom = Vector2( 2, 2 )
+position = Vector2( 7.35329, -294.29 )
+zoom = Vector2( 1.25, 1.25 )
 limit_left = -1700
 limit_top = -2000
 limit_right = 6000
@@ -216,12 +216,12 @@ position = Vector2( -871.397, 2962.12 )
 
 [node name="AnimatedSprite" parent="enemy" index="0"]
 position = Vector2( -77.5553, -256.128 )
-frame = 6
+frame = 33
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="enemy"]
 visible = false
 frames = SubResource( 2 )
-frame = 64
+frame = 47
 playing = true
 [connection signal="pressed" from="Button" to="incorporeo" method="_on_Button_pressed"]
 
