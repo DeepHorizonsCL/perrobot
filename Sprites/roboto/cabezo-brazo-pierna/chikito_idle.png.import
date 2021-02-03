@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/corriendo_chikito.png-90cd6035e51956c61f8d33f3d05162d1.stex"
+path="res://.import/chikito_idle.png-c74d6bb7fc513279f39da960526b2070.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/roboto/chikito/corriendo_chikito.png"
-dest_files=[ "res://.import/corriendo_chikito.png-90cd6035e51956c61f8d33f3d05162d1.stex" ]
+source_file="res://Sprites/roboto/cabezo-brazo-pierna/chikito_idle.png"
+dest_files=[ "res://.import/chikito_idle.png-c74d6bb7fc513279f39da960526b2070.stex" ]
 
 [params]
 
