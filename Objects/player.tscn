@@ -352,7 +352,9 @@ animations = [ {
 "speed": 30.0
 } ]
 
-[node name="roboto" type="KinematicBody2D"]
+[node name="roboto" type="KinematicBody2D" groups=[
+"player",
+]]
 script = ExtResource( 1 )
 pierna = true
 brazo = true

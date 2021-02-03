@@ -15,6 +15,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
+piezanombre = "brazo"
 
 [node name="icon" type="Sprite" parent="."]
 texture = ExtResource( 2 )

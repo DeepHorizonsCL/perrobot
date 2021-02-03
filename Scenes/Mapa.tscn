@@ -111,7 +111,7 @@ animations = [ {
 [node name="roboto" parent="." groups=[
 "player",
 ] instance=ExtResource( 3 )]
-position = Vector2( 323.281, 2727.82 )
+position = Vector2( 242.184, 2675.22 )
 collision_layer = 5
 collision_mask = 5
 cancionpath = NodePath("../LevelMusic")
@@ -145,7 +145,6 @@ position = Vector2( 2629.64, 151.041 )
 [node name="brazo1" parent="." instance=ExtResource( 5 )]
 position = Vector2( 997.458, 2870.02 )
 piezanombre = "brazo"
-cantidad = 2
 
 [node name="brazo2" parent="." instance=ExtResource( 5 )]
 position = Vector2( -916.651, 944.751 )
@@ -168,7 +167,6 @@ piezanombre = "torso"
 [node name="pierna1" parent="." instance=ExtResource( 5 )]
 position = Vector2( 823.963, 2841.72 )
 piezanombre = "pierna"
-cantidad = 2
 
 [node name="espinas2" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1863.3, 169.322 )
@@ -216,12 +214,12 @@ position = Vector2( -871.397, 2962.12 )
 
 [node name="AnimatedSprite" parent="enemy" index="0"]
 position = Vector2( -77.5553, -256.128 )
-frame = 39
+frame = 33
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="enemy"]
 visible = false
 frames = SubResource( 2 )
-frame = 26
+frame = 4
 playing = true
 [connection signal="pressed" from="Button" to="incorporeo" method="_on_Button_pressed"]
 

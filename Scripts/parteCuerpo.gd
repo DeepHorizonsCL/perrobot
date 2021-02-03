@@ -1,7 +1,6 @@
 extends KinematicBody2D;
 
-export var piezanombre = ""
-export var cantidad = 1
+export (String, "brazo", "pierna", "torso") var piezanombre
 
 export var estadoRecogible = true;
 export var estadoColision = false;
@@ -48,9 +47,11 @@ func _process(delta):
 
 func _on_Area2D_body_entered(body):
 	if body.is_in_group("player") and estadoRecogible:
-		if body.checkParte(piezanombre):
-			body.add_pieza(piezanombre,cantidad)
+		if not body.get(piezanombre):
+			body.set(piezanombre,true)
 			queue_free()
+		else:
+			print("ya tiene")
 
 func colisionTrampa():
 	if(!estadoRecogible):

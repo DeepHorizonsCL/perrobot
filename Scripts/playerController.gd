@@ -687,12 +687,10 @@ func _on_ani_torso_piernas_animation_finished():
 		sumador_salto = 6
 		$sfx_salto.play()
 		
-		
 	if $ani_torso_piernas.animation == "land" and is_on_floor() and bajando:
 		move = 1
 		prejump = false
 		bajando = false
-
 
 func _on_ani_cabeza_piernas_animation_finished():
 	if $ani_cabeza_piernas.animation == "pre_jump":

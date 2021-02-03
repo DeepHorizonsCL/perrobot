@@ -1,18 +1,17 @@
 extends KinematicBody2D
 
 export (int) var walk_speed = 800
-#export (int) var jump_speed = -2500
 export (int) var gravity = 100
 export (float) var run_speed = 2.0
 
 var velocity = Vector2()
-var jumping = false
-
 var mov = true
+
 export (bool) var pierna = false
 export (bool) var brazo = false
 export (bool) var torso = false
 
+var jumping = false
 var jump_max = -2500
 var jump_min = -1000
 var jump_plus = -5000
@@ -39,8 +38,6 @@ func _physics_process(delta):
 	flip()
 	state_machine()
 
-	#if jumping and is_on_floor():
-	#	jumping = false
 	if mov:
 		velocity = move_and_slide(velocity, Vector2(0, -1))
 

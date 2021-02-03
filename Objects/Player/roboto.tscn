@@ -1717,7 +1717,7 @@ position = Vector2( 38.706, -189.98 )
 scale = Vector2( 0.85, 0.85 )
 frames = SubResource( 396 )
 animation = "idle"
-frame = 13
+frame = 1
 playing = true
 
 [node name="ani_cuerpo_entero" type="AnimatedSprite" parent="."]
@@ -1730,7 +1730,7 @@ visible = false
 position = Vector2( 6.3432, -240.518 )
 frames = SubResource( 229 )
 animation = "idle"
-frame = 6
+frame = 2
 playing = true
 
 [node name="ani_torso_piernas" type="AnimatedSprite" parent="."]
@@ -1738,7 +1738,7 @@ visible = false
 position = Vector2( 6.2298, -242.521 )
 frames = SubResource( 294 )
 animation = "idle"
-frame = 13
+frame = 9
 playing = true
 
 [node name="sfx_salto" type="AudioStreamPlayer2D" parent="."]
