@@ -10,7 +10,7 @@
 position = Vector2( -105.694, 358.653 )
 
 [node name="Platform" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1908.36, -199.282 )
+position = Vector2( 1905.53, -199.282 )
 
 [node name="Platform3" parent="." instance=ExtResource( 2 )]
 position = Vector2( 784.356, 64.7185 )
@@ -24,3 +24,8 @@ rotation = -0.455408
 
 [node name="roboto" parent="." instance=ExtResource( 1 )]
 position = Vector2( -175.772, -552.708 )
+
+[node name="animacion" parent="roboto" index="2"]
+flip_h = true
+
+[editable path="roboto"]
