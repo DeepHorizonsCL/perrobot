@@ -76,7 +76,7 @@ func activate_roboto():
 		if mycamera != null:
 			mycamera.current = false
 		robotocamera.make_current()
-		roboto. init_robot()
+		roboto.mov_user = true
 		queue_free()
 
 func _on_Button_pressed():

@@ -365,7 +365,6 @@ position = Vector2( -7.85721, 98.7767 )
 shape = SubResource( 17 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-current = true
 zoom = Vector2( 1.5, 1.5 )
 
 [node name="animacion" type="AnimatedSprite" parent="."]

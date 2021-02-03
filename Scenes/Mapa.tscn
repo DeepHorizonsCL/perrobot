@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Sprites/picador/picador0000.png" type="Texture" id=1]
 [ext_resource path="res://Objects/Floor.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Objects/Player/roboto.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Objects/player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Objects/Bloqueador.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Objects/Player/parterobot.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Objects/puas.tscn" type="PackedScene" id=6]
@@ -108,23 +108,14 @@ animations = [ {
 
 [node name="ParallaxBackground" parent="." instance=ExtResource( 9 )]
 
-[node name="roboto" parent="." groups=[
-"player",
-] instance=ExtResource( 3 )]
-position = Vector2( 242.184, 2675.22 )
-collision_layer = 5
-collision_mask = 5
-cancionpath = NodePath("../LevelMusic")
+[node name="roboto" parent="." instance=ExtResource( 3 )]
+position = Vector2( 325.245, 2312.77 )
 
-[node name="CameraRobot" type="Camera2D" parent="roboto"]
-position = Vector2( 7.35329, -294.29 )
-zoom = Vector2( 1.25, 1.25 )
-limit_left = -1700
-limit_top = -2000
-limit_right = 6000
-limit_bottom = 3500
-drag_margin_h_enabled = true
-drag_margin_v_enabled = true
+[node name="Camera2D" parent="roboto" index="1"]
+limit_left = -1000
+limit_top = -1000
+limit_right = 10000
+limit_bottom = 10000
 editor_draw_limits = true
 editor_draw_drag_margin = true
 
@@ -144,11 +135,9 @@ position = Vector2( 2629.64, 151.041 )
 
 [node name="brazo1" parent="." instance=ExtResource( 5 )]
 position = Vector2( 997.458, 2870.02 )
-piezanombre = "brazo"
 
 [node name="brazo2" parent="." instance=ExtResource( 5 )]
 position = Vector2( -916.651, 944.751 )
-piezanombre = "brazo"
 
 [node name="Floor" parent="." instance=ExtResource( 2 )]
 position = Vector2( -763.88, 3053.24 )
@@ -191,7 +180,10 @@ inicializarrobot = true
 robotopath = NodePath("../roboto")
 buttonpath = NodePath("../Button")
 camerapath = NodePath("CameraMasa")
-camerarobopath = NodePath("../roboto/CameraRobot")
+camerarobopath = NodePath("../roboto/Camera2D")
+
+[node name="Particles2D2" parent="incorporeo" index="2"]
+position = Vector2( 1.25992, 0 )
 
 [node name="CollisionShape2D" parent="incorporeo/Area2D" index="0"]
 position = Vector2( -2.3811, -0.793701 )
@@ -214,14 +206,16 @@ position = Vector2( -871.397, 2962.12 )
 
 [node name="AnimatedSprite" parent="enemy" index="0"]
 position = Vector2( -77.5553, -256.128 )
-frame = 33
+frame = 32
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="enemy"]
 visible = false
 frames = SubResource( 2 )
-frame = 4
+frame = 14
 playing = true
 [connection signal="pressed" from="Button" to="incorporeo" method="_on_Button_pressed"]
+
+[editable path="roboto"]
 
 [editable path="incorporeo"]
 

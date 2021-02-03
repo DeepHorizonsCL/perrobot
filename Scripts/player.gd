@@ -6,6 +6,7 @@ export (float) var run_speed = 2.0
 
 var velocity = Vector2()
 var mov = true
+var mov_user = false
 
 export (bool) var pierna = false
 export (bool) var brazo = false
@@ -18,24 +19,27 @@ var jump_plus = -5000
 var jump = 0
 	
 func get_input(delta):
+	
 	velocity.x = 0
-	if jumping and Input.is_action_pressed("ui_accept"):
-		jump = max(jump+(delta*jump_plus),jump_max)
-		print(jump)
-	elif Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		jumping = true
-		jump = jump_min
-	if Input.is_action_pressed('ui_right'):
-		velocity.x += walk_speed
-	if Input.is_action_pressed('ui_left'):
-		velocity.x -= walk_speed
-	if Input.is_action_pressed("ui_shift"):
-		velocity.x *= run_speed
+	if mov_user:
+		if jumping and Input.is_action_pressed("ui_accept"):
+			jump = max(jump+(delta*jump_plus),jump_max)
+			print(jump)
+		elif Input.is_action_just_pressed("ui_accept") and is_on_floor():
+			jumping = true
+			jump = jump_min
+		if Input.is_action_pressed('ui_right'):
+			velocity.x += walk_speed
+		if Input.is_action_pressed('ui_left'):
+			velocity.x -= walk_speed
+		if Input.is_action_pressed("ui_shift"):
+			velocity.x *= run_speed
 
 func _physics_process(delta):
 	get_input(delta)
 	velocity.y += gravity
-	flip()
+	if mov_user:
+		flip()
 	state_machine()
 
 	if mov:
