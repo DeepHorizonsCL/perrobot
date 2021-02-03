@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Backgrounds/fondo.png" type="Texture" id=1]
 [ext_resource path="res://Backgrounds/tbrender_Viewport_011_copy.png" type="Texture" id=2]
 [ext_resource path="res://Textures/BurnedGround_S.jpg" type="Texture" id=3]
+[ext_resource path="res://Objects/Particles/nieve.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Objects/Particles/humo.tscn" type="PackedScene" id=5]
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
 
@@ -20,15 +22,28 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ParticlesSnow" parent="ParallaxLayer" instance=ExtResource( 4 )]
+position = Vector2( -611.81, 98.886 )
+
+[node name="ParticlesSnow2" parent="ParallaxLayer" instance=ExtResource( 4 )]
+position = Vector2( 1221.95, 96.5075 )
+
+[node name="ParticlesSnow3" parent="ParallaxLayer" instance=ExtResource( 4 )]
+position = Vector2( 3122.94, 111.361 )
+
+[node name="ParticlesSnow4" parent="ParallaxLayer" instance=ExtResource( 4 )]
+position = Vector2( 5087.43, 103.48 )
+
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
 motion_scale = Vector2( 0.45, 0.45 )
 
-[node name="TextureRect" type="TextureRect" parent="ParallaxLayer2"]
+[node name="tierra" type="TextureRect" parent="ParallaxLayer2"]
 modulate = Color( 0.172549, 0.0901961, 0.0901961, 1 )
-margin_left = -1644.37
-margin_top = 1141.36
-margin_right = 18678.6
-margin_bottom = 2506.36
+margin_left = 2616.82
+margin_top = 1159.34
+margin_right = 22939.8
+margin_bottom = 2524.34
+rect_scale = Vector2( -0.210178, 1.08867 )
 texture = ExtResource( 3 )
 stretch_mode = 2
 __meta__ = {
@@ -36,12 +51,32 @@ __meta__ = {
 }
 
 [node name="fondo" type="TextureRect" parent="ParallaxLayer2"]
-margin_left = -1637.4
+margin_left = -1631.41
 margin_top = -221.793
-margin_right = 18688.6
+margin_right = 18694.6
 margin_bottom = 1938.21
 texture = ExtResource( 2 )
 stretch_mode = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="humo" parent="ParallaxLayer2" instance=ExtResource( 5 )]
+position = Vector2( -1101.86, 669.288 )
+scale = Vector2( 0.45, 0.45 )
+
+[node name="humo2" parent="ParallaxLayer2" instance=ExtResource( 5 )]
+position = Vector2( -978.833, 678.397 )
+scale = Vector2( 0.45, 0.45 )
+
+[node name="humo3" parent="ParallaxLayer2" instance=ExtResource( 5 )]
+position = Vector2( -1347.57, 902.069 )
+scale = Vector2( 0.45, 0.45 )
+
+[node name="humo4" parent="ParallaxLayer2" instance=ExtResource( 5 )]
+position = Vector2( 412.458, 946.665 )
+scale = Vector2( 0.45, 0.45 )
+
+[node name="humo5" parent="ParallaxLayer2" instance=ExtResource( 5 )]
+position = Vector2( 1318.38, 959.557 )
+scale = Vector2( 0.45, 0.45 )

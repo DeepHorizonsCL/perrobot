@@ -208,12 +208,12 @@ position = Vector2( -897.825, 641.917 )
 
 [node name="AnimatedSprite" parent="enemy" index="0"]
 position = Vector2( -71.2057, -262.478 )
-frame = 71
+frame = 20
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="enemy"]
 visible = false
 frames = SubResource( 1 )
-frame = 21
+frame = 38
 playing = true
 [connection signal="pressed" from="Button" to="incorporeo" method="_on_Button_pressed"]
 
