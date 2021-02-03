@@ -1,4 +1,4 @@
-[gd_scene load_steps=89 format=2]
+[gd_scene load_steps=88 format=2]
 
 [ext_resource path="res://Sprites/picador/picador0000.png" type="Texture" id=1]
 [ext_resource path="res://Objects/Floor.tscn" type="PackedScene" id=2]
@@ -87,15 +87,6 @@
 [ext_resource path="res://Sprites/picador/picador0011.png" type="Texture" id=85]
 [ext_resource path="res://Sprites/picador/picador0009.png" type="Texture" id=86]
 
-[sub_resource type="Environment" id=1]
-background_mode = 4
-glow_enabled = true
-glow_intensity = 0.72
-glow_strength = 1.15
-glow_bloom = 0.28
-glow_hdr_luminance_cap = 9.32
-glow_hdr_scale = 2.25
-
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 1 ), ExtResource( 19 ), ExtResource( 14 ), ExtResource( 44 ), ExtResource( 81 ), ExtResource( 82 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 58 ), ExtResource( 86 ), ExtResource( 84 ), ExtResource( 85 ), ExtResource( 55 ), ExtResource( 83 ), ExtResource( 56 ), ExtResource( 57 ), ExtResource( 43 ), ExtResource( 42 ), ExtResource( 70 ), ExtResource( 16 ), ExtResource( 72 ), ExtResource( 71 ), ExtResource( 80 ), ExtResource( 79 ), ExtResource( 59 ), ExtResource( 22 ), ExtResource( 24 ), ExtResource( 23 ), ExtResource( 21 ), ExtResource( 25 ), ExtResource( 53 ), ExtResource( 52 ), ExtResource( 54 ), ExtResource( 60 ), ExtResource( 61 ), ExtResource( 73 ), ExtResource( 74 ), ExtResource( 75 ), ExtResource( 76 ), ExtResource( 78 ), ExtResource( 62 ), ExtResource( 77 ), ExtResource( 64 ), ExtResource( 63 ), ExtResource( 66 ), ExtResource( 65 ), ExtResource( 67 ), ExtResource( 68 ), ExtResource( 26 ), ExtResource( 69 ), ExtResource( 27 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 28 ), ExtResource( 32 ), ExtResource( 31 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 38 ), ExtResource( 41 ), ExtResource( 51 ), ExtResource( 46 ), ExtResource( 15 ), ExtResource( 45 ), ExtResource( 48 ), ExtResource( 47 ), ExtResource( 50 ), ExtResource( 49 ), ExtResource( 20 ) ],
@@ -109,7 +100,7 @@ animations = [ {
 [node name="ParallaxBackground" parent="." instance=ExtResource( 9 )]
 
 [node name="roboto" parent="." instance=ExtResource( 3 )]
-position = Vector2( 528.432, 3138.22 )
+position = Vector2( 502.003, 818.017 )
 
 [node name="Camera2D" parent="roboto" index="1"]
 limit_left = -1000
@@ -134,7 +125,7 @@ bus = "Music_bus"
 position = Vector2( 2629.64, 151.041 )
 
 [node name="brazo1" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1002.59, 3459.04 )
+position = Vector2( 976.161, 1138.84 )
 
 [node name="brazo2" parent="." instance=ExtResource( 5 )]
 position = Vector2( -916.651, 944.751 )
@@ -142,40 +133,40 @@ position = Vector2( -916.651, 944.751 )
 [node name="plataformas" type="Node2D" parent="."]
 
 [node name="Floor" parent="plataformas" instance=ExtResource( 2 )]
-position = Vector2( -789.278, 3650.1 )
+position = Vector2( -815.707, 1329.9 )
 
 [node name="Floor2" parent="plataformas" instance=ExtResource( 2 )]
-position = Vector2( 843.844, 3590.93 )
+position = Vector2( 817.415, 1270.73 )
 
 [node name="Floor3" parent="plataformas" instance=ExtResource( 2 )]
-position = Vector2( 2096.29, 3591.25 )
+position = Vector2( 2069.86, 1271.05 )
 
 [node name="Floor4" parent="plataformas" instance=ExtResource( 2 )]
-position = Vector2( 3638.58, 3845.97 )
+position = Vector2( 3612.15, 1525.77 )
 
 [node name="Floor5" parent="plataformas" instance=ExtResource( 2 )]
-position = Vector2( 5122.92, 3621.72 )
+position = Vector2( 5096.49, 1301.52 )
 
 [node name="torso1" parent="." instance=ExtResource( 5 )]
-position = Vector2( -125.549, 1378.81 )
+position = Vector2( -125.549, 450.46 )
 piezanombre = "torso"
 
 [node name="torso2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 866.365, 3453.61 )
+position = Vector2( 839.936, 1133.41 )
 piezanombre = "torso"
 
 [node name="pierna1" parent="." instance=ExtResource( 5 )]
-position = Vector2( 736.138, 3446.08 )
+position = Vector2( 709.709, 1125.88 )
 piezanombre = "pierna"
 
 [node name="espinas2" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1863.3, 169.322 )
 
 [node name="Button" type="Button" parent="."]
-margin_left = 485.134
-margin_top = -1228.21
-margin_right = 592.134
-margin_bottom = -1158.21
+margin_left = 608.271
+margin_top = -2857.38
+margin_right = 715.271
+margin_bottom = -2787.38
 text = "Start"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -186,7 +177,7 @@ position = Vector2( 52.5854, -283.493 )
 texture = ExtResource( 10 )
 
 [node name="incorporeo" parent="." instance=ExtResource( 7 )]
-position = Vector2( 97.1409, -1744.45 )
+position = Vector2( 220.277, -3373.62 )
 inicializarrobot = true
 robotopath = NodePath("../roboto")
 buttonpath = NodePath("../Button")
@@ -206,23 +197,20 @@ drag_margin_h_enabled = true
 drag_margin_v_enabled = true
 
 [node name="nave" parent="." instance=ExtResource( 8 )]
-position = Vector2( 378.919, -1744.43 )
+position = Vector2( 502.056, -3373.6 )
 masitapath = NodePath("../incorporeo")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 1 )
-
 [node name="enemy" parent="." instance=ExtResource( 13 )]
-position = Vector2( -871.397, 2962.12 )
+position = Vector2( -897.825, 641.917 )
 
 [node name="AnimatedSprite" parent="enemy" index="0"]
 position = Vector2( -71.2057, -262.478 )
-frame = 44
+frame = 42
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="enemy"]
 visible = false
 frames = SubResource( 2 )
-frame = 51
+frame = 1
 playing = true
 [connection signal="pressed" from="Button" to="incorporeo" method="_on_Button_pressed"]
 

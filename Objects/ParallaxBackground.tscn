@@ -10,10 +10,10 @@
 motion_scale = Vector2( 0.35, 0.35 )
 
 [node name="fondo" type="TextureRect" parent="ParallaxLayer"]
-margin_left = -1635.31
-margin_top = -1685.18
-margin_right = 11909.7
-margin_bottom = 1445.82
+margin_left = -1635.0
+margin_top = -1685.0
+margin_right = 11910.0
+margin_bottom = 448.0
 texture = ExtResource( 1 )
 stretch_mode = 2
 __meta__ = {
@@ -23,24 +23,24 @@ __meta__ = {
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
 motion_scale = Vector2( 0.45, 0.45 )
 
-[node name="fondo" type="TextureRect" parent="ParallaxLayer2"]
-margin_left = -1737.0
-margin_top = 121.0
-margin_right = 18589.0
-margin_bottom = 2281.0
-texture = ExtResource( 2 )
+[node name="TextureRect" type="TextureRect" parent="ParallaxLayer2"]
+modulate = Color( 0.172549, 0.0901961, 0.0901961, 1 )
+margin_left = -1644.37
+margin_top = 1141.36
+margin_right = 18678.6
+margin_bottom = 2506.36
+texture = ExtResource( 3 )
 stretch_mode = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="ParallaxLayer2"]
-modulate = Color( 0.172549, 0.0901961, 0.0901961, 1 )
-margin_left = -1720.0
-margin_top = 2279.0
-margin_right = 18603.0
-margin_bottom = 3644.0
-texture = ExtResource( 3 )
+[node name="fondo" type="TextureRect" parent="ParallaxLayer2"]
+margin_left = -1637.4
+margin_top = -221.793
+margin_right = 18688.6
+margin_bottom = 1938.21
+texture = ExtResource( 2 )
 stretch_mode = 2
 __meta__ = {
 "_edit_use_anchors_": false
