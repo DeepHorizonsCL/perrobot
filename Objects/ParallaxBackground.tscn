@@ -1,22 +1,47 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Backgrounds/fondo.png" type="Texture" id=1]
 [ext_resource path="res://Backgrounds/tbrender_Viewport_011_copy.png" type="Texture" id=2]
+[ext_resource path="res://Textures/BurnedGround_S.jpg" type="Texture" id=3]
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
 motion_scale = Vector2( 0.35, 0.35 )
 
-[node name="fondo" type="Sprite" parent="ParallaxLayer"]
-position = Vector2( 795.179, 173.341 )
-scale = Vector2( 0.85, 0.85 )
+[node name="fondo" type="TextureRect" parent="ParallaxLayer"]
+margin_left = -1635.31
+margin_top = -1685.18
+margin_right = 11909.7
+margin_bottom = 1445.82
 texture = ExtResource( 1 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
 motion_scale = Vector2( 0.45, 0.45 )
 
-[node name="fondo" type="Sprite" parent="ParallaxLayer2"]
-position = Vector2( 114.411, 752.662 )
-scale = Vector2( 0.948723, 0.966181 )
+[node name="fondo" type="TextureRect" parent="ParallaxLayer2"]
+margin_left = -1737.0
+margin_top = 121.0
+margin_right = 18589.0
+margin_bottom = 2281.0
 texture = ExtResource( 2 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxLayer2"]
+modulate = Color( 0.172549, 0.0901961, 0.0901961, 1 )
+margin_left = -1720.0
+margin_top = 2279.0
+margin_right = 18603.0
+margin_bottom = 3644.0
+texture = ExtResource( 3 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}

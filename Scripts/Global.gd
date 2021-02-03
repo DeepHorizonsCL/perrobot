@@ -1,5 +1,4 @@
 extends Node
-
 var volumen_general = 0.0
 var volumen_musica = -5.6
 var volumen_sfx = 5.0

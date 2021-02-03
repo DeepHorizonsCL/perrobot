@@ -24,6 +24,19 @@ var jump = 0
 export (float) var jump_retroceso = 1.0
 var jump_retroceso_value = 0.45
 var dir_jump = 1
+
+"""
+#Lista de estados 
+c : cabeza (NO esta)
+cb: cabeza brazis (esta, agrgada) 
+cp: cabeza piernas (esta , agregada)
+cpb: cabeza piernas brazos (esta, agregada)
+ct: cabeza torso (esta, agregada)
+ctp: cabeza torso piernas (esta, agregada)
+ctb: cabeza torso brazos (no esta)
+ctpb: caebza torso piernas brazos "Cuerpo completo" (no esta)
+c_break: cabeza rota "Muerto" (no esta)
+"""
 	
 func get_input(delta):
 	

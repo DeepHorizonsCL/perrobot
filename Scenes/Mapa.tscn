@@ -109,7 +109,7 @@ animations = [ {
 [node name="ParallaxBackground" parent="." instance=ExtResource( 9 )]
 
 [node name="roboto" parent="." instance=ExtResource( 3 )]
-position = Vector2( 325.245, 2312.77 )
+position = Vector2( 528.432, 3138.22 )
 
 [node name="Camera2D" parent="roboto" index="1"]
 limit_left = -1000
@@ -134,27 +134,38 @@ bus = "Music_bus"
 position = Vector2( 2629.64, 151.041 )
 
 [node name="brazo1" parent="." instance=ExtResource( 5 )]
-position = Vector2( 997.458, 2870.02 )
+position = Vector2( 1002.59, 3459.04 )
 
 [node name="brazo2" parent="." instance=ExtResource( 5 )]
 position = Vector2( -916.651, 944.751 )
 
-[node name="Floor" parent="." instance=ExtResource( 2 )]
-position = Vector2( -763.88, 3053.24 )
+[node name="plataformas" type="Node2D" parent="."]
 
-[node name="Floor2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 786.698, 2955.97 )
+[node name="Floor" parent="plataformas" instance=ExtResource( 2 )]
+position = Vector2( -789.278, 3650.1 )
+
+[node name="Floor2" parent="plataformas" instance=ExtResource( 2 )]
+position = Vector2( 843.844, 3590.93 )
+
+[node name="Floor3" parent="plataformas" instance=ExtResource( 2 )]
+position = Vector2( 2096.29, 3591.25 )
+
+[node name="Floor4" parent="plataformas" instance=ExtResource( 2 )]
+position = Vector2( 3638.58, 3845.97 )
+
+[node name="Floor5" parent="plataformas" instance=ExtResource( 2 )]
+position = Vector2( 5122.92, 3621.72 )
 
 [node name="torso1" parent="." instance=ExtResource( 5 )]
 position = Vector2( -125.549, 1378.81 )
 piezanombre = "torso"
 
 [node name="torso2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 572.24, 2795.6 )
+position = Vector2( 866.365, 3453.61 )
 piezanombre = "torso"
 
 [node name="pierna1" parent="." instance=ExtResource( 5 )]
-position = Vector2( 823.963, 2841.72 )
+position = Vector2( 736.138, 3446.08 )
 piezanombre = "pierna"
 
 [node name="espinas2" parent="." instance=ExtResource( 6 )]
@@ -205,13 +216,13 @@ environment = SubResource( 1 )
 position = Vector2( -871.397, 2962.12 )
 
 [node name="AnimatedSprite" parent="enemy" index="0"]
-position = Vector2( -77.5553, -256.128 )
-frame = 25
+position = Vector2( -71.2057, -262.478 )
+frame = 44
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="enemy"]
 visible = false
 frames = SubResource( 2 )
-frame = 10
+frame = 51
 playing = true
 [connection signal="pressed" from="Button" to="incorporeo" method="_on_Button_pressed"]
 
