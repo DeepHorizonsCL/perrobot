@@ -9,6 +9,10 @@
 [node name="Floor" parent="." instance=ExtResource( 3 )]
 position = Vector2( -105.694, 358.653 )
 
+[node name="Floor2" parent="." instance=ExtResource( 3 )]
+position = Vector2( -1193.47, -414.473 )
+rotation = 0.254818
+
 [node name="Platform" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1905.53, -199.282 )
 

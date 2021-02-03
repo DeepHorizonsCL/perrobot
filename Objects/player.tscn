@@ -342,7 +342,7 @@ animations = [ {
 "speed": 15.0
 }, {
 "frames": [ SubResource( 70 ), SubResource( 71 ) ],
-"loop": true,
+"loop": false,
 "name": "ctpb_fall",
 "speed": 5.0
 }, {
@@ -364,9 +364,14 @@ shape = SubResource( 17 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
+zoom = Vector2( 1.5, 1.5 )
 
 [node name="animacion" type="AnimatedSprite" parent="."]
 position = Vector2( 9.4888, 12.519 )
 frames = SubResource( 80 )
 animation = "ctpb_idle"
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2( -5.66315, 293.545 )
+enabled = true
 [connection signal="animation_finished" from="animacion" to="." method="_on_animacion_animation_finished"]
