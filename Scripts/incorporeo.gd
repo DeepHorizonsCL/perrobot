@@ -4,7 +4,7 @@ var bajando = true
 var subiendo = false
 var haciarobot =false
 export var inicializarrobot = false
-var bajada_speed = 62
+var bajada_speed = 112
 var subida_speed = 212
 var speed = 0.45
 

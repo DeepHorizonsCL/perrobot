@@ -2,11 +2,15 @@ extends KinematicBody2D
 
 export (int) var walk_speed = 800
 export (int) var gravity = 100
-export (float) var run_speed = 2.0
+export (float) var run_speed_value = 1.64
+var run_speed = 1
+
 
 var velocity = Vector2()
+var dir = 0
 var mov = true
 var mov_user = false
+
 
 export (bool) var pierna = false
 export (bool) var brazo = false
@@ -17,23 +21,34 @@ var jump_max = -2500
 var jump_min = -1000
 var jump_plus = -5000
 var jump = 0
+export (float) var jump_retroceso = 1.0
+var jump_retroceso_value = 0.45
+var dir_jump = 1
 	
 func get_input(delta):
 	
 	velocity.x = 0
+	
+	var walk_final_speed = walk_speed * jump_retroceso * run_speed
+	
 	if mov_user:
 		if jumping and Input.is_action_pressed("ui_accept"):
 			jump = max(jump+(delta*jump_plus),jump_max)
-			print(jump)
+			#print(jump)
 		elif Input.is_action_just_pressed("ui_accept") and is_on_floor():
 			jumping = true
 			jump = jump_min
 		if Input.is_action_pressed('ui_right'):
-			velocity.x += walk_speed
+			velocity.x += walk_final_speed
+			dir = 1
 		if Input.is_action_pressed('ui_left'):
-			velocity.x -= walk_speed
+			velocity.x -= walk_final_speed
+			dir = -1
 		if Input.is_action_pressed("ui_shift"):
-			velocity.x *= run_speed
+			if is_on_floor():
+				run_speed = run_speed_value
+		else:
+			run_speed = 1
 
 func _physics_process(delta):
 	get_input(delta)
@@ -44,13 +59,26 @@ func _physics_process(delta):
 
 	if mov:
 		velocity = move_and_slide(velocity, Vector2(0, -1))
+		
+	if jumping: #Dificultad de retroceso en el salto
+		if dir_jump == dir:
+			jump_retroceso = 1
+		else:
+			jump_retroceso = jump_retroceso_value
+		#print ("jumping "+ str(jumping) +" dir " + str(dir) + " dir_jump " + str(dir_jump) + " | " + str(jump_retroceso) )
+	else: 
+		jump_retroceso = 1
+
 
 func flip():
 	var es = $animacion.flip_h
-	if velocity.x > 0 and !es:
-		$animacion.flip_h = true
-	elif velocity.x < 0 and es:
-		$animacion.flip_h = false
+	if not jumping:
+		if velocity.x > 0 and !es:
+			$animacion.flip_h = true
+			dir = 1
+		elif velocity.x < 0 and es:
+			$animacion.flip_h = false
+			dir = -1
 	
 func estadoCuerpo():
 	var estado = "c"
@@ -91,6 +119,7 @@ func state_machine():
 		"jump":
 			if velocity.y < 0:
 				play_anim("fall")
+				
 		"fall":
 			if is_on_floor():
 				play_anim("land")
@@ -103,12 +132,16 @@ func _on_animacion_animation_finished():
 			play_anim("jump")
 			velocity.y = jump
 			mov = true
+			#Seteo la dirección del salto
+			dir_jump = dir
+
 		"land":
 			mov = true
 			jump = 0
 			jumping = false
 			velocity.y = 0
 			play_anim("idle")
+			dir_jump = 0
 
 func play_anim(anim):
 	if $animacion.animation == anim:
