@@ -46,6 +46,7 @@ func _process(delta):
 			
 
 func _on_Area2D_body_entered(body):
+
 	if body.is_in_group("player") and estadoRecogible:
 		if not body.get(piezanombre):
 			body.set(piezanombre,true)
@@ -61,3 +62,4 @@ func _on_Timer_Gravedad_timeout():
 	print("termino timer");
 	gravity=gravity_val;
 	estadoRecogible=true;
+
