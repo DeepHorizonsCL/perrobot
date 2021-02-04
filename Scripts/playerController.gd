@@ -68,6 +68,9 @@ func init_robot():
 	cancion.play()
 	
 func add_pieza(pieza,num):
+
+	$Poof_sprite.visible = true
+	$Poof_sprite.play("explosion",true)
 	match pieza:
 		"brazo":
 			if cantidad_brazos < 2:
@@ -87,9 +90,11 @@ func add_pieza(pieza,num):
 func update_piezas():
 	if cantidad_brazos == 0 and cantidad_piernas == 0 and cantidad_torso == 0:
 		updateRoboto("cabeza")
+		
 	
 	if cantidad_brazos == 1 and cantidad_piernas == 0 and cantidad_torso == 0:
 		updateRoboto("cabeza-brazo")
+		
 		
 	if cantidad_brazos == 2 and cantidad_piernas == 0 and cantidad_torso == 0:
 		updateRoboto("cabeza-2brazos")
@@ -108,12 +113,14 @@ func update_piezas():
 		
 	if cantidad_brazos == 2 and cantidad_piernas == 0 and cantidad_torso == 1:
 		updateRoboto("cabeza-torso-brazos")
+
 		
 	if cantidad_brazos == 0 and cantidad_piernas == 2 and cantidad_torso == 1:
 		updateRoboto("cabeza-torso-piernas")
 		
 	if cantidad_brazos == 2 and cantidad_piernas == 2 and cantidad_torso == 1:
 		updateRoboto("cuerpo-entero")
+
 
 func animation_finished():
 	print ("Hola")
@@ -645,6 +652,10 @@ func _on_ani_cabeza_brazos_piernas_animation_finished():
 		move = 1
 		prejump = false
 		bajando = false
+	
+func _on_Poof_sprite_animation_finished():
+	$Poof_sprite.stop()
+	$Poof_sprite.visible =false
 
 func _on_ani_cuerpo_entero_animation_finished():
 	if $ani_cuerpo_entero.animation == "pre_jump":
