@@ -101,6 +101,8 @@ animations = [ {
 
 [node name="roboto" parent="." instance=ExtResource( 3 )]
 position = Vector2( 502.003, 818.017 )
+pierna = false
+brazo = false
 
 [node name="Camera2D" parent="roboto" index="1"]
 limit_left = -1000
@@ -208,12 +210,12 @@ position = Vector2( -897.825, 641.917 )
 
 [node name="AnimatedSprite" parent="enemy" index="0"]
 position = Vector2( -71.2057, -262.478 )
-frame = 20
+frame = 3
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="enemy"]
 visible = false
 frames = SubResource( 1 )
-frame = 38
+frame = 12
 playing = true
 [connection signal="pressed" from="Button" to="incorporeo" method="_on_Button_pressed"]
 

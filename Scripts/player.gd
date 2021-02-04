@@ -5,12 +5,10 @@ export (int) var gravity = 100
 export (float) var run_speed_value = 1.64
 var run_speed = 1
 
-
 var velocity = Vector2()
 var dir = 0
 var mov = true
 var mov_user = false
-
 
 export (bool) var pierna = false
 export (bool) var brazo = false
@@ -41,13 +39,10 @@ c_break: cabeza rota "Muerto" (no esta)
 func get_input(delta):
 	
 	velocity.x = 0
-	
 	var walk_final_speed = walk_speed * jump_retroceso * run_speed
-	
 	if mov_user:
 		if jumping and Input.is_action_pressed("ui_accept"):
 			jump = max(jump+(delta*jump_plus),jump_max)
-			#print(jump)
 		elif Input.is_action_just_pressed("ui_accept") and is_on_floor():
 			jumping = true
 			jump = jump_min
@@ -72,16 +67,14 @@ func _physics_process(delta):
 
 	if mov:
 		velocity = move_and_slide(velocity, Vector2(0, -1))
-		
-	if jumping: #Dificultad de retroceso en el salto
+	#Dificultad de retroceso en el salto
+	if jumping: 
 		if dir_jump == dir:
 			jump_retroceso = 1
 		else:
 			jump_retroceso = jump_retroceso_value
-		#print ("jumping "+ str(jumping) +" dir " + str(dir) + " dir_jump " + str(dir_jump) + " | " + str(jump_retroceso) )
 	else: 
 		jump_retroceso = 1
-
 
 func flip():
 	var es = $animacion.flip_h
@@ -132,7 +125,6 @@ func state_machine():
 		"jump":
 			if velocity.y < 0:
 				play_anim("fall")
-				
 		"fall":
 			if is_on_floor():
 				play_anim("land")
@@ -147,7 +139,6 @@ func _on_animacion_animation_finished():
 			mov = true
 			#Seteo la dirección del salto
 			dir_jump = dir
-
 		"land":
 			mov = true
 			jump = 0
