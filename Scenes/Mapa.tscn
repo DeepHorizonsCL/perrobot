@@ -103,6 +103,7 @@ animations = [ {
 position = Vector2( 502.003, 818.017 )
 pierna = false
 brazo = false
+torso = false
 
 [node name="Camera2D" parent="roboto" index="1"]
 limit_left = -1000
@@ -111,6 +112,9 @@ limit_right = 10000
 limit_bottom = 10000
 editor_draw_limits = true
 editor_draw_drag_margin = true
+
+[node name="animacion" parent="roboto" index="2"]
+frame = 7
 
 [node name="LevelMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )
@@ -210,12 +214,12 @@ position = Vector2( -897.825, 641.917 )
 
 [node name="AnimatedSprite" parent="enemy" index="0"]
 position = Vector2( -71.2057, -262.478 )
-frame = 3
+frame = 18
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="enemy"]
 visible = false
 frames = SubResource( 1 )
-frame = 12
+frame = 20
 playing = true
 [connection signal="pressed" from="Button" to="incorporeo" method="_on_Button_pressed"]
 
