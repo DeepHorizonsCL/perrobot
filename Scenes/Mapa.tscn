@@ -1,6 +1,6 @@
 [gd_scene load_steps=88 format=2]
-[ext_resource path="res://Sprites/picador/picador0000.png" type="Texture" id=1]
 
+[ext_resource path="res://Sprites/picador/picador0000.png" type="Texture" id=1]
 [ext_resource path="res://Objects/Floor.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Objects/player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Objects/Bloqueador.tscn" type="PackedScene" id=4]
@@ -113,9 +113,6 @@ limit_bottom = 10000
 editor_draw_limits = true
 editor_draw_drag_margin = true
 
-[node name="animacion" parent="roboto" index="2"]
-position = Vector2( 9.4888, 8.28121 )
-
 [node name="LevelMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )
 bus = "Music_bus"
@@ -125,30 +122,13 @@ stream = ExtResource( 12 )
 volume_db = 1.0
 bus = "Music_bus"
 
-[node name="Particles2D" type="Particles2D" parent="roboto/CameraRobot"]
-position = Vector2( 50.362, -539.884 )
-amount = 5000
-lifetime = 15.0
-preprocess = 200.0
-randomness = 1.0
-process_material = SubResource( 3 )
-
-[node name="Poof_sprite" type="AnimatedSprite" parent="roboto"]
-position = Vector2( 20.0547, -50.4588 )
-scale = Vector2( 4, 4 )
-frames = SubResource( 34 )
-animation = "explosion"
-frame = 29
-playing = true
-
 [node name="Platforms" type="Node2D" parent="."]
-position = Vector2( -3.77551, -117.04 )
 
 [node name="bloqueador" parent="Platforms" instance=ExtResource( 4 )]
 position = Vector2( 2629.64, 151.041 )
 
 [node name="brazo1" parent="." instance=ExtResource( 5 )]
-position = Vector2( 749.917, 1113.37 )
+position = Vector2( 777.094, 1131.28 )
 
 [node name="brazo2" parent="." instance=ExtResource( 5 )]
 position = Vector2( -916.651, 944.751 )
@@ -160,7 +140,6 @@ position = Vector2( -815.707, 1329.9 )
 
 [node name="Floor2" parent="plataformas" instance=ExtResource( 2 )]
 position = Vector2( 817.415, 1270.73 )
-
 
 [node name="Floor3" parent="plataformas" instance=ExtResource( 2 )]
 position = Vector2( 2069.86, 1271.05 )
@@ -179,11 +158,11 @@ position = Vector2( -125.549, 450.46 )
 piezanombre = "torso"
 
 [node name="torso2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 945.499, 1118.1 )
+position = Vector2( 1049.08, 1125.85 )
 piezanombre = "torso"
 
 [node name="pierna1" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1155.55, 1129.88 )
+position = Vector2( 277.556, 1135.96 )
 piezanombre = "pierna"
 
 [node name="espinas2" parent="." instance=ExtResource( 6 )]
@@ -232,12 +211,12 @@ position = Vector2( -897.825, 641.917 )
 
 [node name="AnimatedSprite" parent="enemy" index="0"]
 position = Vector2( -71.2057, -262.478 )
-frame = 71
+frame = 33
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="enemy"]
 visible = false
 frames = SubResource( 1 )
-frame = 27
+frame = 10
 playing = true
 [connection signal="pressed" from="Button" to="incorporeo" method="_on_Button_pressed"]
 
