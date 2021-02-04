@@ -100,10 +100,9 @@ animations = [ {
 [node name="ParallaxBackground" parent="." instance=ExtResource( 9 )]
 
 [node name="roboto" parent="." instance=ExtResource( 3 )]
-position = Vector2( 502.003, 818.017 )
+position = Vector2( 1299.62, 837.816 )
 pierna = false
 brazo = false
-torso = false
 
 [node name="Camera2D" parent="roboto" index="1"]
 limit_left = -1000
@@ -128,7 +127,7 @@ bus = "Music_bus"
 position = Vector2( 2629.64, 151.041 )
 
 [node name="brazo1" parent="." instance=ExtResource( 5 )]
-position = Vector2( 777.094, 1131.28 )
+position = Vector2( 2414.75, 1105.82 )
 
 [node name="brazo2" parent="." instance=ExtResource( 5 )]
 position = Vector2( -916.651, 944.751 )
@@ -158,7 +157,7 @@ position = Vector2( -125.549, 450.46 )
 piezanombre = "torso"
 
 [node name="torso2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1049.08, 1125.85 )
+position = Vector2( 1770.33, 1091.91 )
 piezanombre = "torso"
 
 [node name="pierna1" parent="." instance=ExtResource( 5 )]
@@ -211,12 +210,12 @@ position = Vector2( -897.825, 641.917 )
 
 [node name="AnimatedSprite" parent="enemy" index="0"]
 position = Vector2( -71.2057, -262.478 )
-frame = 33
+frame = 37
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="enemy"]
 visible = false
 frames = SubResource( 1 )
-frame = 10
+frame = 31
 playing = true
 [connection signal="pressed" from="Button" to="incorporeo" method="_on_Button_pressed"]
 

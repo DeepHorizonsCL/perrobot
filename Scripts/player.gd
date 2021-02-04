@@ -9,6 +9,7 @@ var velocity = Vector2()
 var dir = 0
 var mov = true
 var mov_user = false
+var canwalk = 1
 
 export (bool) var pierna = false
 export (bool) var brazo = false
@@ -31,15 +32,20 @@ cp: cabeza piernas (esta , agregada)
 cpb: cabeza piernas brazos (esta, agregada)
 ct: cabeza torso (esta, agregada)
 ctp: cabeza torso piernas (esta, agregada)
-ctb: cabeza torso brazos (no esta)
-ctpb: caebza torso piernas brazos "Cuerpo completo" (no esta)
+ctb: cabeza torso brazos (esta, agregada)
+ctpb: caebza torso piernas brazos "Cuerpo completo" (esta, agregada)
 c_break: cabeza rota "Muerto" (no esta)
 """
 	
 func get_input(delta):
 	
+	var estadocuerpo = estadoCuerpo()
+	
 	velocity.x = 0
-	var walk_final_speed = walk_speed * jump_retroceso * run_speed
+	
+	var walk_final_speed = canwalk * walk_speed * jump_retroceso * run_speed
+	
+	
 	if mov_user:
 		if jumping and Input.is_action_pressed("ui_accept"):
 			jump = max(jump+(delta*jump_plus),jump_max)
@@ -59,6 +65,7 @@ func get_input(delta):
 			run_speed = 1
 
 func _physics_process(delta):
+	
 	get_input(delta)
 	velocity.y += gravity
 	if mov_user:
@@ -98,6 +105,8 @@ func estadoCuerpo():
 
 func state_machine():
 	var estado = str($animacion.animation).split("_")[1]
+	var estadoroboto = estadoCuerpo()
+	
 	match(estado):
 		"idle":
 			if velocity.x != 0:
@@ -110,6 +119,12 @@ func state_machine():
 					if col.is_in_group("plataform"):
 						return
 				play_anim("fall")
+				
+			if estadoroboto == "ct_":
+				canwalk = 0
+			else:
+				canwalk = 1
+				
 		"walk":
 			if velocity.x == 0:
 				play_anim("idle")
@@ -122,13 +137,24 @@ func state_machine():
 					if col.is_in_group("plataform"):
 						return
 				play_anim("fall")
+				
+			if estadoroboto == "ct_":
+				canwalk = 0
+			else:
+				canwalk = 1
+				
 		"jump":
 			if velocity.y < 0:
 				play_anim("fall")
+				
+			canwalk = 1
+
 		"fall":
 			if is_on_floor():
 				play_anim("land")
 				mov = false
+				
+			canwalk = 1
 
 func _on_animacion_animation_finished():
 	var estado = str($animacion.animation).split("_")[1]
