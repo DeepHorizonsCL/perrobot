@@ -114,7 +114,7 @@ editor_draw_limits = true
 editor_draw_drag_margin = true
 
 [node name="animacion" parent="roboto" index="2"]
-frame = 7
+position = Vector2( 9.4888, 8.28121 )
 
 [node name="LevelMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )
@@ -131,7 +131,7 @@ bus = "Music_bus"
 position = Vector2( 2629.64, 151.041 )
 
 [node name="brazo1" parent="." instance=ExtResource( 5 )]
-position = Vector2( 976.161, 1138.84 )
+position = Vector2( 749.917, 1113.37 )
 
 [node name="brazo2" parent="." instance=ExtResource( 5 )]
 position = Vector2( -916.651, 944.751 )
@@ -161,11 +161,11 @@ position = Vector2( -125.549, 450.46 )
 piezanombre = "torso"
 
 [node name="torso2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 839.936, 1133.41 )
+position = Vector2( 945.499, 1118.1 )
 piezanombre = "torso"
 
 [node name="pierna1" parent="." instance=ExtResource( 5 )]
-position = Vector2( 709.709, 1125.88 )
+position = Vector2( 1155.55, 1129.88 )
 piezanombre = "pierna"
 
 [node name="espinas2" parent="." instance=ExtResource( 6 )]
@@ -214,12 +214,12 @@ position = Vector2( -897.825, 641.917 )
 
 [node name="AnimatedSprite" parent="enemy" index="0"]
 position = Vector2( -71.2057, -262.478 )
-frame = 18
+frame = 71
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="enemy"]
 visible = false
 frames = SubResource( 1 )
-frame = 20
+frame = 27
 playing = true
 [connection signal="pressed" from="Button" to="incorporeo" method="_on_Button_pressed"]
 
