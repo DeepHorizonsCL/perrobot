@@ -4,7 +4,7 @@ var bajando = true
 var subiendo = false
 var haciarobot =false
 export var inicializarrobot = false
-var bajada_speed = 62
+var bajada_speed = 112
 var subida_speed = 212
 var speed = 0.45
 
@@ -76,7 +76,7 @@ func activate_roboto():
 		if mycamera != null:
 			mycamera.current = false
 		robotocamera.make_current()
-		roboto. init_robot()
+		roboto.mov_user = true
 		queue_free()
 
 func _on_Button_pressed():

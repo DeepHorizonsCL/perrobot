@@ -1,6 +1,4 @@
 extends StaticBody2D
-
-
 var activo = true
 export var tiposBloqueo = ["cabeza"]
 onready var colision = $Collision
