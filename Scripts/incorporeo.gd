@@ -12,11 +12,13 @@ export (NodePath) var robotopath
 export (NodePath) var buttonpath
 export (NodePath) var camerapath
 export (NodePath) var camerarobopath
+export (NodePath) var nievepath
 
 var roboto
 var button 
 var mycamera
 var robotocamera
+var nieve
 
 var destello = preload("res://Objects/destello.tscn")
 
@@ -33,6 +35,9 @@ func _ready():
 		
 	if camerarobopath != "":
 		robotocamera = get_node(camerarobopath) 
+		
+	if nievepath != "":
+		nieve = get_node(nievepath) 
 		
 	if button != null:
 		button.visible = false
@@ -77,6 +82,7 @@ func activate_roboto():
 			mycamera.current = false
 		robotocamera.make_current()
 		roboto.mov_user = true
+		nieve.emitting = true
 		queue_free()
 
 func _on_Button_pressed():

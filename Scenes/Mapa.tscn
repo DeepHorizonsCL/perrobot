@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=2]
+[gd_scene load_steps=89 format=2]
 
 [ext_resource path="res://Sprites/picador/picador0000.png" type="Texture" id=1]
 [ext_resource path="res://Objects/Floor.tscn" type="PackedScene" id=2]
@@ -86,6 +86,7 @@
 [ext_resource path="res://Sprites/picador/picador0010.png" type="Texture" id=84]
 [ext_resource path="res://Sprites/picador/picador0011.png" type="Texture" id=85]
 [ext_resource path="res://Sprites/picador/picador0009.png" type="Texture" id=86]
+[ext_resource path="res://Objects/Particles/nieveDelante.tscn" type="PackedScene" id=87]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -98,6 +99,53 @@ animations = [ {
 [node name="Node2D" type="Node2D"]
 
 [node name="ParallaxBackground" parent="." instance=ExtResource( 9 )]
+
+[node name="ParallaxDelante" type="ParallaxBackground" parent="."]
+layer = 100
+
+[node name="ParticlesSnow" parent="ParallaxDelante" instance=ExtResource( 87 )]
+position = Vector2( 957.324, 53.5785 )
+z_index = 100
+z_as_relative = false
+
+[node name="Button" type="Button" parent="."]
+margin_left = 608.271
+margin_top = -2857.38
+margin_right = 715.271
+margin_bottom = -2787.38
+text = "Start"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="marcas_stuck" type="Sprite" parent="Button"]
+position = Vector2( 52.5854, -283.493 )
+texture = ExtResource( 10 )
+
+[node name="incorporeo" parent="." instance=ExtResource( 7 )]
+position = Vector2( 220.277, -3373.62 )
+inicializarrobot = true
+robotopath = NodePath("../roboto")
+buttonpath = NodePath("../Button")
+camerapath = NodePath("CameraMasa")
+camerarobopath = NodePath("../roboto/Camera2D")
+nievepath = NodePath("../ParallaxDelante/ParticlesSnow")
+
+[node name="Particles2D2" parent="incorporeo" index="2"]
+position = Vector2( 1.25992, 0 )
+
+[node name="CollisionShape2D" parent="incorporeo/Area2D" index="0"]
+position = Vector2( -2.3811, -0.793701 )
+
+[node name="CameraMasa" type="Camera2D" parent="incorporeo"]
+position = Vector2( 418.649, 197.799 )
+current = true
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+
+[node name="nave" parent="." instance=ExtResource( 8 )]
+position = Vector2( 502.056, -3373.6 )
+masitapath = NodePath("../incorporeo")
 
 [node name="roboto" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1299.62, 837.816 )
@@ -167,60 +215,22 @@ piezanombre = "pierna"
 [node name="espinas2" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1863.3, 169.322 )
 
-[node name="Button" type="Button" parent="."]
-margin_left = 608.271
-margin_top = -2857.38
-margin_right = 715.271
-margin_bottom = -2787.38
-text = "Start"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="marcas_stuck" type="Sprite" parent="Button"]
-position = Vector2( 52.5854, -283.493 )
-texture = ExtResource( 10 )
-
-[node name="incorporeo" parent="." instance=ExtResource( 7 )]
-position = Vector2( 220.277, -3373.62 )
-inicializarrobot = true
-robotopath = NodePath("../roboto")
-buttonpath = NodePath("../Button")
-camerapath = NodePath("CameraMasa")
-camerarobopath = NodePath("../roboto/Camera2D")
-
-[node name="Particles2D2" parent="incorporeo" index="2"]
-position = Vector2( 1.25992, 0 )
-
-[node name="CollisionShape2D" parent="incorporeo/Area2D" index="0"]
-position = Vector2( -2.3811, -0.793701 )
-
-[node name="CameraMasa" type="Camera2D" parent="incorporeo"]
-position = Vector2( 418.649, 197.799 )
-current = true
-drag_margin_h_enabled = true
-drag_margin_v_enabled = true
-
-[node name="nave" parent="." instance=ExtResource( 8 )]
-position = Vector2( 502.056, -3373.6 )
-masitapath = NodePath("../incorporeo")
-
 [node name="enemy" parent="." instance=ExtResource( 13 )]
 position = Vector2( -897.825, 641.917 )
 
 [node name="AnimatedSprite" parent="enemy" index="0"]
 position = Vector2( -71.2057, -262.478 )
-frame = 37
+frame = 39
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="enemy"]
 visible = false
 frames = SubResource( 1 )
-frame = 31
+frame = 26
 playing = true
 [connection signal="pressed" from="Button" to="incorporeo" method="_on_Button_pressed"]
 
-[editable path="roboto"]
-
 [editable path="incorporeo"]
+
+[editable path="roboto"]
 
 [editable path="enemy"]
