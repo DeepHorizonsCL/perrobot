@@ -8,8 +8,8 @@ var run_speed = 1
 var velocity = Vector2()
 var dir = 0
 var mov = true
-var mov_user = false
-var canwalk = 1
+export (bool) var mov_user = false
+export var canwalk = 1
 
 export (bool) var pierna = false
 export (bool) var brazo = false
@@ -38,14 +38,9 @@ c_break: cabeza rota "Muerto" (no esta)
 """
 	
 func get_input(delta):
-	
-	var estadocuerpo = estadoCuerpo()
-	
-	velocity.x = 0
-	
 	var walk_final_speed = canwalk * walk_speed * jump_retroceso * run_speed
 	
-	
+	velocity.x = 0
 	if mov_user:
 		if jumping and Input.is_action_pressed("ui_accept"):
 			jump = max(jump+(delta*jump_plus),jump_max)
@@ -65,7 +60,6 @@ func get_input(delta):
 			run_speed = 1
 
 func _physics_process(delta):
-	
 	get_input(delta)
 	velocity.y += gravity
 	if mov_user:
@@ -75,11 +69,8 @@ func _physics_process(delta):
 	if mov:
 		velocity = move_and_slide(velocity, Vector2(0, -1))
 	#Dificultad de retroceso en el salto
-	if jumping: 
-		if dir_jump == dir:
-			jump_retroceso = 1
-		else:
-			jump_retroceso = jump_retroceso_value
+	if jumping and dir_jump != dir: 
+		jump_retroceso = jump_retroceso_value
 	else: 
 		jump_retroceso = 1
 
@@ -142,18 +133,15 @@ func state_machine():
 				canwalk = 0
 			else:
 				canwalk = 1
-				
 		"jump":
-			if velocity.y < 0:
+			if velocity.y > 0:
 				play_anim("fall")
-				
 			canwalk = 1
 
 		"fall":
 			if is_on_floor():
 				play_anim("land")
 				mov = false
-				
 			canwalk = 1
 
 func _on_animacion_animation_finished():
