@@ -1,0 +1,114 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Backgrounds/fondo.png" type="Texture" id=1]
+[ext_resource path="res://Backgrounds/tbrender_Viewport_011_copy.png" type="Texture" id=2]
+[ext_resource path="res://Textures/BurnedGround_S.jpg" type="Texture" id=3]
+[ext_resource path="res://Objects/Particles/nieveFondo.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Objects/Particles/humo.tscn" type="PackedScene" id=5]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.1, 0.1 )
+
+[node name="fondo" type="TextureRect" parent="ParallaxLayer"]
+margin_left = -1601.06
+margin_top = -1854.71
+margin_right = 11943.9
+margin_bottom = 621.294
+texture = ExtResource( 1 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ParticlesSnow" parent="ParallaxLayer" instance=ExtResource( 4 )]
+position = Vector2( -622.297, 10.198 )
+
+[node name="ParticlesSnow2" parent="ParallaxLayer" instance=ExtResource( 4 )]
+position = Vector2( 1061.57, 0.759247 )
+
+[node name="ParticlesSnow3" parent="ParallaxLayer" instance=ExtResource( 4 )]
+position = Vector2( 3012.41, 11.9839 )
+
+[node name="ParticlesSnow4" parent="ParallaxLayer" instance=ExtResource( 4 )]
+position = Vector2( 3662.92, 24.6974 )
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.25, 0.25 )
+
+[node name="ciudad" type="TextureRect" parent="ParallaxLayer3"]
+modulate = Color( 0.305882, 0.321569, 0.431373, 1 )
+margin_left = -1645.44
+margin_top = 37.5461
+margin_right = 18680.6
+margin_bottom = 2197.55
+rect_scale = Vector2( 0.65, 0.65 )
+texture = ExtResource( 2 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.32, 0.32 )
+
+[node name="tierra" type="TextureRect" parent="ParallaxLayer2"]
+modulate = Color( 0.172549, 0.0901961, 0.0901961, 1 )
+margin_left = -1662.08
+margin_top = 976.023
+margin_right = 20430.9
+margin_bottom = 2513.02
+rect_scale = Vector2( 0.98982, 1.76867 )
+texture = ExtResource( 3 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="humo" parent="ParallaxLayer2" instance=ExtResource( 5 )]
+position = Vector2( -1101.86, 669.288 )
+scale = Vector2( 0.45, 0.45 )
+
+[node name="ciudad2" type="TextureRect" parent="ParallaxLayer2"]
+margin_left = -1612.67
+margin_top = -79.2491
+margin_right = 18713.3
+margin_bottom = 2080.75
+texture = ExtResource( 2 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="humo2" parent="ParallaxLayer2" instance=ExtResource( 5 )]
+position = Vector2( -978.833, 678.397 )
+scale = Vector2( 0.45, 0.45 )
+
+[node name="humo3" parent="ParallaxLayer2" instance=ExtResource( 5 )]
+position = Vector2( -1347.57, 902.069 )
+scale = Vector2( 0.45, 0.45 )
+
+[node name="humo4" parent="ParallaxLayer2" instance=ExtResource( 5 )]
+position = Vector2( 412.458, 946.665 )
+scale = Vector2( 0.45, 0.45 )
+
+[node name="humo6" parent="ParallaxLayer2" instance=ExtResource( 5 )]
+position = Vector2( 412.458, 946.665 )
+scale = Vector2( 0.45, 0.45 )
+
+[node name="humo5" parent="ParallaxLayer2" instance=ExtResource( 5 )]
+position = Vector2( 1318.38, 959.557 )
+scale = Vector2( 0.45, 0.45 )
+
+[node name="humo7" parent="ParallaxLayer2" instance=ExtResource( 5 )]
+position = Vector2( 2724.21, 665.428 )
+scale = Vector2( 0.45, 0.45 )
+
+[node name="humo8" parent="ParallaxLayer2" instance=ExtResource( 5 )]
+position = Vector2( 2856.21, 675.428 )
+scale = Vector2( 0.45, 0.45 )
+
+[node name="humo9" parent="ParallaxLayer2" instance=ExtResource( 5 )]
+position = Vector2( 3088.21, 895.428 )
+scale = Vector2( 0.45, 0.45 )

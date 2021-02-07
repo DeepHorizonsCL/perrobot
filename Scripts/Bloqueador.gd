@@ -1,6 +1,4 @@
 extends StaticBody2D
-
-
 var activo = true
 export var tiposBloqueo = ["cabeza"]
 onready var colision = $Collision
@@ -20,5 +18,5 @@ func _on_Area2D_body_entered(body):
 	if bloquear == false:
 		colision.set_deferred("disabled", true)
 		
-func _on_Area2D_body_exited(body):
+func _on_Area2D_body_exited(_body):
 	print(colision.disabled)
