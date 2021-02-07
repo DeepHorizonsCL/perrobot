@@ -7,7 +7,7 @@ var velocity = Vector2()
 var jumping = false
 var dir = 1
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	var izq = $izq.get_collider()
 	var der = $der.get_collider()
 	#print(izq)

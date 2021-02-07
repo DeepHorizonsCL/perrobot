@@ -7,7 +7,7 @@ var poseedor
 func _ready():
 	scale += Vector2(0.0012,0.0012)
 
-func _process(delta):
+func _physics_process(_delta):
 	crecimiento += 0.12
 	scale += Vector2(crecimiento,crecimiento)
 	$destello.rotation_degrees += 12

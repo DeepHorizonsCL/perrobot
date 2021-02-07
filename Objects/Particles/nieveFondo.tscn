@@ -20,7 +20,6 @@ angle = 2.0
 angle_random = 1.0
 
 [node name="ParticlesSnow" type="Particles2D"]
-position = Vector2( 512.19, -279.114 )
 amount = 1500
 lifetime = 15.0
 preprocess = 200.0

@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Objects/Player/player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Objects/Player/parterobot.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Objects/Platform.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Objects/Floor.tscn" type="PackedScene" id=4]
+
+
+[node name="test" type="Node2D"]
+
+[node name="Platform" parent="." instance=ExtResource( 3 )]
+position = Vector2( 488.613, 797.167 )
+
+[node name="Platform2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1344.84, 787.653 )
+
+[node name="Floor" parent="." instance=ExtResource( 4 )]
+position = Vector2( 859.645, 1073.06 )
+
+[node name="roboto" parent="." instance=ExtResource( 1 )]
+position = Vector2( 945.579, 326.807 )
+mov_user = true
+brazo = false
+torso = false
+
+[node name="animacion" parent="roboto" index="2"]
+animation = "ctb_fall"
+frame = 0
+playing = true
+
+[node name="parteRobot" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1174.42, 587.821 )
+
+[node name="parteRobot2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1450.32, 602.092 )
+piezanombre = "torso"
+
+[editable path="roboto"]

@@ -1,9 +1,9 @@
-[gd_scene load_steps=88 format=2]
+[gd_scene load_steps=89 format=2]
 
 [ext_resource path="res://Sprites/picador/picador0000.png" type="Texture" id=1]
 [ext_resource path="res://Objects/Floor.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Objects/player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Objects/Bloqueador.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Objects/Player/player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Sprites/tbrender_Viewport_012.png" type="Texture" id=4]
 [ext_resource path="res://Objects/Player/parterobot.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Objects/puas.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Objects/Player/incorporeo.tscn" type="PackedScene" id=7]
@@ -86,6 +86,8 @@
 [ext_resource path="res://Sprites/picador/picador0010.png" type="Texture" id=84]
 [ext_resource path="res://Sprites/picador/picador0011.png" type="Texture" id=85]
 [ext_resource path="res://Sprites/picador/picador0009.png" type="Texture" id=86]
+[ext_resource path="res://Objects/Particles/nieveDelante.tscn" type="PackedScene" id=87]
+
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -99,18 +101,79 @@ animations = [ {
 
 [node name="ParallaxBackground" parent="." instance=ExtResource( 9 )]
 
+[node name="ParallaxDelante" type="ParallaxBackground" parent="."]
+layer = 100
+
+[node name="tbrender_Viewport_012" type="Sprite" parent="."]
+position = Vector2( 293.966, 2238.39 )
+z_index = -10
+texture = ExtResource( 4 )
+
+[node name="tbrender_Viewport_013" type="Sprite" parent="."]
+position = Vector2( 3847.1, 2239.53 )
+z_index = -10
+texture = ExtResource( 4 )
+
+[node name="Button" type="Button" parent="."]
+margin_left = 548.585
+margin_top = -4511.08
+margin_right = 655.585
+margin_bottom = -4441.08
+text = "Start"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="marcas_stuck" type="Sprite" parent="Button"]
+position = Vector2( 52.5854, -283.493 )
+texture = ExtResource( 10 )
+
+[node name="incorporeo" parent="." instance=ExtResource( 7 )]
+position = Vector2( 160.591, -5027.33 )
+inicializarrobot = true
+robotopath = NodePath("../roboto")
+buttonpath = NodePath("../Button")
+camerapath = NodePath("CameraMasa")
+camerarobopath = NodePath("../roboto/Camera2D")
+nievepath = NodePath("../roboto/ParticlesSnow")
+
+[node name="Particles2D2" parent="incorporeo" index="2"]
+position = Vector2( 1.25992, 0 )
+
+[node name="CollisionShape2D" parent="incorporeo/Area2D" index="0"]
+position = Vector2( -2.3811, -0.793701 )
+
+[node name="CameraMasa" type="Camera2D" parent="incorporeo"]
+position = Vector2( 418.649, 197.799 )
+current = true
+limit_smoothed = true
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+
+[node name="nave" parent="." instance=ExtResource( 8 )]
+position = Vector2( 442.37, -5027.31 )
+masitapath = NodePath("../incorporeo")
+
 [node name="roboto" parent="." instance=ExtResource( 3 )]
-position = Vector2( 502.003, 818.017 )
+position = Vector2( 1465.51, 1323.22 )
 pierna = false
-brazo = false
 
 [node name="Camera2D" parent="roboto" index="1"]
 limit_left = -1000
 limit_top = -1000
 limit_right = 10000
-limit_bottom = 10000
+limit_bottom = 5000
+limit_smoothed = true
+smoothing_enabled = true
 editor_draw_limits = true
 editor_draw_drag_margin = true
+
+[node name="ParticlesSnow" parent="roboto" instance=ExtResource( 87 )]
+position = Vector2( -342.296, -784.237 )
+z_index = 100
+z_as_relative = false
+local_coords = false
 
 [node name="LevelMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )
@@ -123,104 +186,64 @@ bus = "Music_bus"
 
 [node name="Platforms" type="Node2D" parent="."]
 
-[node name="bloqueador" parent="Platforms" instance=ExtResource( 4 )]
-position = Vector2( 2629.64, 151.041 )
-
 [node name="brazo1" parent="." instance=ExtResource( 5 )]
-position = Vector2( 976.161, 1138.84 )
+position = Vector2( 2872.19, 1458.35 )
 
 [node name="brazo2" parent="." instance=ExtResource( 5 )]
 position = Vector2( -916.651, 944.751 )
 
 [node name="plataformas" type="Node2D" parent="."]
+position = Vector2( 49.8904, -1867.32 )
 
 [node name="Floor" parent="plataformas" instance=ExtResource( 2 )]
-position = Vector2( -815.707, 1329.9 )
+position = Vector2( -812.589, 4215.71 )
 
 [node name="Floor2" parent="plataformas" instance=ExtResource( 2 )]
-position = Vector2( 817.415, 1270.73 )
+position = Vector2( 750.91, 3809.51 )
 
 [node name="Floor3" parent="plataformas" instance=ExtResource( 2 )]
-position = Vector2( 2069.86, 1271.05 )
+position = Vector2( 2002.35, 3811.96 )
 
 [node name="Floor4" parent="plataformas" instance=ExtResource( 2 )]
-position = Vector2( 3612.15, 1525.77 )
+position = Vector2( 3268.15, 3813.77 )
 
 [node name="Floor5" parent="plataformas" instance=ExtResource( 2 )]
-position = Vector2( 5096.49, 1301.52 )
+position = Vector2( 5083.79, 3612.78 )
 
 [node name="Floor6" parent="plataformas" instance=ExtResource( 2 )]
-position = Vector2( 6348.33, 1303.58 )
+position = Vector2( 6333.88, 3613.79 )
 
 [node name="torso1" parent="." instance=ExtResource( 5 )]
 position = Vector2( -125.549, 450.46 )
 piezanombre = "torso"
 
 [node name="torso2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 839.936, 1133.41 )
+position = Vector2( 2029.78, 1529.29 )
 piezanombre = "torso"
 
 [node name="pierna1" parent="." instance=ExtResource( 5 )]
-position = Vector2( 709.709, 1125.88 )
+position = Vector2( 604.892, 1635.57 )
 piezanombre = "pierna"
 
 [node name="espinas2" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1863.3, 169.322 )
-
-[node name="Button" type="Button" parent="."]
-margin_left = 608.271
-margin_top = -2857.38
-margin_right = 715.271
-margin_bottom = -2787.38
-text = "Start"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="marcas_stuck" type="Sprite" parent="Button"]
-position = Vector2( 52.5854, -283.493 )
-texture = ExtResource( 10 )
-
-[node name="incorporeo" parent="." instance=ExtResource( 7 )]
-position = Vector2( 220.277, -3373.62 )
-inicializarrobot = true
-robotopath = NodePath("../roboto")
-buttonpath = NodePath("../Button")
-camerapath = NodePath("CameraMasa")
-camerarobopath = NodePath("../roboto/Camera2D")
-
-[node name="Particles2D2" parent="incorporeo" index="2"]
-position = Vector2( 1.25992, 0 )
-
-[node name="CollisionShape2D" parent="incorporeo/Area2D" index="0"]
-position = Vector2( -2.3811, -0.793701 )
-
-[node name="CameraMasa" type="Camera2D" parent="incorporeo"]
-position = Vector2( 418.649, 197.799 )
-current = true
-drag_margin_h_enabled = true
-drag_margin_v_enabled = true
-
-[node name="nave" parent="." instance=ExtResource( 8 )]
-position = Vector2( 502.056, -3373.6 )
-masitapath = NodePath("../incorporeo")
 
 [node name="enemy" parent="." instance=ExtResource( 13 )]
 position = Vector2( -897.825, 641.917 )
 
 [node name="AnimatedSprite" parent="enemy" index="0"]
 position = Vector2( -71.2057, -262.478 )
-frame = 3
+frame = 47
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="enemy"]
 visible = false
 frames = SubResource( 1 )
-frame = 12
+frame = 71
 playing = true
 [connection signal="pressed" from="Button" to="incorporeo" method="_on_Button_pressed"]
 
-[editable path="roboto"]
-
 [editable path="incorporeo"]
+
+[editable path="roboto"]
 
 [editable path="enemy"]
