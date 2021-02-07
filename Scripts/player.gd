@@ -23,6 +23,19 @@ var jump = 0
 export (float) var jump_retroceso = 1.0
 var jump_retroceso_value = 0.45
 var dir_jump = 1
+var ex_status_cuerpo
+
+#nameStateCuerpo" :[walk_speed, jump_max, run_speed_value, dificultadsalto_value]
+var restricciones = {
+	"c_": [800, -2500, 1.64, 0],
+	"cb_": [800, -2500, 1.64, 0],
+	"cp_": [800, -2500, 1.64, 0],
+	"cpb_": [800, -2500, 1.64, 0],
+	"ct_": [800, -2500, 1.64, 0],
+	"ctb_": [800, -2500, 1.64, 0],
+	"ctp_": [800, -2500, 1.64, 0],
+	"ctpb_": [800, -2500, 1.64, 0],
+}
 
 """
 #Lista de estados 
@@ -37,6 +50,16 @@ ctpb: caebza torso piernas brazos "Cuerpo completo" (esta, agregada)
 c_break: cabeza rota "Muerto" (no esta)
 """
 	
+func aplica_restricciones():
+	print("cambia")
+	var estado = estadoCuerpo()
+	walk_speed = restricciones[estado][0]
+	jump_max = restricciones[estado][1]
+	run_speed_value = restricciones[estado][2]
+	
+	var anim = str($animacion.animation).split("_")[1]
+	$animacion.play(estado+anim)
+
 func get_input(delta):
 	var walk_final_speed = canwalk * walk_speed * jump_retroceso * run_speed
 	
@@ -60,6 +83,10 @@ func get_input(delta):
 			run_speed = 1
 
 func _physics_process(delta):
+	if ex_status_cuerpo != estadoCuerpo():
+		aplica_restricciones()
+		ex_status_cuerpo = estadoCuerpo()
+		
 	get_input(delta)
 	velocity.y += gravity
 	if mov_user:

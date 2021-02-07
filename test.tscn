@@ -19,7 +19,7 @@ position = Vector2( 859.645, 1073.06 )
 [node name="roboto" parent="." instance=ExtResource( 1 )]
 position = Vector2( 945.579, 326.807 )
 mov_user = true
-pierna = false
+brazo = false
 torso = false
 
 [node name="animacion" parent="roboto" index="2"]
