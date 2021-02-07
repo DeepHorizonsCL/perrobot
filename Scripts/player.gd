@@ -172,6 +172,7 @@ func state_machine():
 			canwalk = 1
 
 func _on_animacion_animation_finished():
+	
 	var estado = str($animacion.animation).split("_")[1]
 	match(estado):
 		"prejump":
