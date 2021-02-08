@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Walk Fast on Hollow Wood Series.ogg-a79eecdbe40eec04edae86007862f210.oggstr"
+
+[deps]
+
+source_file="res://Sounds/effects/Walk Fast on Hollow Wood Series.ogg"
+dest_files=[ "res://.import/Walk Fast on Hollow Wood Series.ogg-a79eecdbe40eec04edae86007862f210.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

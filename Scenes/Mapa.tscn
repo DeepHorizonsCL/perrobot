@@ -1,4 +1,4 @@
-[gd_scene load_steps=89 format=2]
+[gd_scene load_steps=90 format=2]
 
 [ext_resource path="res://Sprites/picador/picador0000.png" type="Texture" id=1]
 [ext_resource path="res://Objects/Floor.tscn" type="PackedScene" id=2]
@@ -86,7 +86,8 @@
 [ext_resource path="res://Sprites/picador/picador0010.png" type="Texture" id=84]
 [ext_resource path="res://Sprites/picador/picador0011.png" type="Texture" id=85]
 [ext_resource path="res://Sprites/picador/picador0009.png" type="Texture" id=86]
-[ext_resource path="res://Textures/sombra.png" type="Texture" id=87]
+[ext_resource path="res://Sounds/effects/Walk Fast on Hollow Wood Series.ogg" type="AudioStream" id=87]
+[ext_resource path="res://Sounds/effects/GGJ2021_Salto.ogg" type="AudioStream" id=88]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -114,10 +115,10 @@ z_index = -10
 texture = ExtResource( 4 )
 
 [node name="Button" type="Button" parent="."]
-margin_left = 479.135
-margin_top = -2145.51
-margin_right = 586.135
-margin_bottom = -2075.51
+margin_left = 1767.41
+margin_top = -7729.28
+margin_right = 1874.41
+margin_bottom = -7659.28
 text = "Start"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -128,7 +129,7 @@ position = Vector2( 52.5854, -283.493 )
 texture = ExtResource( 10 )
 
 [node name="incorporeo" parent="." instance=ExtResource( 7 )]
-position = Vector2( 88.4712, -2792.57 )
+position = Vector2( 1376.75, -8376.35 )
 inicializarrobot = true
 robotopath = NodePath("../roboto")
 buttonpath = NodePath("../Button")
@@ -150,31 +151,27 @@ drag_margin_v_enabled = true
 smoothing_enabled = true
 
 [node name="nave" parent="." instance=ExtResource( 8 )]
-position = Vector2( 370.25, -2792.55 )
+position = Vector2( 1658.53, -8376.33 )
 masitapath = NodePath("../incorporeo")
 
 [node name="roboto" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1465.51, 1323.22 )
-pierna = false
 
-[node name="sombra" type="Sprite" parent="roboto"]
-position = Vector2( -1.72314, 335.162 )
-texture = ExtResource( 87 )
+[node name="walk" type="AudioStreamPlayer" parent="roboto"]
+stream = ExtResource( 87 )
+volume_db = -8.0
 
-[node name="Camera2D" parent="roboto" index="2"]
-limit_left = -1000
-limit_top = -1000
-limit_right = 10000
-limit_bottom = 5000
-limit_smoothed = true
+[node name="jump" type="AudioStreamPlayer" parent="roboto"]
+stream = ExtResource( 88 )
 
 [node name="LevelMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )
+autoplay = true
 bus = "Music_bus"
 
 [node name="ambien_Viento" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 12 )
 volume_db = 1.0
+autoplay = true
 bus = "Music_bus"
 
 [node name="Platforms" type="Node2D" parent="."]
@@ -226,12 +223,12 @@ position = Vector2( -897.825, 641.917 )
 
 [node name="AnimatedSprite" parent="enemy" index="0"]
 position = Vector2( -71.2057, -262.478 )
-frame = 60
+frame = 41
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="enemy"]
 visible = false
 frames = SubResource( 1 )
-frame = 70
+frame = 46
 playing = true
 [connection signal="pressed" from="Button" to="incorporeo" method="_on_Button_pressed"]
 

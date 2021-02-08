@@ -86,8 +86,21 @@ func gameOver():
 	print("Game Over")
 	get_tree().reload_current_scene()
 	
+func updateSombra():
+	var col = $raysombra.get_collider()
+	var punto = $raysombra.get_collision_point()
+	if col:
+		if col.is_in_group("plataform"):
+			var distance = $raysombra.global_position.distance_to($sombra.global_position)
+			distance = 0.66 - range_lerp(distance,0,500,0,0.66)
+			$sombra.modulate = Color(1,1,1,distance)
+			$sombra.global_position = punto
+			return
+	$sombra.modulate = Color(1,1,1,0)
+	
 func _physics_process(delta):
 	#salida del limite
+	updateSombra()
 	if (position.y > $Camera2D.limit_bottom):
 		gameOver()
 	
@@ -137,6 +150,8 @@ func state_machine():
 		"idle":
 			if velocity.x != 0:
 				play_anim("walk")
+				if !$walk.playing:
+					$walk.play()
 			if jumping:
 				play_anim("prejump")
 			elif not is_on_floor():
@@ -145,23 +160,24 @@ func state_machine():
 					if col.is_in_group("plataform"):
 						return
 				play_anim("fall")
-				
 			if estadoroboto == "ct_":
 				canwalk = 0
 			else:
 				canwalk = 1
-				
 		"walk":
 			if velocity.x == 0:
 				play_anim("idle")
+				$walk.stop()			
 			if jumping:
 				play_anim("prejump")
+				$walk.stop()
 				mov = false
 			elif not is_on_floor():
 				var col = $RayCast2D.get_collider()
 				if col:
 					if col.is_in_group("plataform"):
 						return
+				$walk.stop()
 				play_anim("fall")
 				
 			if estadoroboto == "ct_":
@@ -172,7 +188,6 @@ func state_machine():
 			if velocity.y > 0:
 				play_anim("fall")
 			canwalk = 1
-
 		"fall":
 			if is_on_floor():
 				play_anim("land")
@@ -180,11 +195,11 @@ func state_machine():
 			canwalk = 1
 
 func _on_animacion_animation_finished():
-	
 	var estado = str($animacion.animation).split("_")[1]
 	match(estado):
 		"prejump":
 			play_anim("jump")
+			$jump.play()
 			velocity.y = jump
 			mov = true
 			#Seteo la dirección del salto
