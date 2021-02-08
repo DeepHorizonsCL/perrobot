@@ -82,7 +82,7 @@ func activate_roboto():
 			mycamera.current = false
 		robotocamera.make_current()
 		roboto.mov_user = true
-		nieve.emitting = true
+		#nieve.emitting = true
 		queue_free()
 
 func _on_Button_pressed():

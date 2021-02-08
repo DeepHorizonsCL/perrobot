@@ -81,8 +81,16 @@ func get_input(delta):
 				run_speed = run_speed_value
 		else:
 			run_speed = 1
-
+			
+func gameOver():
+	print("Game Over")
+	get_tree().reload_current_scene()
+	
 func _physics_process(delta):
+	#salida del limite
+	if (position.y > $Camera2D.limit_bottom):
+		gameOver()
+	
 	if ex_status_cuerpo != estadoCuerpo():
 		aplica_restricciones()
 		ex_status_cuerpo = estadoCuerpo()
