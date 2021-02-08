@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/GGJ2021_Paso.ogg-f177d51a838bc87906650dfcda049ff0.oggstr"
+
+[deps]
+
+source_file="res://Sounds/effects/GGJ2021_Paso.ogg"
+dest_files=[ "res://.import/GGJ2021_Paso.ogg-f177d51a838bc87906650dfcda049ff0.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
