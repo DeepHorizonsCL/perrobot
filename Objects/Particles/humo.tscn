@@ -47,6 +47,7 @@ scale_curve = SubResource( 6 )
 color_ramp = SubResource( 2 )
 
 [node name="humo" type="Node2D"]
+modulate = Color( 0.666667, 0.627451, 0.627451, 1 )
 position = Vector2( -14.2866, 6.34961 )
 
 [node name="Particles2D" type="Particles2D" parent="."]
