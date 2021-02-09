@@ -146,12 +146,12 @@ scale = Vector2( 0.503, 0.45 )
 position = Vector2( 301.327, 1055.8 )
 scale = Vector2( 0.503, 0.45 )
 
-[node name="humo4" parent="ParallaxLayer2" instance=ExtResource( 5 )]
-position = Vector2( 548.547, 819.064 )
-scale = Vector2( 0.503, 0.45 )
-
 [node name="humo5" parent="ParallaxLayer2" instance=ExtResource( 5 )]
 position = Vector2( 2030.43, 1083.35 )
+scale = Vector2( 0.503, 0.45 )
+
+[node name="humo4" parent="ParallaxLayer2" instance=ExtResource( 5 )]
+position = Vector2( 548.547, 819.064 )
 scale = Vector2( 0.503, 0.45 )
 
 [node name="humo6" parent="ParallaxLayer2" instance=ExtResource( 5 )]
