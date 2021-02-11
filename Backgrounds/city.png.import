@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tbrender_Viewport_011_copy.png-ce613e2be6717676a405903d41995ac6.stex"
+path="res://.import/city.png-237799bb9b2fdf71a225cbd7ecb9b78e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Backgrounds/tbrender_Viewport_011_copy.png"
-dest_files=[ "res://.import/tbrender_Viewport_011_copy.png-ce613e2be6717676a405903d41995ac6.stex" ]
+source_file="res://Backgrounds/city.png"
+dest_files=[ "res://.import/city.png-237799bb9b2fdf71a225cbd7ecb9b78e.stex" ]
 
 [params]
 
@@ -25,7 +25,7 @@ flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
 process/fix_alpha_border=true
-process/premult_alpha=true
+process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
 stream=false

@@ -17,6 +17,7 @@ _global_script_class_icons={
 
 config/name="Perrobot"
 run/main_scene="res://Scenes/Mapa.tscn"
+boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://icon.png"
 
 [autoload]
@@ -47,4 +48,5 @@ ui_shift={
 
 [rendering]
 
+environment/default_clear_color=Color( 0, 0, 0, 1 )
 environment/default_environment="res://default_env.tres"

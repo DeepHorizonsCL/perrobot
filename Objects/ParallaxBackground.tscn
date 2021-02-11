@@ -1,54 +1,98 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Backgrounds/fondo.png" type="Texture" id=1]
-[ext_resource path="res://Backgrounds/tbrender_Viewport_011_copy.png" type="Texture" id=2]
+[ext_resource path="res://Backgrounds/fondoB.png" type="Texture" id=1]
+[ext_resource path="res://Backgrounds/degradado.png" type="Texture" id=2]
 [ext_resource path="res://Textures/BurnedGround_S.jpg" type="Texture" id=3]
-[ext_resource path="res://Objects/Particles/nieveFondo.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Backgrounds/city.png" type="Texture" id=4]
 [ext_resource path="res://Objects/Particles/humo.tscn" type="PackedScene" id=5]
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
-motion_scale = Vector2( 0.1, 0.1 )
+motion_scale = Vector2( 0.15, 0.15 )
 
 [node name="fondo" type="TextureRect" parent="ParallaxLayer"]
-margin_left = -1601.06
-margin_top = -1854.71
-margin_right = 11943.9
-margin_bottom = 621.294
+margin_left = -1775.97
+margin_top = -1836.52
+margin_right = 10224.0
+margin_bottom = 415.482
+rect_scale = Vector2( 1.09, 1.09 )
 texture = ExtResource( 1 )
 stretch_mode = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ParticlesSnow" parent="ParallaxLayer" instance=ExtResource( 4 )]
-position = Vector2( -622.297, 10.198 )
-
-[node name="ParticlesSnow2" parent="ParallaxLayer" instance=ExtResource( 4 )]
-position = Vector2( 1061.57, 0.759247 )
-
-[node name="ParticlesSnow3" parent="ParallaxLayer" instance=ExtResource( 4 )]
-position = Vector2( 3012.41, 11.9839 )
-
-[node name="ParticlesSnow4" parent="ParallaxLayer" instance=ExtResource( 4 )]
-position = Vector2( 3662.92, 24.6974 )
-
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+modulate = Color( 0.24, 0.28, 0.3, 1 )
 motion_scale = Vector2( 0.25, 0.25 )
 
-[node name="ciudad" type="TextureRect" parent="ParallaxLayer3"]
-modulate = Color( 0.305882, 0.321569, 0.431373, 1 )
-margin_left = -1645.44
-margin_top = 37.5461
-margin_right = 18680.6
-margin_bottom = 2197.55
-rect_scale = Vector2( 0.65, 0.65 )
-texture = ExtResource( 2 )
+[node name="ciudad3" type="TextureRect" parent="ParallaxLayer3"]
+margin_left = -1642.0
+margin_top = 505.204
+margin_right = 18358.0
+margin_bottom = 879.204
+texture = ExtResource( 4 )
 stretch_mode = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="humo10" parent="ParallaxLayer3" instance=ExtResource( 5 )]
+position = Vector2( -830.942, 723.217 )
+scale = Vector2( 0.3, 0.3 )
+
+[node name="humo11" parent="ParallaxLayer3" instance=ExtResource( 5 )]
+position = Vector2( -204.209, 545.768 )
+scale = Vector2( 0.3, 0.3 )
+
+[node name="humo12" parent="ParallaxLayer3" instance=ExtResource( 5 )]
+position = Vector2( -115.485, 540.105 )
+scale = Vector2( 0.3, 0.3 )
+
+[node name="humo13" parent="ParallaxLayer3" instance=ExtResource( 5 )]
+position = Vector2( -359.005, 713.778 )
+scale = Vector2( 0.3, 0.3 )
+
+[node name="humo14" parent="ParallaxLayer3" instance=ExtResource( 5 )]
+modulate = Color( 0.329412, 0.32549, 0.341176, 1 )
+position = Vector2( 790.634, 721.329 )
+scale = Vector2( 0.3, 0.3 )
+
+[node name="humo15" parent="ParallaxLayer3" instance=ExtResource( 5 )]
+modulate = Color( 0.329412, 0.32549, 0.341176, 1 )
+position = Vector2( 1490.99, 555.207 )
+scale = Vector2( 0.3, 0.3 )
+
+[node name="humo16" parent="ParallaxLayer3" instance=ExtResource( 5 )]
+modulate = Color( 0.329412, 0.32549, 0.341176, 1 )
+position = Vector2( 1421.14, 555.207 )
+scale = Vector2( 0.3, 0.3 )
+
+[node name="humo17" parent="ParallaxLayer3" instance=ExtResource( 5 )]
+modulate = Color( 0.329412, 0.32549, 0.341176, 1 )
+position = Vector2( 1260.68, 710.002 )
+scale = Vector2( 0.3, 0.3 )
+
+[node name="humo18" parent="ParallaxLayer3" instance=ExtResource( 5 )]
+modulate = Color( 0.329412, 0.32549, 0.341176, 1 )
+position = Vector2( 3125.78, 547.656 )
+scale = Vector2( 0.3, 0.3 )
+
+[node name="humo19" parent="ParallaxLayer3" instance=ExtResource( 5 )]
+modulate = Color( 0.329412, 0.32549, 0.341176, 1 )
+position = Vector2( 3046.49, 553.319 )
+scale = Vector2( 0.3, 0.3 )
+
+[node name="humo20" parent="ParallaxLayer3" instance=ExtResource( 5 )]
+modulate = Color( 0.329412, 0.32549, 0.341176, 1 )
+position = Vector2( 2886.04, 708.114 )
+scale = Vector2( 0.3, 0.3 )
+
+[node name="humo21" parent="ParallaxLayer3" instance=ExtResource( 5 )]
+modulate = Color( 0.329412, 0.32549, 0.341176, 1 )
+position = Vector2( 2408.44, 721.329 )
+scale = Vector2( 0.3, 0.3 )
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
 motion_scale = Vector2( 0.32, 0.32 )
@@ -66,49 +110,78 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="humo" parent="ParallaxLayer2" instance=ExtResource( 5 )]
-position = Vector2( -1101.86, 669.288 )
-scale = Vector2( 0.45, 0.45 )
-
-[node name="ciudad2" type="TextureRect" parent="ParallaxLayer2"]
-margin_left = -1612.67
-margin_top = -79.2491
-margin_right = 18713.3
-margin_bottom = 2080.75
+[node name="TextureRect" type="TextureRect" parent="ParallaxLayer2"]
+margin_left = -1620.8
+margin_top = 1270.78
+margin_right = 18379.2
+margin_bottom = 1570.78
 texture = ExtResource( 2 )
 stretch_mode = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ciudad2" type="TextureRect" parent="ParallaxLayer2"]
+modulate = Color( 0.494118, 0.533333, 0.533333, 1 )
+margin_left = -1614.34
+margin_top = 755.006
+margin_right = 10385.7
+margin_bottom = 1129.01
+rect_scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 4 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="humo" parent="ParallaxLayer2" instance=ExtResource( 5 )]
+position = Vector2( -408.871, 1085.76 )
+scale = Vector2( 0.503, 0.45 )
+
 [node name="humo2" parent="ParallaxLayer2" instance=ExtResource( 5 )]
-position = Vector2( -978.833, 678.397 )
-scale = Vector2( 0.45, 0.45 )
+position = Vector2( 660.921, 831.05 )
+scale = Vector2( 0.503, 0.45 )
 
 [node name="humo3" parent="ParallaxLayer2" instance=ExtResource( 5 )]
-position = Vector2( -1347.57, 902.069 )
-scale = Vector2( 0.45, 0.45 )
-
-[node name="humo4" parent="ParallaxLayer2" instance=ExtResource( 5 )]
-position = Vector2( 412.458, 946.665 )
-scale = Vector2( 0.45, 0.45 )
-
-[node name="humo6" parent="ParallaxLayer2" instance=ExtResource( 5 )]
-position = Vector2( 412.458, 946.665 )
-scale = Vector2( 0.45, 0.45 )
+position = Vector2( 301.327, 1055.8 )
+scale = Vector2( 0.503, 0.45 )
 
 [node name="humo5" parent="ParallaxLayer2" instance=ExtResource( 5 )]
-position = Vector2( 1318.38, 959.557 )
-scale = Vector2( 0.45, 0.45 )
+position = Vector2( 2030.43, 1083.35 )
+scale = Vector2( 0.503, 0.45 )
+
+[node name="humo4" parent="ParallaxLayer2" instance=ExtResource( 5 )]
+position = Vector2( 548.547, 819.064 )
+scale = Vector2( 0.503, 0.45 )
+
+[node name="humo6" parent="ParallaxLayer2" instance=ExtResource( 5 )]
+position = Vector2( 2974.3, 822.84 )
+scale = Vector2( 0.503, 0.45 )
 
 [node name="humo7" parent="ParallaxLayer2" instance=ExtResource( 5 )]
-position = Vector2( 2724.21, 665.428 )
-scale = Vector2( 0.45, 0.45 )
+position = Vector2( 3098.9, 819.064 )
+scale = Vector2( 0.503, 0.45 )
 
 [node name="humo8" parent="ParallaxLayer2" instance=ExtResource( 5 )]
-position = Vector2( 2856.21, 675.428 )
-scale = Vector2( 0.45, 0.45 )
+position = Vector2( 2738.34, 1070.13 )
+scale = Vector2( 0.503, 0.45 )
 
 [node name="humo9" parent="ParallaxLayer2" instance=ExtResource( 5 )]
-position = Vector2( 3088.21, 895.428 )
-scale = Vector2( 0.45, 0.45 )
+position = Vector2( 4461.85, 1083.35 )
+scale = Vector2( 0.503, 0.45 )
+
+[node name="humo10" parent="ParallaxLayer2" instance=ExtResource( 5 )]
+position = Vector2( 5411.39, 822.839 )
+scale = Vector2( 0.503, 0.45 )
+
+[node name="humo11" parent="ParallaxLayer2" instance=ExtResource( 5 )]
+position = Vector2( 5530.31, 822.839 )
+scale = Vector2( 0.503, 0.45 )
+
+[node name="humo12" parent="ParallaxLayer2" instance=ExtResource( 5 )]
+position = Vector2( 5179.19, 1062.58 )
+scale = Vector2( 0.503, 0.45 )
+
+[node name="humo13" parent="ParallaxLayer2" instance=ExtResource( 5 )]
+position = Vector2( 6897.04, 1090.9 )
+scale = Vector2( 0.503, 0.45 )
